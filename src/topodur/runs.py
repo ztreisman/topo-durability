@@ -141,6 +141,7 @@ def setup_logging(path: Path | None = None, level: int = logging.INFO) -> None:
         root.addHandler(sh)
     if path is not None:
         path = Path(path)
+        path.parent.mkdir(parents=True, exist_ok=True)
         if not any(isinstance(h, logging.FileHandler) and Path(h.baseFilename) == path.resolve()
                    for h in root.handlers):
             fh = logging.FileHandler(path)
