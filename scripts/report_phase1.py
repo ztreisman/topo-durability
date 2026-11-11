@@ -35,6 +35,10 @@ from topodur.geometry import Prep  # noqa: E402
 DEFAULT_LAYERS = list(range(12, 17))
 
 
+def passcol(df: pd.DataFrame) -> str:
+    return "shape_pass" if "shape_pass" in df else "circle_pass"
+
+
 def best_row(d: pd.DataFrame) -> pd.Series:
     return d.sort_values(["topology_score", "h1_ratio"], ascending=False).iloc[0]
 
@@ -51,10 +55,11 @@ def profiles(df, prim, fams, path, n_layers):
             s = d[d.source == src].sort_values("layer")
             if len(s):
                 ax.plot(s.layer, s.topology_score, color=c, ls=ls, lw=1.6, label=src)
-                cp = s[s.circle_pass]
+                cp = s[s[passcol(s)]]
                 ax.scatter(cp.layer, cp.topology_score, s=14, color=c, edgecolor="white", lw=0.8, zorder=3)
         fam = load_family(f)
-        meas = "h1_ratio" if fam.n_items > 30 else "order x closed"
+        meas = "h1_ratio" if fam.n_items > 30 else ("line order x open" if fam.topology == "interval"
+                                                      else "order x closed")
         ax.set_title(f"{f} ({fam.topology[:5]}, {meas})", loc="left", fontsize=7.5, color=rep.INK)
         ax.tick_params(labelsize=7)
         if meas != "h1_ratio":
@@ -62,8 +67,8 @@ def profiles(df, prim, fams, path, n_layers):
     for ax in list(axes.flat)[n:]:
         ax.axis("off")
     axes.flat[0].legend(frameon=False, fontsize=7)
-    fig.text(0.01, -0.01, "Primary preprocessing. Shaded: default layers 12-16. Dots: circle_pass (significant H1, "
-             "exact cyclic order p<0.05, closure < 2). x: layer.", color=rep.MUTED, fontsize=8)
+    fig.text(0.01, -0.01, "Primary preprocessing. Shaded: default layers 12-16. Dots: shape_pass (circles: significant H1, "
+             "exact cyclic order p<0.05, closure < 2; line controls: linear order p<0.05, closure >= 2). x: layer.", color=rep.MUTED, fontsize=8)
     fig.tight_layout()
     fig.savefig(path, bbox_inches="tight")
     plt.close(fig)
@@ -89,19 +94,25 @@ def main() -> int:
 
     lines = [f"# {exp} / {a.unit}", "",
              f"Primary preprocessing {p}; template contexts unless stated. Topology score = order_score x "
-             "1[closure < 2] for families of 30 items or fewer, h1_ratio above (cities). circle_pass = significant "
-             "H1 + exact cyclic order (p < 0.05) + closure < 2. Robustness = share of the 36 preprocessing "
-             "settings with circle_pass at the best layer (< 50% = fragile).", "",
+             "1[closure < 2] for circle families of 30 items or fewer; line_order_score x 1[closure >= 2] for "
+             "line controls (an ordered arc that stays open); h1_ratio above 30 items (cities). shape_pass = "
+             "significant H1 + exact cyclic order (p < 0.05) + closure < 2 for circles; linear order p < 0.05 + "
+             "closure >= 2 for line controls. Robustness = share of the 36 preprocessing settings with "
+             "shape_pass at the best layer (< 50% = fragile).", "",
              "| family | topology | origin | items | best layer | score | closure | n_sig_h1 | gauss p | "
-             "circle_pass layers | robustness | score @12-16 | pile items | pile best layer | pile score |",
+             "shape_pass layers | robustness | score @12-16 | pile items | pile best layer | pile score |",
              "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
     summary = []
     for f in fams:
         fam = load_family(f)
         d = df[prim & (df.family == f) & (df.source == "template")]
+        if d.empty:
+            lines.append(f"| {f} | (no primary-preprocessing template rows) |")
+            continue
         b = best_row(d)
-        rob = df[(df.family == f) & (df.source == "template") & (df.layer == b.layer)].circle_pass.mean()
-        layers = sorted(d[d.circle_pass].layer)
+        pc = passcol(df)
+        rob = df[(df.family == f) & (df.source == "template") & (df.layer == b.layer)][pc].mean()
+        layers = sorted(d[d[pc]].layer)
         lay = _ranges(layers) or "none"
         dflt = d[d.layer.isin(DEFAULT_LAYERS)].topology_score.mean()
         dp = df[prim & (df.family == f) & (df.source == "pile")]
