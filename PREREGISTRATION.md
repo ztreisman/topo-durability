@@ -40,7 +40,7 @@ onto the family's top 5 PCs, cosine distance (`{k_remove: 1, d_proj: 5, metric: 
   line_order_score is the squared Spearman correlation between the Fiedler vector of a Gaussian
   affinity on the item distances (spectral seriation, which follows a curved arc) and the true rank.
   A line control "has its shape" (shape_pass) if line_order p < 0.05 (label permutation) and
-  closure >= 2. (Amendment before the freeze, 2026-11-11: under the circle rule every line control
+  closure >= 2. (Amendment before the freeze, 2026-11-11, approved by Zack: under the circle rule every line control
   scores 0 by construction, so line-control retention, and the circles-vs-lines contrast, would be
   undefined.) For circle families shape_pass = circle_pass.
 
