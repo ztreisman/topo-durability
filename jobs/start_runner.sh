@@ -7,6 +7,7 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 source jobs/env.sh
+[ -f jobs/runner.local.sh ] && source jobs/runner.local.sh   # machine-local RUNNER_ARGS (gitignored)
 SESSION=topodur-runner
 if tmux has-session -t "$SESSION" 2>/dev/null; then
   exit 0

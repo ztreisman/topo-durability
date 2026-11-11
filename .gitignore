@@ -6,3 +6,4 @@ jobs/state/
 jobs/logs/
 jobs/STOP
 *.egg-info/
+jobs/runner.local.sh
