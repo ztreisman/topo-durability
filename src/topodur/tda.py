@@ -210,6 +210,38 @@ def order_test(theta: np.ndarray, truth: np.ndarray, n_perm: int = 2000, seed: i
     return obs, float((1 + (null >= obs - 1e-12).sum()) / (1 + n_perm))
 
 
+def fiedler_order(D: np.ndarray) -> np.ndarray:
+    """1-D spectral seriation (Atkins, Boman & Hendrickson 1998): the Fiedler vector of the graph
+    Laplacian of a Gaussian affinity on D (bandwidth = median off-diagonal distance). Recovers the
+    order of points along a curved arc, where PC1 would fold a horseshoe."""
+    off = D[~np.eye(len(D), dtype=bool)]
+    sig = float(np.median(off)) or 1.0
+    W = np.exp(-(D / sig) ** 2)
+    np.fill_diagonal(W, 0)
+    d = W.sum(1)
+    Dm = 1 / np.sqrt(np.maximum(d, 1e-12))
+    L = np.eye(len(D)) - Dm[:, None] * W * Dm[None, :]
+    _, vecs = np.linalg.eigh(L)
+    return vecs[:, 1] * Dm
+
+
+def _rank_r2(x: np.ndarray, y: np.ndarray) -> float:
+    rx, ry = np.argsort(np.argsort(x)), np.argsort(np.argsort(y))
+    r = np.corrcoef(rx, ry)[0, 1]
+    return float(r * r) if np.isfinite(r) else 0.0
+
+
+def line_order_test(D: np.ndarray, truth: np.ndarray, n_perm: int = 2000, seed: int = 0) -> tuple[float, float]:
+    """Linear-order score for interval families (line controls): squared Spearman correlation
+    between the Fiedler coordinate and the true rank (orientation-free, 1 = perfect order; squared
+    so it is on the same r^2-like scale as circular_rank_corr), and label-permutation p-value."""
+    rng = np.random.default_rng(seed)
+    f = fiedler_order(D)
+    obs = _rank_r2(f, truth)
+    null = np.array([_rank_r2(f, rng.permutation(truth)) for _ in range(n_perm)])
+    return obs, float((1 + (null >= obs - 1e-12).sum()) / (1 + n_perm))
+
+
 # ---------------------------------------------------------------- representative cycles
 
 

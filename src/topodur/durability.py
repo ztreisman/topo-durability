@@ -37,11 +37,13 @@ def primary_rows(df: pd.DataFrame, primary: dict) -> pd.DataFrame:
 
 
 def passes(df: pd.DataFrame) -> pd.Series:
-    """Loop present: circle_pass for families of <= 30 items; for larger families (cities, where the
-    order test is not the measure) a significant H1 class with closure < 2."""
+    """Expected shape present: shape_pass for families of <= 30 items (closed ring for circles, open
+    ordered arc for line controls); for larger families (cities, where the order test is not the
+    measure) a significant H1 class with closure < 2."""
     small = df["topology_measure"] != "h1_ratio"
     big_pass = (df.get("n_sig_h1", 0) >= 1) & (df["closure_ratio"] < 2)
-    return np.where(small, df["circle_pass"], big_pass).astype(bool)
+    sp = df["shape_pass"] if "shape_pass" in df else df["circle_pass"]
+    return np.where(small, sp, big_pass).astype(bool)
 
 
 def select_layers(phase1: pd.DataFrame, primary: dict) -> dict[str, int]:
@@ -86,7 +88,7 @@ def _Z(unit_dir: Path, family: str, layer: int, prep: Prep, bg_cache: dict) -> n
 def trajectory(df: pd.DataFrame, lstar: dict[str, int], primary: dict, exp_dir: Path | None = None,
                size: str = "1.4b") -> pd.DataFrame:
     """One row per family x checkpoint (at L*, primary prep), with emergence and stability columns."""
-    d = primary_rows(df[(df.variant == "base") & (df.model == size)], primary)
+    d = primary_rows(df[(df.model_variant == "base") & (df.model == size)], primary)
     d = at_layers(d, lstar).sort_values(["family", "step"]).copy()
     d["passes"] = passes(d)
     prep = Prep(**primary)
@@ -125,7 +127,7 @@ def variant_retention(df: pd.DataFrame, lstar: dict[str, int], primary: dict, ba
             s_v = gf[gf.layer == L].topology_score.mean()
             band_b = bf[bf.layer.isin(DEFAULT_BAND)].topology_score.mean()
             band_v = gf[gf.layer.isin(DEFAULT_BAND)].topology_score.mean()
-            r = {"unit": unit, "variant": gf.variant.iloc[0], "family": f, "layer": L,
+            r = {"unit": unit, "variant": gf.model_variant.iloc[0], "family": f, "layer": L,
                  "topology": gf.topology.iloc[0], "origin": gf.origin.iloc[0],
                  "score_base": s_b, "score_variant": s_v,
                  "retention": s_v / s_b if s_b > 0 else np.nan,

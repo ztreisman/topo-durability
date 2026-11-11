@@ -47,12 +47,21 @@ def closure_ratio(D: np.ndarray, truth: np.ndarray) -> float:
 
 
 def topology_score(row: dict, order_max_items: int, closure_max: float = 2.0) -> tuple[float, str]:
-    """Primary topology measure. Decided 2026-11-10 and 2026-11-11 with Zack: for families with at
-    most order_max_items items, order_score x 1[closure_ratio < closure_max] (an ordered LINE also
-    gets a high order score, so the ring must also close); h1_ratio for larger families (cities)."""
+    """Primary measure of the family's EXPECTED shape. Decided 2026-11-10 and 2026-11-11 with Zack:
+    for families with at most order_max_items items, order_score x 1[closure_ratio < closure_max]
+    (an ordered LINE also gets a high order score, so the ring must also close); h1_ratio for larger
+    families (cities). Amended 2026-11-11 (before the freeze): interval families (line controls) score
+    line_order_score x 1[closure_ratio >= closure_max], i.e. an ordered arc that stays OPEN
+    (line_order_score: squared Spearman of the Fiedler seriation vs the true rank; the circular
+    order_score is meaningless without a loop). Under the
+    circle rule every line control scores 0, so line-control retention would be undefined and the
+    circles-vs-lines contrast could not be computed."""
     if row["n_items"] <= order_max_items:
         o = row.get("order_score", np.nan)
         closed = row.get("closure_ratio", np.inf) < closure_max
+        if row.get("topology") == "interval":
+            lo = row.get("line_order_score", np.nan)
+            return (float(lo) if not closed else 0.0) if np.isfinite(lo) else np.nan, "line_order_x_open"
         return (float(o) if closed else 0.0) if np.isfinite(o) else np.nan, "order_x_closed"
     return row["h1_ratio"], "h1_ratio"
 
@@ -112,6 +121,9 @@ def score_layer(
         row["cycle_len"] = len(cycle)
     else:
         row.update(order_score=np.nan, order_p=np.nan, order_exact=False)
+    if fam.topology == "interval" and fam.n_items >= 4:
+        row["line_order_score"], row["line_order_p"] = tda.line_order_test(D, np.arange(fam.n_items), n_perm=n_perm,
+                                                                           seed=seed)
 
     if n_gauss:
         null = nulls.gaussian_null(Z, prep.metric, maxdim, n_gauss, seed)
@@ -130,6 +142,14 @@ def score_layer(
 def circle_pass(row: dict, alpha: float = 0.05, closure_max: float = 2.0) -> bool:
     """gate_pass and the ring closes (closure_ratio < closure_max): a loop, not an ordered arc."""
     return gate_pass(row, alpha) and row.get("closure_ratio", np.inf) < closure_max
+
+
+def shape_pass(row: dict, alpha: float = 0.05, closure_max: float = 2.0) -> bool:
+    """The family shows its expected shape: circle_pass for circle/torus/unknown families; for interval
+    families (line controls) a significant order (order_p < alpha) on an arc that does not close."""
+    if row.get("topology") == "interval":
+        return bool(row.get("line_order_p", 1) < alpha and row.get("closure_ratio", 0) >= closure_max)
+    return circle_pass(row, alpha, closure_max)
 
 
 def gate_pass(row: dict, alpha: float = 0.05) -> bool:

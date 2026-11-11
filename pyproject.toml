@@ -20,6 +20,8 @@ dependencies = [
     "persim>=0.3.5",
     "gudhi>=3.10",
     "peft>=0.13",
+    "statsmodels>=0.14",
+    "networkx>=3.2",
     "bitsandbytes>=0.45; sys_platform == 'linux'",
 ]
 

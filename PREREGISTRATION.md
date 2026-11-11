@@ -35,6 +35,14 @@ onto the family's top 5 PCs, cosine distance (`{k_remove: 1, d_proj: 5, metric: 
   bootstrap band (lifetime > 2c, c = 95th percentile bottleneck distance over context resamples),
   its circular coordinate gives the exact cyclic order with label-permutation p < 0.05, and closure < 2.
   For the city families: n_sig_h1 >= 1 and closure < 2.
+- Line controls (interval topology, 30 items or fewer) are scored against their own expected shape,
+  an ordered arc that stays open: **topology score = line_order_score x 1[closure_ratio >= 2]**.
+  line_order_score is the squared Spearman correlation between the Fiedler vector of a Gaussian
+  affinity on the item distances (spectral seriation, which follows a curved arc) and the true rank.
+  A line control "has its shape" (shape_pass) if line_order p < 0.05 (label permutation) and
+  closure >= 2. (Amendment before the freeze, 2026-11-11: under the circle rule every line control
+  scores 0 by construction, so line-control retention, and the circles-vs-lines contrast, would be
+  undefined.) For circle families shape_pass = circle_pass.
 
 Layer: each family is analyzed at **L\***, the layer with the highest primary topology score in Phase 1
 (1.4B, step 143000, template contexts, context seed 0; ties broken by h1_ratio, then the lower layer).

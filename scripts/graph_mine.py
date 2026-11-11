@@ -125,7 +125,8 @@ def main() -> int:
                          "lifetime": c.lifetime, "score": c.score, "chordless": is_chordless(D, c.vertices, c.birth),
                          "beats_nulls": bool(c.lifetime > thr_life and c.score > thr_score),
                          "latents": lat.tolist(), "mean_rate": float(rates[lat].mean())})
-        df = pd.DataFrame(rows)
+        df = pd.DataFrame(rows, columns=["graph", "rank", "n_vertices", "birth", "death", "lifetime", "score",
+                                         "chordless", "beats_nulls", "latents", "mean_rate"])
         df.to_parquet(out / f"cycles_{g}.parquet", index=False)
         summary[g] = {"nodes": int(D.shape[0]), "edges": int(D.nnz // 2), "h1_classes": len(cyc),
                       "beat_nulls": int(df.beats_nulls.sum()), "null_life_95": float(thr_life),
@@ -133,6 +134,9 @@ def main() -> int:
         log.info("%s graph: %s", g, summary[g])
 
         top = df[df.beats_nulls].head(a.top_cycles) if df.beats_nulls.any() else df.head(min(5, a.top_cycles))
+        if top.empty:
+            log.info("%s graph: no H1 classes, no cycle reports", g)
+            continue
         lat_all = sorted({l for ls in top.latents for l in ls})
         ctx = top_contexts(lm, sae, a.layer, a.source, lat_all, n_tokens=int(2e6 if not a.limit else 2e5),
                            skip_seqs=0 if a.limit else int(a.coact_tokens // 128) + 1000)  # past the coact data

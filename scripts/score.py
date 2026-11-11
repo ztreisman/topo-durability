@@ -27,7 +27,7 @@ from topodur import runs  # noqa: E402
 from topodur.concepts import load_family, subset  # noqa: E402
 from topodur.extract import Background, FamilyActs  # noqa: E402
 from topodur.geometry import prep_grid  # noqa: E402
-from topodur.scoring import circle_pass, gate_pass, score_layer  # noqa: E402
+from topodur.scoring import circle_pass, shape_pass, gate_pass, score_layer  # noqa: E402
 
 log = logging.getLogger("score")
 _CACHE: dict = {}
@@ -62,6 +62,7 @@ def _task(unit_dir: str, fam_name: str, source: str, li: int, prep, sc: dict, se
     r["source"] = source
     r["gate_pass"] = gate_pass(r, sc.get("alpha", 0.05))
     r["circle_pass"] = circle_pass(r, sc.get("alpha", 0.05), sc.get("closure_max", 2.0))
+    r["shape_pass"] = shape_pass(r, sc.get("alpha", 0.05), sc.get("closure_max", 2.0))
     return r
 
 
@@ -120,7 +121,7 @@ def main() -> int:
     base, _, variant = a.unit.partition("+")
     size, s, step = base.split("_")
     df = pd.DataFrame(rows).assign(model=size, seed=int(s[1:]), step=int(step.removeprefix("step")),
-                                   variant=variant or "base")
+                                   model_variant=variant or "base")
     df = df.sort_values(["family", "source", "layer", "variant", "metric", "k_remove", "d_proj"]
                         ).reset_index(drop=True)
     with runs.atomic_path(out) as tmp:

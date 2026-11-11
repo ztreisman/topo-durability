@@ -1,0 +1,21 @@
+# Laptop end-to-end test of the Phase 3 pipeline on pythia-70m (CPU).
+experiment: test_cpu_phase3
+seed: 1
+dtype: fp32
+families: [months, clock_hours, ordinals, centuries]
+contexts: {sources: [template], per_item: 24, max_len: 64, store_instances: 16}
+extract: {batch_size: 32, layers: null, variants: [last]}
+background: {source: tests/data/background.txt, n_texts: 100, max_len: 128, positions_per_text: 16, batch_size: 16, k: 10}
+scoring:
+  ks: [1]
+  ds: [5]
+  metrics: [cosine]
+  variants: [last]
+  n_boot: 10
+  n_perm: 200
+  n_gauss: 0
+  alpha: 0.05
+  primary: {k_remove: 1, d_proj: 5, metric: cosine, variant: last}
+  order_primary_max_items: 30
+  closure_max: 2.0
+eval: {ppl_sources: {pile_test: "mirror:pile_test_5000.jsonl"}, ppl_seqs: 8, ppl_seq_len: 128}

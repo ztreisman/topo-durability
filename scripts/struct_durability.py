@@ -75,6 +75,9 @@ def main() -> int:
     cyc = pd.read_parquet(gdir / f"cycles_{a.graph}.parquet")
     cand = cyc[cyc.chordless & cyc.beats_nulls] if (cyc.chordless & cyc.beats_nulls).any() else cyc[cyc.chordless]
     cand = cand[cand.n_vertices >= 4].head(a.max_cycles)
+    if cand.empty:
+        log.warning("no chordless cycles with >= 4 vertices in %s; nothing to measure", a.graph)
+        return 0
     node_of = {int(l): i for i, l in enumerate(st.nodes)}
     structs = []
     for r in cand.itertuples():
