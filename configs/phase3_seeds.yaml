@@ -1,0 +1,52 @@
+# Phase 3 seeds (M4): PolyPythia 410M, seeds 0 (original) to 9, final checkpoint. Same settings as
+# phase3_durability.yaml so the two join; cross-seed agreement is computed by scripts/durability.py.
+experiment: phase3_seeds
+seed: 1                      # context seed 1: layers are SELECTED on Phase 1 (seed 0), measured here
+dtype: fp16
+families: [days, months, clock_hours, zodiac, moon_phases, compass, hues, cities_longitude, krebs, anacyclosis,
+  water_cycle, emotions, keys, triads, political,
+  ordinals, sizes, life_stages, centuries, temperature, city_latitude, numbers]
+
+contexts:
+  sources: [template]
+  per_item: 250
+  max_len: 128
+  store_instances: 64        # bootstrap draws from these; ~4 GB per unit with variants: [last]
+  overrides:
+    cities_longitude: {per_item: 64}
+    city_latitude: {per_item: 64}
+
+extract:
+  batch_size: 64
+  # default layers 12-16 plus early and late layers (months peaks at 21); revisit after Phase 1
+  layers: null               # 410M is cheap: all 24 layers
+  variants: [last]
+
+background:
+  source: mirror:pile_sample_200000.jsonl
+  n_texts: 2000
+  max_len: 256
+  positions_per_text: 32
+  batch_size: 16
+  k: 10
+
+scoring:
+  # primary prep + three robustness variants (metric, d_proj, k_remove); the full grid is Phase 1's
+  ks: [0, 1]
+  ds: [3, 5]
+  metrics: [cosine, euclidean]
+  variants: [last]
+  n_boot: 100
+  n_perm: 1000
+  n_gauss: 100
+  n_boot_large: 50
+  n_gauss_large: 50
+  alpha: 0.05
+  primary: {k_remove: 1, d_proj: 5, metric: cosine, variant: last}
+  order_primary_max_items: 30
+  closure_max: 2.0
+
+eval:
+  ppl_sources: {pile_test: "mirror:pile_test_5000.jsonl"}
+  ppl_seqs: 200
+  ppl_seq_len: 512

@@ -280,8 +280,8 @@ def background_stats(
     mean = (s1 / n).float()
     means, pcs, evals = [], [], []
     for li in range(len(layers)):
-        cov = (s2[li].double() / n - torch.outer(mean[li].double(), mean[li].double())).cpu().numpy()
-        w, V = np.linalg.eigh(cov)
+        cov = s2[li].double() / n - torch.outer(mean[li].double(), mean[li].double())
+        w, V = (t.cpu().numpy() for t in torch.linalg.eigh(cov))  # on the GPU: CPU BLAS can be oversubscribed
         top = np.argsort(w)[::-1][:k]
         pcs.append(V[:, top].T.astype(np.float32))
         evals.append(w[top].astype(np.float32))

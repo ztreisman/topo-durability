@@ -6,3 +6,6 @@ export HF_HUB_OFFLINE=1          # Hugging Face is blocked here; never try the n
 export TRANSFORMERS_OFFLINE=1
 export HF_DATASETS_OFFLINE=1
 export TOKENIZERS_PARALLELISM=false
+
+# Cap BLAS threads: many jobs share 64 cores, and one numpy call spawning 64 threads under load thrashes.
+export OMP_NUM_THREADS=${OMP_NUM_THREADS:-8} OPENBLAS_NUM_THREADS=${OPENBLAS_NUM_THREADS:-8} MKL_NUM_THREADS=${MKL_NUM_THREADS:-8}

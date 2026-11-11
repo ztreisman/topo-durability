@@ -201,6 +201,7 @@ def sgld_llc(W, b, cfg: ToyConfig, groups: Groups, mask_feats=None, n_data: int 
             return torch.stack([per_feature_loss(Wc, bc, data[:, i:i + 4096]).sum(1)
                                 for i in range(0, n_data, 4096)]).mean(0)
 
+    burn = min(burn, steps // 3)
     L0 = full_loss(W0, b0)
     Wc, bc = W0.clone(), b0.clone()
     acc = torch.zeros(S * chains)

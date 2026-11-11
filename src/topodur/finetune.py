@@ -66,7 +66,8 @@ def token_stream(tok, source: str, seq_len: int, skip_seqs: int = 0):
                     yield seq
                 n += 1
         epoch += 1
-        log.warning("corpus exhausted; starting epoch %d", epoch + 1)
+        if epoch < 3 or epoch % 1000 == 0:
+            log.warning("corpus exhausted; starting epoch %d", epoch + 1)
 
 
 def milestone_name(tokens: int) -> str:

@@ -11,6 +11,11 @@ scripts/toy_report.py aggregates.
 
 from __future__ import annotations
 
+import os
+
+for _v in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS"):
+    os.environ[_v] = "1"  # many single-threaded worker processes; BLAS threads would oversubscribe
+
 import argparse
 import itertools
 import logging
