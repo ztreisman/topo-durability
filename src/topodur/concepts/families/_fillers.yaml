@@ -1,0 +1,17 @@
+# Shared filler slots for templates. Families may override or add slots.
+name: [Anna, Ben, Carlos, Diana, Ethan, Fatima, George, Hannah, Ivan, Julia, Kevin, Laura,
+  Mohammed, Nina, Oscar, Priya, Quentin, Rachel, Samuel, Tara, Umar, Vera, William, Xavier,
+  Yuki, Zoe, Ahmed, Beatriz, Chen, Dmitri, Elena, Felix, Grace, Hiroshi, Isabel, Jamal,
+  Katarina, Liam, Maria, Noah]
+group: [the committee, the team, my family, our class, the band, the club, the board,
+  the crew, the council, the department, the choir, the staff, our neighbors, the students,
+  the volunteers, the players]
+event: [the meeting, the party, the concert, the exam, the wedding, the trip, the game,
+  the interview, the launch, the lecture, the workshop, the dinner, the hearing, the sale,
+  the festival, the appointment, the rehearsal, the deadline, the funeral, the race]
+place: [Chicago, the office, the library, Berlin, the clinic, school, the gym, Toronto,
+  the courthouse, the airport, the market, Denver, the museum, the station, Lisbon, the farm]
+object: [the package, the report, the letter, the invoice, the order, the shipment,
+  the contract, the results, the payment, the update, the tickets, the keys]
+adverb: [usually, always, often, sometimes, rarely, typically, normally, finally, already,
+  never]

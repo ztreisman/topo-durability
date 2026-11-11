@@ -1,0 +1,31 @@
+name: days
+topology: circle
+origin: explicit
+notes: Calibration family (Engels et al. 2024 report a weekday circle in Mistral 7B / Llama 3 8B).
+items: [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday]
+templates:
+  - "{name} said {event} was moved to {item}."
+  - "{event} will take place on {item}."
+  - "We {adverb} go to {place} on {item}."
+  - "{name} arrived in {place} on {item} morning."
+  - "The store at {place} is closed on {item}."
+  - "Members of {group} {adverb} meet on {item}."
+  - "My favorite day of the week is {item}."
+  - "{name} could not attend {event} on {item}."
+  - "Please send {object} by {item}."
+  - "{object} arrived late on {item} afternoon."
+  - "According to {name}, {event} is scheduled for {item}."
+  - "I will see you next {item}."
+  - "{name} has worked at {place} every {item} since spring."
+  - "It rained all day last {item}."
+  - "{group} decided to hold {event} on a {item}."
+  - "The trash in {place} is collected every {item}."
+  - "{name} called me on {item} evening about {event}."
+  - "Office hours are {adverb} held on {item}."
+  - "The flight from {place} departs on {item}."
+  - "{name} {adverb} sleeps late on {item}."
+  - "The museum offers free entry on {item}."
+  - "We postponed {event} until {item}."
+  - "{name} wrote in the diary: \"Dear diary, today is {item}."
+  - "Starting this week, {group} will meet each {item}."
+  - "The newsletter from {place} goes out on {item}."

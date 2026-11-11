@@ -1,0 +1,51 @@
+[project]
+name = "topodur"
+version = "0.1.0"
+description = "Topological feature durability experiments on Pythia"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "torch>=2.6",
+    "transformers>=4.45",
+    "accelerate>=1.0",
+    "datasets>=3.0",
+    "zstandard>=0.22",
+    "numpy>=1.26",
+    "scipy>=1.12",
+    "pandas>=2.2",
+    "pyarrow>=16",
+    "pyyaml>=6",
+    "scikit-learn>=1.5",
+    "matplotlib>=3.9",
+    "ripser>=0.6.8",
+    "persim>=0.3.5",
+    "gudhi>=3.10",
+]
+
+[project.optional-dependencies]
+# Optional cross-checks for circular coordinates; tda.py has its own implementation.
+extra-tda = ["dreimac>=0.3"]
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/topodur"]
+
+# Linux (lambda01): CUDA 12.6 wheels. They include sm_75 (Turing) kernels and need
+# driver >= 560, which driver 570 satisfies. Never move to an index above cu128.
+# Windows/macOS laptops: CPU wheels from PyPI.
+[tool.uv.sources]
+torch = [{ index = "pytorch-cu126", marker = "sys_platform == 'linux'" }]
+
+[[tool.uv.index]]
+name = "pytorch-cu126"
+url = "https://download.pytorch.org/whl/cu126"
+explicit = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["model: needs to download pythia-70m (slow, network)"]

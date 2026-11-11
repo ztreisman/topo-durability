@@ -1,0 +1,27 @@
+name: ordinals
+topology: interval
+origin: control
+line_control_for: days
+notes: Negative control for the Phase 0 gate; should show no significant H1.
+items: [first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth]
+templates:
+  - "{name} finished the race in {item} place."
+  - "This is the {item} time {group} has met."
+  - "{name} lives on the {item} floor."
+  - "The {item} chapter of the report covers {event}."
+  - "{name} came {item} in the competition."
+  - "Turn left at the {item} intersection after {place}."
+  - "It was the {item} attempt by {name}."
+  - "{group} celebrated its {item} anniversary at {place}."
+  - "The {item} item on the agenda for {event} was the budget."
+  - "{name} was the {item} person to arrive at {place}."
+  - "The {item} row of seats at {place} was empty."
+  - "On the {item} day, {name} returned home."
+  - "We read the {item} line of the letter again."
+  - "{name} sat in the {item} seat from the left."
+  - "The {item} version of {object} had fewer errors."
+  - "The {item} grade at our school is the hardest, {name} said."
+  - "{group} lost only the {item} game of the season."
+  - "The {item} edition of the festival in {place} was the largest."
+  - "It is the {item} largest city in the region."
+  - "{name} {adverb} skips the {item} step."

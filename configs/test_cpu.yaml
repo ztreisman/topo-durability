@@ -1,0 +1,19 @@
+# Laptop smoke test on pythia-70m (CPU). Uses a local text file for the background.
+experiment: test_cpu
+seed: 0
+dtype: fp32
+families: [days, months, ordinals]
+contexts: {per_item: 40, max_len: 64, store_instances: 40}
+extract: {batch_size: 32}
+background: {source: tests/data/background.txt, n_texts: 200, max_len: 128, positions_per_text: 16, batch_size: 16, k: 10}
+scoring:
+  ks: [0, 1]
+  ds: [3, 5]
+  metrics: [cosine]
+  variants: [last]
+  n_boot: 30
+  n_perm: 300
+  n_gauss: 30
+  alpha: 0.05
+  primary: {k_remove: 1, d_proj: 5, metric: cosine, variant: last}
+  order_primary_max_items: 30   # order_score is the topology measure up to this size; h1_ratio above
