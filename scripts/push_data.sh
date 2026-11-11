@@ -13,6 +13,7 @@ LOCAL=${TOPODUR_HF_MIRROR:-data/hf_mirror}
 DRY=${1:-}
 
 [ -d "$LOCAL" ] || { echo "no local mirror at $LOCAL; run scripts/fetch_hf.py first"; exit 1; }
+LOCAL=$(cd "$LOCAL" && pwd)   # absolute: the loop below runs from inside the mirror
 remote_have=$("$SSH" "$HOST" "cd $REMOTE 2>/dev/null && find . -name '.complete' -o -name '*.complete'" || true)
 
 send() {  # $1 = path relative to the mirror root, $2 = its marker (relative)
