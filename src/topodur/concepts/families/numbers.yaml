@@ -1,0 +1,37 @@
+name: numbers
+topology: interval
+origin: control
+line_control_for: [clock_hours]
+notes: >
+  Exploratory extra control (not in the spec's list): the same tokens as clock_hours (one..twelve)
+  used as counts, so clock_hours vs numbers isolates the clock context from the token identities.
+items: [one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve]
+mine:
+  pattern: "{item} (?:of the|more|people|times|years|days|children|members|other|different)\\b"
+  capitalize: true
+behavior:
+  prompt: "{k} more than {item} is"
+  offsets: [2, 3, 4, 5]
+  fewshot: ["Two more than one is three.", "Three more than two is five."]
+templates:
+  - "{name} bought {item} apples at {place}."
+  - "There were {item} people waiting at {place}."
+  - "{group} has {item} members."
+  - "{name} has read {item} books this year."
+  - "The recipe calls for {item} eggs."
+  - "We counted {item} birds near {place}."
+  - "{name} wrote {item} letters to {group}."
+  - "The team scored {item} goals during {event}."
+  - "{name} owns {item} cats."
+  - "The shelf at {place} holds {item} boxes."
+  - "There are {item} chairs in the room, {name} said."
+  - "{group} {adverb} orders {item} pizzas."
+  - "{name} waited for {item} days."
+  - "The bus from {place} carried {item} passengers."
+  - "{name} has visited {place} {item} times."
+  - "The report lists {item} problems with {object}."
+  - "Only {item} students passed {event}."
+  - "{name} planted {item} trees near {place}."
+  - "The package for {name} contained {item} items."
+  - "{name} answered {item} questions correctly."
+  - "We need {item} volunteers for {event}."

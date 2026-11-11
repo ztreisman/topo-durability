@@ -1,0 +1,44 @@
+name: keys
+topology: torus
+origin: emergent
+notes: >
+  24 major and minor keys (Krumhansl and Kessler 1982 key space). Factor 1 (the one order_score uses)
+  is the circle of fifths, with each minor key placed just after its relative major. Factor 2 is an
+  EXPLORATORY thirds coordinate (the fifths circle winds around it); treat its order score as
+  exploratory. Shares item strings with triads.yaml; the two differ only in context (key vs chord).
+items: [C major, A minor, G major, E minor, D major, B minor, A major, F-sharp minor, E major, C-sharp minor,
+  B major, G-sharp minor, F-sharp major, E-flat minor, D-flat major, B-flat minor, A-flat major, F minor,
+  E-flat major, C minor, B-flat major, G minor, F major, D minor]
+positions: [[0.0, 0.0], [0.0417, 0.1667], [0.0833, 0.3333], [0.125, 0.5], [0.1667, 0.6667], [0.2083, 0.8333],
+  [0.25, 0.0], [0.2917, 0.1667], [0.3333, 0.3333], [0.375, 0.5], [0.4167, 0.6667], [0.4583, 0.8333],
+  [0.5, 0.0], [0.5417, 0.1667], [0.5833, 0.3333], [0.625, 0.5], [0.6667, 0.6667], [0.7083, 0.8333],
+  [0.75, 0.0], [0.7917, 0.1667], [0.8333, 0.3333], [0.875, 0.5], [0.9167, 0.6667], [0.9583, 0.8333]]
+mine:
+  capitalize: false
+  variants: {"-sharp": ["-sharp", " sharp", "#", "♯"], "-flat": ["-flat", " flat", "b", "♭"]}
+  require: ["key", "sonata", "symphony", "concerto", "prelude", "fugue", "quartet", "suite", "composed"]
+fillers:
+  piece: [sonata, symphony, concerto, prelude, fugue, nocturne, string quartet, waltz, mass, etude, suite, overture]
+  composer: [Bach, Mozart, Haydn, Beethoven, Schubert, Chopin, Brahms, Schumann, Mendelssohn, Dvorak, Liszt, Handel]
+templates:
+  - "The {piece} is written in {item}."
+  - "{composer} wrote a {piece} in {item}."
+  - "{name} played the {piece} in {item} at {place}."
+  - "The second movement modulates to {item}."
+  - "The orchestra performed the {piece} by {composer} in {item}."
+  - "This {piece} by {composer} is in the key of {item}."
+  - "The choir of {place} sang the {piece} in {item}."
+  - "{name} {adverb} practices scales in {item}."
+  - "The recording of the {piece} in {item} won an award."
+  - "The final chorus returns to {item}."
+  - "{composer} chose the key of {item} for the {piece}."
+  - "{name} transposed the {piece} into {item}."
+  - "The program at {place} opens with a {piece} in {item}."
+  - "Most of the {piece} stays in {item}."
+  - "The trio section moves into {item}."
+  - "The pianist {name} recorded the {piece} in {item}."
+  - "The key signature of the {piece} indicates {item}."
+  - "After the bridge, the song shifts to {item}."
+  - "{group} rehearsed the {piece} in {item} for {event}."
+  - "The manuscript by {composer} is titled {piece} in {item}."
+  - "The opening theme of the {piece} is stated in {item}."

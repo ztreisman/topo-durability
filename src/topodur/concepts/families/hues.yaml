@@ -1,0 +1,37 @@
+name: hues
+topology: circle
+origin: implicit
+notes: >
+  Hue names placed at approximate hue angles (degrees / 360, HSV/web-color conventions); the
+  closure runs through magenta and rose back to red. Several items are also nouns (gold, rose, jade,
+  amber, emerald, lime); templates force the color reading, and mining requires a color word nearby.
+  Templates avoid "a {item}" because of a/an.
+items: [red, scarlet, vermilion, orange, amber, gold, yellow, lime, chartreuse, green, emerald, jade, teal,
+  turquoise, cyan, azure, cobalt, blue, indigo, violet, purple, magenta, rose, crimson]
+positions: [0.000, 0.022, 0.033, 0.083, 0.125, 0.142, 0.167, 0.208, 0.250, 0.333, 0.389, 0.417, 0.472,
+  0.483, 0.500, 0.583, 0.597, 0.667, 0.722, 0.764, 0.792, 0.833, 0.917, 0.967]
+mine:
+  require: ["color", "colour", "colored", "coloured", "shade", "hue", "paint", "dyed"]
+templates:
+  - "{name} painted the door {item}."
+  - "The dress was a bright shade of {item}."
+  - "The logo of {group} is {item}."
+  - "The favorite color of {name} is {item}."
+  - "The sky over {place} turned {item} at dusk."
+  - "The car that {name} bought is {item}."
+  - "The walls of {place} were painted {item}."
+  - "The flowers in front of {place} were {item}."
+  - "The ink in the pen of {name} was a deep {item}."
+  - "The light glowed {item} in the dark."
+  - "The paint swatch {name} picked was labeled {item}."
+  - "The sign at {place} was {item}."
+  - "The jerseys of {group} are {item}."
+  - "{name} dyed the fabric {item}."
+  - "The feathers of the bird shimmered {item}."
+  - "The sunset over {place} was {item}."
+  - "The cover of the book {name} wrote is {item}."
+  - "The color of the stone was described as {item}."
+  - "In the painting by {name}, the sea is {item}."
+  - "{name} {adverb} colors the background {item}."
+  - "The lamp at {place} gave off a glow of pure {item}."
+  - "The ribbon on {object} was {item}."

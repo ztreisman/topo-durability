@@ -12,6 +12,7 @@ fine-tuned weights can behave differently.
 from __future__ import annotations
 
 import logging
+from pathlib import Path
 from dataclasses import dataclass
 
 import torch
@@ -52,6 +53,67 @@ def repo_id(size: str, seed: int | None = None) -> str:
     if size not in POLYPYTHIA_SIZES:
         raise ValueError(f"PolyPythia seeds exist only for {POLYPYTHIA_SIZES}")
     return f"EleutherAI/pythia-{size}-seed{seed}"
+
+
+def parse_variant(spec: str | None) -> dict:
+    """Model variants for the durability measures (Phase 3). Spec strings:
+      lora:<adapter dir>      LoRA adapter merged into the base weights (finetune.py output)
+      int8 | nf4              bitsandbytes 8-bit / 4-bit NF4 weight quantization
+      prune:<frac>            unstructured magnitude pruning of every block Linear, per matrix
+      noise:<sigma>[:<seed>]  W += sigma * std(W) * N(0, 1) for every block Linear
+    """
+    if not spec:
+        return {"kind": None}
+    kind, _, rest = spec.partition(":")
+    if kind == "lora":
+        return {"kind": "lora", "path": rest}
+    if kind in ("int8", "nf4"):
+        return {"kind": kind}
+    if kind == "prune":
+        return {"kind": "prune", "frac": float(rest)}
+    if kind == "noise":
+        sig, _, sd = rest.partition(":")
+        return {"kind": "noise", "sigma": float(sig), "seed": int(sd or 0)}
+    raise ValueError(f"unknown model variant {spec!r}")
+
+
+def variant_tag(spec: str | None) -> str:
+    """Short filesystem-safe tag for a variant, appended to the unit id after '+'."""
+    v = parse_variant(spec)
+    k = v["kind"]
+    if k is None:
+        return ""
+    if k == "lora":
+        return "lora-" + Path(v["path"]).name
+    if k == "prune":
+        return f"prune{v['frac']:g}"
+    if k == "noise":
+        return f"noise{v['sigma']:g}s{v['seed']}"
+    return k
+
+
+def _block_linears(model):
+    for blk in model.gpt_neox.layers:
+        for m in blk.modules():
+            if isinstance(m, torch.nn.Linear):
+                yield m
+
+
+@torch.no_grad()
+def apply_weight_variant(model, v: dict) -> None:
+    if v["kind"] == "prune":
+        for m in _block_linears(model):
+            w = m.weight
+            k = int(v["frac"] * w.numel())
+            if k:
+                thr = w.abs().float().flatten().kthvalue(k).values
+                w.masked_fill_(w.abs() <= thr, 0)
+    elif v["kind"] == "noise":
+        g = torch.Generator(device="cpu").manual_seed(v["seed"])
+        for m in _block_linears(model):
+            w = m.weight
+            noise = torch.randn(w.shape, generator=g, dtype=torch.float32)
+            w.add_((v["sigma"] * w.float().std() * noise.to(w.device)).to(w.dtype))
 
 
 @dataclass
@@ -97,6 +159,7 @@ def load_model(
     multi_gpu: bool = False,
     check: bool = True,
     fallback_fp32: bool = True,
+    variant: str | None = None,
 ) -> LoadedModel:
     if step not in all_checkpoint_steps():
         raise ValueError(f"step {step} is not a published Pythia checkpoint")
@@ -110,15 +173,29 @@ def load_model(
 
     repo = repo_id(size, seed)
     local = mirror.resolve(mirror.model_dir(repo, step), f"{repo}@step{step}")
+    v = parse_variant(variant)
     kwargs = dict(torch_dtype=DTYPES[dtype])
     if multi_gpu:
         kwargs["device_map"] = "auto"
-    log.info("loading %s @ step%d (%s) from %s", repo, step, dtype, local or "the hub")
+    if v["kind"] in ("int8", "nf4"):
+        from transformers import BitsAndBytesConfig
+
+        kwargs["quantization_config"] = (BitsAndBytesConfig(load_in_8bit=True) if v["kind"] == "int8" else
+                                         BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_quant_type="nf4",
+                                                            bnb_4bit_compute_dtype=DTYPES[dtype]))
+        kwargs["device_map"] = {"": 0}
+    log.info("loading %s @ step%d (%s, variant %s) from %s", repo, step, dtype, variant, local or "the hub")
     if local:
         model = GPTNeoXForCausalLM.from_pretrained(local, **kwargs)
     else:
         model = GPTNeoXForCausalLM.from_pretrained(repo, revision=f"step{step}", **kwargs)
-    if not multi_gpu:
+    if v["kind"] == "lora":
+        from peft import PeftModel
+
+        model = PeftModel.from_pretrained(model, v["path"]).merge_and_unload()
+    if v["kind"] in ("prune", "noise"):
+        apply_weight_variant(model, v)
+    if not multi_gpu and v["kind"] not in ("int8", "nf4"):
         model.to(device)
     model.eval()
     lm = LoadedModel(model, load_tokenizer(size), size, step, seed, dtype,
@@ -132,7 +209,7 @@ def load_model(
                 log.warning(msg + "; reloading in fp32")
                 del model, lm
                 torch.cuda.empty_cache()
-                return load_model(size, step, "fp32", device, seed, multi_gpu, check, False)
+                return load_model(size, step, "fp32", device, seed, multi_gpu, check, False, variant)
             raise RuntimeError(msg)
     return lm
 
@@ -171,3 +248,9 @@ def numerics_check(lm: LoadedModel, texts: list[str] | None = None, frac: float 
         bad += [i for i, v in worst.items() if v > frac * FP16_MAX]
     log.info("numerics check: max |h| per block = %s", {i: round(v, 1) for i, v in worst.items()})
     return sorted(set(bad))
+
+
+def unit_id(size: str, step: int, seed: int = 0, variant: str | None = None) -> str:
+    """Results-directory id of one (model, checkpoint, seed, variant): e.g. 1.4b_s0_step143000+prune0.25."""
+    tag = variant_tag(variant)
+    return f"{size}_s{seed}_step{step}" + (f"+{tag}" if tag else "")

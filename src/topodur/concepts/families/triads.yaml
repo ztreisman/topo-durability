@@ -1,0 +1,42 @@
+name: triads
+topology: torus
+origin: emergent
+notes: >
+  The 24 major and minor triads (Tonnetz). Same item strings and positions as keys.yaml (circle of
+  fifths with each minor triad next to its relative major, which shares two notes with it); the
+  contexts make them chords rather than keys. Factor 2 is exploratory, as in keys.yaml.
+items: [C major, A minor, G major, E minor, D major, B minor, A major, F-sharp minor, E major, C-sharp minor,
+  B major, G-sharp minor, F-sharp major, E-flat minor, D-flat major, B-flat minor, A-flat major, F minor,
+  E-flat major, C minor, B-flat major, G minor, F major, D minor]
+positions: [[0.0, 0.0], [0.0417, 0.1667], [0.0833, 0.3333], [0.125, 0.5], [0.1667, 0.6667], [0.2083, 0.8333],
+  [0.25, 0.0], [0.2917, 0.1667], [0.3333, 0.3333], [0.375, 0.5], [0.4167, 0.6667], [0.4583, 0.8333],
+  [0.5, 0.0], [0.5417, 0.1667], [0.5833, 0.3333], [0.625, 0.5], [0.6667, 0.6667], [0.7083, 0.8333],
+  [0.75, 0.0], [0.7917, 0.1667], [0.8333, 0.3333], [0.875, 0.5], [0.9167, 0.6667], [0.9583, 0.8333]]
+mine:
+  capitalize: false
+  variants: {"-sharp": ["-sharp", " sharp", "#", "♯"], "-flat": ["-flat", " flat", "b", "♭"]}
+  require: ["chord", "triad", "strum", "progression", "guitar", "ukulele"]
+fillers:
+  instrument: [guitar, piano, ukulele, organ, harp, accordion, keyboard, mandolin]
+templates:
+  - "{name} strummed a {item} chord on the {instrument}."
+  - "The song uses only three chords, starting with {item}."
+  - "On the {instrument}, {name} played the chord {item}."
+  - "The chord chart for {name} says {item}."
+  - "The next chord in the progression is {item}."
+  - "{name} {adverb} struggles to finger the {item} chord on the {instrument}."
+  - "The pianist at {place} held a {item} triad."
+  - "The verse resolves on the chord {item}."
+  - "In the second bar, the {instrument} plays {item}."
+  - "The guitarist from {group} switched to a {item} chord."
+  - "The chord diagram on the page shows {item}."
+  - "{name} taught the class how to play the chord {item}."
+  - "The chorus lands on a {item} chord."
+  - "The triad spelled on the board was {item}."
+  - "The {instrument} part at {event} begins on the chord {item}."
+  - "Play the chord {item} for four beats, said {name}."
+  - "The loop in the track by {name} repeats a {item} chord."
+  - "The harmony class at {place} analyzed the triad {item}."
+  - "The final chord of the song is {item}."
+  - "The tablature shows {name} playing {item} on the {instrument}."
+  - "The chord symbol above the melody reads {item}."

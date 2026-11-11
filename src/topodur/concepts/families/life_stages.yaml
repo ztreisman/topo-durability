@@ -1,0 +1,28 @@
+name: life_stages
+topology: interval
+origin: control
+line_control_for: [anacyclosis, water_cycle, moon_phases]
+notes: Life stages, youngest to oldest. Templates use "the" to avoid a/an.
+items: [newborn, infant, toddler, child, preteen, teenager, young adult, adult, retiree, centenarian]
+templates:
+  - "The {item} in the photo is {name}."
+  - "The {item} at {place} needed help."
+  - "{name} spoke to the {item} about {event}."
+  - "The doctor examined the {item} carefully."
+  - "The {item} next door {adverb} waves at us."
+  - "Everyone at {place} noticed the {item}."
+  - "The {item} sat quietly during {event}."
+  - "{name} handed {object} to the {item}."
+  - "The nurse at {place} weighed the {item}."
+  - "The story is told from the view of the {item}."
+  - "{group} interviewed the {item} for the article."
+  - "The {item} who lives with {name} is healthy."
+  - "The {item} was the only one awake at {place}."
+  - "{name} took a picture of the {item}."
+  - "The clothes in the bag were for the {item}."
+  - "The {item} laughed at the joke {name} told."
+  - "The program at {place} is designed for the {item}."
+  - "{name} {adverb} reads to the {item} at night."
+  - "The {item} in the waiting room was called next."
+  - "The survey asked the {item} about {event}."
+  - "The {item} wandered into {place}."

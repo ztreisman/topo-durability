@@ -1,0 +1,33 @@
+name: moon_phases
+topology: circle
+origin: explicit
+items: [new moon, waxing crescent, first quarter, waxing gibbous, full moon, waning gibbous, last quarter, waning crescent]
+mine:
+  require: ["moon", "lunar"]
+behavior:
+  prompt: "{k} phases after the {item} comes the"
+  answer: " {item}"
+  offsets: [2, 3, 4]
+  fewshot: ["Two phases after the new moon comes the first quarter.", "Two phases after the first quarter comes the full moon."]
+templates:
+  - "Tonight the moon is at its {item} phase."
+  - "{name} planted the seeds during the {item}."
+  - "The tide at {place} was unusually high at the {item}."
+  - "We watched the {item} over {place}."
+  - "The festival in {place} is held at every {item}."
+  - "Astronomers photographed the {item} from {place}."
+  - "During the {item}, {name} {adverb} stays indoors."
+  - "The calendar of {name} shows the {item} next week."
+  - "{group} scheduled {event} for the {item}."
+  - "The fishermen of {place} prefer to fish during the {item}."
+  - "{name} pointed at the {item} through the window."
+  - "The photograph of the {item} was taken by {name}."
+  - "Some gardeners in {place} plant only at the {item}."
+  - "The lunar calendar of {group} marks the {item}."
+  - "On the night of the {item}, {name} walked to {place}."
+  - "The almanac lists the date of the {item} for {event}."
+  - "{name} explained the {item} to the students."
+  - "The diagram for {group} labels this phase the {item}."
+  - "The moon was in its {item} phase when {name} arrived."
+  - "Hunters near {place} watch for the {item}."
+  - "The app told {name} it was the {item}."

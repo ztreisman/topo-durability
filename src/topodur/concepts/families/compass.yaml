@@ -1,0 +1,35 @@
+name: compass
+topology: circle
+origin: explicit
+notes: Sixteen-point compass rose. Lower-case; mining is case-sensitive so proper nouns (North Carolina) are excluded.
+items: [north, north-northeast, northeast, east-northeast, east, east-southeast, southeast, south-southeast,
+  south, south-southwest, southwest, west-southwest, west, west-northwest, northwest, north-northwest]
+fillers:
+  month: [January, March, June, August, October, December]
+behavior:
+  prompt: "Facing {item} and turning {k} degrees clockwise, you face"
+  offsets: [2, 4, 6, 8]
+  step_unit: 22.5
+  fewshot: ["Facing north and turning 90 degrees clockwise, you face east.", "Facing east and turning 45 degrees clockwise, you face southeast."]
+templates:
+  - "On the day of {event}, the wind was blowing from the {item}."
+  - "{name} walked {item} for an hour."
+  - "The road from {place} runs {item}."
+  - "The ship carrying {object} turned {item} toward the island."
+  - "The storm that hit {place} moved {item} across the region."
+  - "The window of the room faces {item}, {name} said."
+  - "{group} hiked {item} along the ridge."
+  - "The compass that {name} carried pointed {item}."
+  - "Head {item} on the highway after {place}."
+  - "The plane to {place} flew {item} over the mountains."
+  - "The river near {place} flows {item}."
+  - "Strong winds from the {item} are expected tonight, said {name}."
+  - "{name} set a course {item}."
+  - "The camp of {group} lies {item} of the lake."
+  - "The birds flew {item} in {month}."
+  - "From {place}, the trail heads {item}."
+  - "The radar at {place} showed the front moving {item}."
+  - "{name} said the bearing to the lighthouse was {item}."
+  - "{name} {adverb} jogs {item} along the river."
+  - "The search team moved {item} from {place}."
+  - "The wind shifted to the {item} during {event}."

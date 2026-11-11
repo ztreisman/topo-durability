@@ -13,6 +13,7 @@ Each finished directory/file gets a .complete marker, so reruns and pushes skip 
   uv run python scripts/fetch_hf.py models --sizes 70m 1.4b 2.8b --steps 143000
   uv run python scripts/fetch_hf.py models --sizes 1.4b --steps logspaced     # Phase 3 trajectory (~80 GB)
   uv run python scripts/fetch_hf.py pile --n-docs 200000
+  uv run python scripts/fetch_hf.py text --source codeparrot/codeparrot-clean --field content       --n-docs 60000 --name corpora/code.jsonl                                 # fine-tuning corpora
   uv run python scripts/fetch_hf.py list
 """
 
@@ -64,24 +65,39 @@ def fetch_tokenizer(repo: str) -> None:
 
 
 def fetch_pile(n_docs: int, source: str) -> None:
+    fetch_text(source, None, "train", n_docs, f"pile/pile_sample_{n_docs}.jsonl", "text", 0)
+
+
+def fetch_text(source: str, config: str | None, split: str, n_docs: int, name: str, field: str,
+               skip: int, data_files: str | None = None, min_chars: int = 0) -> None:
+    """Stream n_docs documents of `source` into <mirror>/<name> as JSONL {"text", "meta"}."""
     from datasets import load_dataset
 
-    out = mirror_root() / "pile" / f"pile_sample_{n_docs}.jsonl"
+    out = mirror_root() / name
     if Path(str(out) + ".complete").exists():
         print(f"have {out}")
         return
     out.parent.mkdir(parents=True, exist_ok=True)
-    tmp = out.with_suffix(".jsonl.part")
-    ds = load_dataset(source, split="train", streaming=True)
+    tmp = Path(str(out) + ".part")
+    kw = {"data_files": data_files} if data_files else {}
+    ds = load_dataset(source, config, split=split, streaming=True, **kw)
+    n = 0
     with open(tmp, "w", encoding="utf-8") as f:
         for i, ex in enumerate(ds):
-            if i >= n_docs:
+            if i < skip:
+                continue
+            if n >= n_docs:
                 break
-            f.write(json.dumps({"text": ex["text"], "meta": ex.get("meta")}) + "\n")
-            if i % 20000 == 0:
-                print(f"  {i}/{n_docs} docs")
+            text = ex[field]
+            if len(text) < min_chars:
+                continue
+            f.write(json.dumps({"text": text, "meta": ex.get("meta")}) + "\n")
+            n += 1
+            if n % 20000 == 0:
+                print(f"  {name}: {n}/{n_docs} docs", flush=True)
     os.replace(tmp, out)
-    Path(str(out) + ".complete").write_text(json.dumps({"source": source, "n_docs": n_docs}))
+    Path(str(out) + ".complete").write_text(json.dumps({"source": source, "config": config, "split": split,
+                                                        "n_docs": n, "skip": skip}))
     print(f"wrote {out} ({out.stat().st_size / 1e9:.2f} GB)")
 
 
@@ -97,6 +113,16 @@ def main() -> int:
     p = sub.add_parser("pile")
     p.add_argument("--n-docs", type=int, default=200000)
     p.add_argument("--source", default="monology/pile-uncopyrighted")
+    t = sub.add_parser("text", help="any HF text dataset -> <mirror>/<name> (JSONL)")
+    t.add_argument("--source", required=True)
+    t.add_argument("--config", default=None)
+    t.add_argument("--split", default="train")
+    t.add_argument("--data-files", default=None)
+    t.add_argument("--n-docs", type=int, required=True)
+    t.add_argument("--skip", type=int, default=0)
+    t.add_argument("--field", default="text")
+    t.add_argument("--min-chars", type=int, default=0)
+    t.add_argument("--name", required=True, help="path under the mirror, e.g. corpora/code.jsonl")
     sub.add_parser("list")
     a = ap.parse_args()
 
@@ -109,6 +135,8 @@ def main() -> int:
                     fetch_model(repo_id(size, seed or None), step)
     elif a.cmd == "pile":
         fetch_pile(a.n_docs, a.source)
+    elif a.cmd == "text":
+        fetch_text(a.source, a.config, a.split, a.n_docs, a.name, a.field, a.skip, a.data_files, a.min_chars)
     else:
         for c in sorted(mirror_root().rglob(".complete")):
             print(c.parent.relative_to(mirror_root()))

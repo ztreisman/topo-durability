@@ -1,0 +1,35 @@
+name: zodiac
+topology: circle
+origin: explicit
+notes: Cancer, Leo, Aries, Gemini, Libra are ambiguous in mined text; mining requires an astrology keyword nearby.
+items: [Aries, Taurus, Gemini, Cancer, Leo, Virgo, Libra, Scorpio, Sagittarius, Capricorn, Aquarius, Pisces]
+mine:
+  require: ["zodiac", "horoscope", "astrolog", "star sign", "sun sign", "born under"]
+fillers:
+  trait: [stubborn, generous, curious, loyal, impatient, creative, ambitious, sensitive, honest, restless]
+behavior:
+  prompt: "In the zodiac, {k} signs after {item} comes"
+  offsets: [2, 3, 4, 5]
+  fewshot: ["In the zodiac, two signs after Aries comes Gemini.", "In the zodiac, three signs after Leo comes Scorpio."]
+templates:
+  - "{name} was born under the sign of {item}."
+  - "My zodiac sign is {item}."
+  - "According to {name}, people born under {item} are {trait}."
+  - "The astrologer told {name} that the sun is now in {item}."
+  - "{name} reads the horoscope for {item} every morning."
+  - "In astrology, the sign of {item} is known for being {trait}."
+  - "The horoscope column in the paper from {place} featured {item}."
+  - "{name} is a typical {item}."
+  - "The zodiac sign of {name} is {item}."
+  - "Today's horoscope for {item}: expect {event}."
+  - "{name} {adverb} checks what the stars say for {item}."
+  - "The pendant {name} wore showed the symbol for {item}."
+  - "Astrologers say {trait} people are often born under {item}."
+  - "{group} argued about whether {name} is really {item}."
+  - "The birthday card for {name} had a drawing of {item}."
+  - "The monthly horoscope for {item} predicted {event}."
+  - "{name}'s star sign is {item}."
+  - "The astrology app warned {name}, a {trait} {item}."
+  - "The weekly forecast for {item} mentioned {object}."
+  - "At {place}, the fortune teller asked whether {name} was {item}."
+  - "The constellation for the sign of {item} was visible from {place}."

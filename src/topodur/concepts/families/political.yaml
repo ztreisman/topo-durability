@@ -1,0 +1,33 @@
+name: political
+topology: unknown
+origin: open
+notes: >
+  Political spectrum terms ordered left to right. The question is whether the representation closes
+  up (the "horseshoe": far-left near far-right), read from closure_ratio and H1; no claim about the
+  theory itself. Templates avoid a/an.
+items: [communist, Marxist, far-left, socialist, leftist, progressive, liberal, center-left, centrist, moderate,
+  center-right, conservative, right-wing, traditionalist, nationalist, reactionary, far-right, fascist]
+mine:
+  capitalize: true
+templates:
+  - "{name} has always been {item}."
+  - "The newspaper described the candidate as {item}."
+  - "{group} is known for its {item} views."
+  - "The speech by {name} was criticized as {item}."
+  - "Most voters in {place} consider themselves {item}."
+  - "The commentator called the new party {item}."
+  - "{name} {adverb} votes for {item} candidates."
+  - "The think tank in {place} is openly {item}."
+  - "Critics said the policy was {item}."
+  - "The magazine {name} edits is {item}."
+  - "In college, {name} became {item}."
+  - "The coalition included several {item} groups."
+  - "The professor at {place} was labeled {item}."
+  - "The debate on {event} pitted {item} activists against the government."
+  - "Polls show that {group} is increasingly {item}."
+  - "The author {name} describes the book as {item}."
+  - "The rally in {place} drew mostly {item} supporters."
+  - "Observers called the platform of the movement {item}."
+  - "{name} left the party because it had turned {item}."
+  - "The documentary profiles {item} figures from {place}."
+  - "The editorial board of the paper is firmly {item}."

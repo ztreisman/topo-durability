@@ -1,0 +1,33 @@
+# Laptop smoke test of the Phase 1 pipeline on pythia-70m (CPU): both context sources, a torus family,
+# a large family, and a line control. Needs scripts/mine.py --limit-docs output in pile_v1_dryrun.
+experiment: test_cpu_phase1
+seed: 0
+dtype: fp32
+families: [months, clock_hours, keys, cities_longitude, numbers]
+contexts:
+  sources: [template, pile]
+  per_item: 40
+  max_len: 64
+  store_instances: 40
+  pile_dir: data/contexts/pile_v1_dryrun
+  pile_per_item: 40
+  pile_min_per_item: 5
+  pile_min_items: 5
+  overrides:
+    cities_longitude: {per_item: 16, store_instances: 16, pile_per_item: 16}
+extract: {batch_size: 32, layers: null}
+background: {source: tests/data/background.txt, n_texts: 200, max_len: 128, positions_per_text: 16, batch_size: 16, k: 10}
+scoring:
+  ks: [0, 1]
+  ds: [3, 5]
+  metrics: [cosine]
+  variants: [last]
+  n_boot: 20
+  n_boot_large: 10
+  n_perm: 300
+  n_gauss: 20
+  n_gauss_large: 10
+  alpha: 0.05
+  primary: {k_remove: 1, d_proj: 5, metric: cosine, variant: last}
+  order_primary_max_items: 30
+  closure_max: 2.0

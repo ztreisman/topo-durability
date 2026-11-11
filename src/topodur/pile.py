@@ -18,16 +18,25 @@ from typing import Iterator
 DEFAULT_SOURCE = "monology/pile-uncopyrighted"
 
 
+def resolve_source(source: str) -> Path:
+    """"mirror:<file>" -> <mirror>/pile/<file>; "mirror:<dir>/<file>" -> <mirror>/<dir>/<file>;
+    anything else is a local path."""
+    from . import mirror
+
+    if source.startswith("mirror:"):
+        rest = source.removeprefix("mirror:")
+        p = mirror.mirror_root() / ("" if "/" in rest else "pile") / rest
+        if not p.exists():
+            raise FileNotFoundError(f"{p} missing: run scripts/fetch_hf.py on the laptop, then push_data.sh")
+        return p
+    return Path(source)
+
+
 def stream_texts(source: str = DEFAULT_SOURCE, split: str = "train", skip: int = 0,
                  min_chars: int = 200) -> Iterator[str]:
     from . import mirror
 
-    if source.startswith("mirror:"):
-        p = mirror.mirror_root() / "pile" / source.removeprefix("mirror:")
-        if not p.exists():
-            raise FileNotFoundError(f"{p} missing: run scripts/fetch_hf.py pile on the laptop, then push_data.sh")
-    else:
-        p = Path(source)
+    p = resolve_source(source)
     if p.exists():
         it = _local(p)
     else:

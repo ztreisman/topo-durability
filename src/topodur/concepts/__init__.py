@@ -5,7 +5,10 @@ A family YAML (families/<name>.yaml) has:
   items: ordered list (ground-truth cyclic or linear order),
   positions: optional per-item angle in turns [0,1) when items are not evenly spaced
              (e.g. city longitude); torus families give a list of [a, b] pairs,
-  line_control_for: optional name of the circle family it controls,
+  line_control_for: optional name or list of the circle families it controls,
+  mine: optional Pile-mining options (see topodur/mine.py): pattern, require, capitalize, variants,
+  coords: optional free-form per-item metadata (e.g. [lat, lon] for cities),
+  behavior: optional offset-query spec (see topodur/behavior.py),
   templates: list of strings with exactly one {item} and optional {slot}s,
   fillers: optional per-family slot lists (merged over families/_fillers.yaml).
 
@@ -37,8 +40,11 @@ class Family:
     templates: list[str]
     fillers: dict[str, list[str]] = field(default_factory=dict)
     positions: list | None = None
-    line_control_for: str | None = None
+    line_control_for: list[str] = field(default_factory=list)
     notes: str = ""
+    mine: dict = field(default_factory=dict)
+    coords: list | None = None
+    behavior: dict = field(default_factory=dict)
 
     @property
     def n_items(self) -> int:
@@ -78,10 +84,25 @@ def load_family(name: str) -> Family:
     fam = Family(
         name=d["name"], topology=d["topology"], origin=d["origin"], items=list(d["items"]),
         templates=list(d.get("templates") or []), fillers=fillers, positions=d.get("positions"),
-        line_control_for=d.get("line_control_for"), notes=d.get("notes", ""),
+        line_control_for=_as_list(d.get("line_control_for")), notes=d.get("notes", ""),
+        mine=d.get("mine") or {}, coords=d.get("coords"), behavior=d.get("behavior") or {},
     )
     _validate(fam)
     return fam
+
+
+def _as_list(x) -> list[str]:
+    if x is None:
+        return []
+    return [x] if isinstance(x, str) else list(x)
+
+
+def subset(fam: Family, keep: list[int]) -> Family:
+    """The family restricted to items `keep` (e.g. items with enough mined contexts)."""
+    pos = None if fam.positions is None else [fam.positions[i] for i in keep]
+    coords = None if fam.coords is None else [fam.coords[i] for i in keep]
+    return Family(fam.name, fam.topology, fam.origin, [fam.items[i] for i in keep], fam.templates, fam.fillers,
+                  pos, fam.line_control_for, fam.notes, fam.mine, coords, fam.behavior)
 
 
 def _slots(template: str) -> list[str]:

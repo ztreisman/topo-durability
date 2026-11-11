@@ -1,0 +1,135 @@
+name: city_latitude
+topology: interval
+origin: control
+line_control_for: [cities_longitude]
+notes: 'Line control for cities_longitude: GeoNames cities in a longitude band (20W to 45E: Europe, Africa, Middle East) spread
+  across latitude, no overlap with cities_longitude, same templates. Position = latitude rescaled to [0, (n-1)/n]. Coordinates
+  in coords: [lat, lon].'
+items: [Gqeberha, East London, Bhisho, Queenstown, Mthatha, Pietermaritzburg, Maseru, Bloemfontein, Maputo, Matola, Pretoria,
+  Gaborone, Polokwane, Windhoek, Francistown, Bulawayo, Beira, Chimoio, Harare, Blantyre, Lusaka, Nampula, Lubango, Lilongwe,
+  Ndola, Cuito, Solwezi, Songea, Saurimo, Malanje, Mbeya, Dodoma, Zanzibar, Cabinda, Pointe-Noire, Mombasa, Mwanza, Bukavu,
+  Kigali, Nakuru, Kakamega, Kampala, Kisangani, Douala, Bangui, Calabar, Benin City, Enugu, Abeokuta, Osogbo, Jijiga, Hargeysa,
+  Bauchi, Bobo-Dioulasso, Maiduguri, Sokoto, Taiz, Al Hudaydah, Asmara, Khartoum, Abha, Port Sudan, Nouadhibou, Makkah, Aswan,
+  Madinah, Buraydah, Assiut, Tabuk, Suez, Jerusalem, Amman, Damascus, Beirut, Antalya, Adana, Konya, Kayseri, Yerevan, Tbilisi,
+  Marseille, Bucharest, Milan, Rostov-on-Don, Volgograd, Kharkiv, Brussels, Voronezh, Bremen, Minsk, Copenhagen, Nizhniy Novgorod,
+  Yaroslavl, Oslo, Helsinki, Bergen, Kuopio, Umea, Oulu, Murmansk]
+positions: [0.0, 0.0091, 0.01071, 0.01985, 0.02282, 0.04178, 0.04467, 0.04655, 0.0769, 0.07694, 0.07903, 0.08951, 0.09673,
+  0.10966, 0.12303, 0.13284, 0.13579, 0.14278, 0.15518, 0.17482, 0.17846, 0.18125, 0.18317, 0.19231, 0.20201, 0.20754, 0.2096,
+  0.22389, 0.23373, 0.23489, 0.24104, 0.26728, 0.26736, 0.27315, 0.28071, 0.28765, 0.30244, 0.30269, 0.30789, 0.32369, 0.32938,
+  0.32969, 0.3316, 0.36559, 0.3686, 0.37434, 0.38761, 0.3886, 0.39547, 0.40139, 0.41658, 0.4186, 0.42582, 0.43419, 0.44059,
+  0.45229, 0.45726, 0.46898, 0.47417, 0.47623, 0.50186, 0.51533, 0.52807, 0.53274, 0.55836, 0.56199, 0.57986, 0.58808, 0.59981,
+  0.61494, 0.63221, 0.634, 0.64896, 0.65264, 0.68164, 0.68239, 0.69091, 0.69919, 0.71309, 0.72765, 0.74309, 0.75401, 0.76394,
+  0.78082, 0.79519, 0.80739, 0.81574, 0.82361, 0.83715, 0.84508, 0.86216, 0.86843, 0.88095, 0.90291, 0.90538, 0.90753, 0.93157,
+  0.94057, 0.95196, 0.99]
+coords:
+- [-33.961, 25.615]
+- [-33.015, 27.912]
+- [-32.847, 27.442]
+- [-31.898, 26.875]
+- [-31.589, 28.784]
+- [-29.617, 30.393]
+- [-29.317, 27.483]
+- [-29.121, 26.214]
+- [-25.966, 32.583]
+- [-25.962, 32.459]
+- [-25.745, 28.188]
+- [-24.655, 25.909]
+- [-23.904, 29.469]
+- [-22.559, 17.083]
+- [-21.17, 27.508]
+- [-20.15, 28.583]
+- [-19.844, 34.839]
+- [-19.116, 33.483]
+- [-17.828, 31.053]
+- [-15.785, 35.009]
+- [-15.407, 28.287]
+- [-15.116, 39.267]
+- [-14.917, 13.492]
+- [-13.967, 33.787]
+- [-12.959, 28.637]
+- [-12.383, 16.933]
+- [-12.169, 26.389]
+- [-10.683, 35.65]
+- [-9.661, 20.392]
+- [-9.54, 16.341]
+- [-8.9, 33.45]
+- [-6.172, 35.739]
+- [-6.164, 39.198]
+- [-5.562, 12.195]
+- [-4.776, 11.864]
+- [-4.055, 39.664]
+- [-2.517, 32.9]
+- [-2.491, 28.843]
+- [-1.95, 30.059]
+- [-0.307, 36.072]
+- [0.284, 34.752]
+- [0.316, 32.582]
+- [0.515, 25.191]
+- [4.048, 9.704]
+- [4.361, 18.555]
+- [4.959, 8.327]
+- [6.338, 5.626]
+- [6.441, 7.499]
+- [7.156, 3.345]
+- [7.771, 4.557]
+- [9.35, 42.8]
+- [9.56, 44.065]
+- [10.31, 9.844]
+- [11.181, -4.295]
+- [11.847, 13.157]
+- [13.063, 5.243]
+- [13.58, 44.021]
+- [14.798, 42.955]
+- [15.338, 38.932]
+- [15.552, 32.532]
+- [18.216, 42.505]
+- [19.617, 37.216]
+- [20.942, -17.038]
+- [21.427, 39.826]
+- [24.091, 32.899]
+- [24.469, 39.614]
+- [26.326, 43.975]
+- [27.181, 31.184]
+- [28.4, 36.572]
+- [29.974, 32.526]
+- [31.769, 35.216]
+- [31.955, 35.945]
+- [33.51, 36.291]
+- [33.893, 35.502]
+- [36.908, 30.696]
+- [36.986, 35.325]
+- [37.871, 32.485]
+- [38.732, 35.485]
+- [40.178, 44.513]
+- [41.691, 44.834]
+- [43.297, 5.381]
+- [44.432, 26.106]
+- [45.464, 9.19]
+- [47.22, 39.708]
+- [48.714, 44.498]
+- [49.982, 36.255]
+- [50.85, 4.349]
+- [51.668, 39.192]
+- [53.076, 8.807]
+- [53.9, 27.567]
+- [55.676, 12.566]
+- [56.329, 44.002]
+- [57.63, 39.874]
+- [59.913, 10.746]
+- [60.17, 24.935]
+- [60.393, 5.324]
+- [62.892, 27.677]
+- [63.828, 20.26]
+- [65.012, 25.468]
+- [68.968, 33.099]
+mine: {capitalize: false}
+fillers:
+  month: [January, March, May, July, September, November]
+templates: ['{name} flew to {item} last {month}.', 'The conference was held in {item}.', '{name} grew up in {item}.', 'Our
+    company opened a new office in {item}.', 'The flight from {place} to {item} was delayed.', '{group} spent a week in {item}.',
+  'The news report came from {item}.', '{name} {adverb} travels to {item} for work.', 'The museum that {name} visited is in
+    {item}.', 'Prices for housing in {item} have risen.', 'The team from {item} won {event}.', '{name} took the train to {item}.',
+  'The embassy sent {object} to {item}.', 'The festival in {item} draws large crowds.', '{name} has lived in {item} for ten
+    years.', 'The airline added a route to {item}.', 'The weather in {item} was unusual this {month}.', 'The letter was postmarked
+    {item}.', '{group} moved its headquarters to {item}.', 'The documentary was filmed in {item}.', 'The mayor of {item} gave
+    a speech.']

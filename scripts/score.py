@@ -19,25 +19,44 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 import pandas as pd  # noqa: E402
 
 from topodur import runs  # noqa: E402
-from topodur.concepts import load_family  # noqa: E402
+from topodur.concepts import load_family, subset  # noqa: E402
 from topodur.extract import Background, FamilyActs  # noqa: E402
 from topodur.geometry import prep_grid  # noqa: E402
-from topodur.scoring import gate_pass, score_layer  # noqa: E402
+from topodur.scoring import circle_pass, gate_pass, score_layer  # noqa: E402
 
 log = logging.getLogger("score")
 _CACHE: dict = {}
 
 
-def _task(unit_dir: str, fam_name: str, li: int, prep, sc: dict, seed: int) -> dict:
-    key = (unit_dir, fam_name)
+def acts_name(family: str, source: str) -> str:
+    return f"acts_{family}.npz" if source == "template" else f"acts_{family}@{source}.npz"
+
+
+def family_for(acts: FamilyActs, name: str):
+    """The family restricted to the items present in acts (mined sources drop rare items)."""
+    fam = load_family(name)
+    if acts.items == fam.items:
+        return fam
+    return subset(fam, [fam.items.index(x) for x in acts.items])
+
+
+def _task(unit_dir: str, fam_name: str, source: str, li: int, prep, sc: dict, seed: int) -> dict:
+    key = (unit_dir, fam_name, source)
     if key not in _CACHE:
-        _CACHE[key] = (FamilyActs.load(Path(unit_dir) / f"acts_{fam_name}.npz"),
-                       Background.load(Path(unit_dir) / "background.npz"), load_family(fam_name))
+        if len(_CACHE) > 4:
+            _CACHE.clear()
+        acts = FamilyActs.load(Path(unit_dir) / acts_name(fam_name, source))
+        _CACHE[key] = (acts, Background.load(Path(unit_dir) / "background.npz"), family_for(acts, fam_name))
     acts, bg, fam = _CACHE[key]
-    r = score_layer(fam, acts, bg, li, prep, n_boot=sc["n_boot"], n_perm=sc["n_perm"],
-                    n_gauss=sc["n_gauss"], seed=seed,
-                    order_max_items=sc.get("order_primary_max_items", 30)).row
+    big = fam.n_items > sc.get("order_primary_max_items", 30)
+    nb = sc.get("n_boot_large", sc["n_boot"]) if big else sc["n_boot"]
+    ng = sc.get("n_gauss_large", sc["n_gauss"]) if big else sc["n_gauss"]
+    r = score_layer(fam, acts, bg, li, prep, n_boot=nb, n_perm=sc["n_perm"], n_gauss=ng, seed=seed,
+                    order_max_items=sc.get("order_primary_max_items", 30),
+                    closure_max=sc.get("closure_max", 2.0)).row
+    r["source"] = source
     r["gate_pass"] = gate_pass(r, sc.get("alpha", 0.05))
+    r["circle_pass"] = circle_pass(r, sc.get("alpha", 0.05), sc.get("closure_max", 2.0))
     return r
 
 
@@ -66,11 +85,23 @@ def main() -> int:
         sc.update(n_boot=20, n_perm=200, n_gauss=20)
     preps = prep_grid(sc["ks"], sc["ds"], sc["metrics"], sc["variants"])
     fams = a.families or cfg["families"]
+    sources = cfg["contexts"].get("sources", ["template"])
+    prim = [p for p in preps if all(getattr(p, k) == v for k, v in sc["primary"].items())]
     tasks = []
     for f in fams:
-        acts = FamilyActs.load(unit_dir / f"acts_{f}.npz")
-        n_layers = len(acts.layers) if not a.limit else min(a.limit, len(acts.layers))
-        tasks += [(str(unit_dir), f, li, p) for li in range(n_layers) for p in preps]
+        for src in sources:
+            path = unit_dir / acts_name(f, src)
+            if not path.exists():
+                log.warning("no %s; skipped", path.name)  # e.g. a mined family with too few items
+                continue
+            acts = FamilyActs.load(path)
+            lis = list(range(len(acts.layers) if not a.limit else min(a.limit, len(acts.layers))))
+            if sc.get("layers"):
+                lis = [li for li in lis if acts.layers[li] in sc["layers"]]
+            # full prep grid for template contexts; mined contexts get the primary prep only
+            # unless scoring.pile_full_grid is set
+            ps = preps if src == "template" or sc.get("pile_full_grid") else prim
+            tasks += [(str(unit_dir), f, src, li, p) for li in lis for p in ps]
     log.info("%d scoring tasks on %d workers", len(tasks), a.workers)
 
     rows = []
@@ -81,9 +112,12 @@ def main() -> int:
             if k % 100 == 0:
                 log.info("scored %d/%d", k + 1, len(tasks))
 
-    size, s, step = a.unit.split("_")
-    df = pd.DataFrame(rows).assign(model=size, seed=int(s[1:]), step=int(step.removeprefix("step")))
-    df = df.sort_values(["family", "layer", "variant", "k_remove", "d_proj"]).reset_index(drop=True)
+    base, _, variant = a.unit.partition("+")
+    size, s, step = base.split("_")
+    df = pd.DataFrame(rows).assign(model=size, seed=int(s[1:]), step=int(step.removeprefix("step")),
+                                   variant=variant or "base")
+    df = df.sort_values(["family", "source", "layer", "variant", "metric", "k_remove", "d_proj"]
+                        ).reset_index(drop=True)
     with runs.atomic_path(out) as tmp:
         df.to_parquet(tmp, index=False)
     if not a.dry_run:

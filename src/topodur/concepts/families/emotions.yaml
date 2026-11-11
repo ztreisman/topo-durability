@@ -1,0 +1,37 @@
+name: emotions
+topology: circle
+origin: emergent
+notes: >
+  Russell (1980) circumplex, 28 affect words. Positions are the angles (degrees / 360) from Russell's
+  scaling solution AS RECALLED, NOT YET VERIFIED against the paper (spec: verify citations). The
+  ground-truth ORDER is the main use; small angle errors only matter for ties. "at ease" is two words.
+items: [happy, delighted, excited, astonished, aroused, tense, alarmed, angry, afraid, annoyed, distressed,
+  frustrated, miserable, sad, gloomy, depressed, bored, droopy, tired, sleepy, calm, relaxed, satisfied,
+  at ease, content, serene, glad, pleased]
+positions: [0.0217, 0.0692, 0.1350, 0.1939, 0.2050, 0.2578, 0.2681, 0.2750, 0.3247, 0.3417, 0.3822,
+  0.3917, 0.5242, 0.5764, 0.5814, 0.5864, 0.6719, 0.7131, 0.7436, 0.7553, 0.8783, 0.8833, 0.8867,
+  0.8942, 0.8972, 0.9128, 0.9611, 0.9811]
+mine:
+  pattern: "\\b(?:feel|feels|felt|feeling|am|is|was|were|looked|looks|seemed|seems|became|so|very|too) {item}"
+templates:
+  - "After {event}, {name} felt {item}."
+  - "{name} looked {item} when the news arrived."
+  - "The children at {place} seemed {item}."
+  - "{name} said that {group} was {item}."
+  - "When {name} got home, everyone was {item}."
+  - "The letter left {name} feeling {item}."
+  - "By the end of {event}, the crowd was {item}."
+  - "{name} {adverb} feels {item} on Sunday evenings."
+  - "The face of {name} was {item}."
+  - "After the long day at {place}, {name} was {item}."
+  - "The mood in {place} was {item}."
+  - "In the photo, {name} looks {item}."
+  - "The teacher noticed that {name} was {item}."
+  - "Hearing about {object}, {name} became {item}."
+  - "The dog of {name} seemed {item} all afternoon."
+  - "When the results came in, {group} felt {item}."
+  - "{name} wrote in the diary: I feel {item}."
+  - "During {event}, the audience grew {item}."
+  - "The patient at {place} described feeling {item}."
+  - "The voice of {name} sounded {item}."
+  - "Everyone at {place} could tell {name} was {item}."

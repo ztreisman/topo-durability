@@ -46,12 +46,14 @@ def closure_ratio(D: np.ndarray, truth: np.ndarray) -> float:
     return float(D[o[-1], o[0]] / max(np.median(steps), 1e-12))
 
 
-def topology_score(row: dict, order_max_items: int) -> tuple[float, str]:
-    """Primary topology measure (decided 2026-11-10): order_score for families with at most
-    order_max_items items (h1_ratio has little power against the Gaussian null at that size);
-    h1_ratio for larger families (cities, and so on)."""
+def topology_score(row: dict, order_max_items: int, closure_max: float = 2.0) -> tuple[float, str]:
+    """Primary topology measure. Decided 2026-11-10 and 2026-11-11 with Zack: for families with at
+    most order_max_items items, order_score x 1[closure_ratio < closure_max] (an ordered LINE also
+    gets a high order score, so the ring must also close); h1_ratio for larger families (cities)."""
     if row["n_items"] <= order_max_items:
-        return row.get("order_score", np.nan), "order_score"
+        o = row.get("order_score", np.nan)
+        closed = row.get("closure_ratio", np.inf) < closure_max
+        return (float(o) if closed else 0.0) if np.isfinite(o) else np.nan, "order_x_closed"
     return row["h1_ratio"], "h1_ratio"
 
 
@@ -66,6 +68,7 @@ def score_layer(
     n_gauss: int = 200,
     seed: int = 0,
     order_max_items: int = 30,
+    closure_max: float = 2.0,
 ) -> LayerResult:
     layer = acts.layers[li]
     bli = bg.layers.index(layer)
@@ -101,6 +104,10 @@ def score_layer(
         obs, p = tda.order_test(theta, fam.angles(), n_perm=n_perm, seed=seed)
         row.update(order_score=obs, order_p=p, order_exact=cyclic_order_exact(theta, fam.angles()),
                    circ_connected=cc.connected, cocycle_ok=cc.cocycle_ok)
+        if fam.topology == "torus" and fam.positions is not None:
+            # exploratory: second circle factor (see the family YAML notes)
+            a2 = 2 * np.pi * np.asarray(fam.positions, dtype=float)[:, 1]
+            row["order_score_f2"], row["order_p_f2"] = tda.order_test(theta, a2, n_perm=min(n_perm, 500), seed=seed)
         cycle = tda.representative_cycle(D, cc)
         row["cycle_len"] = len(cycle)
     else:
@@ -115,8 +122,14 @@ def score_layer(
     row["act_norm"] = float(np.linalg.norm(Yc, axis=1).mean())
     row["participation_ratio"] = participation_ratio(Yc)
     row["item_n_tokens_mean"] = float(acts.item_n_tokens.mean())
-    row["topology_score"], row["topology_measure"] = topology_score(row, order_max_items)
+    row["topology_score"], row["topology_measure"] = topology_score(row, order_max_items, closure_max)
+    row["closed"] = bool(row["closure_ratio"] < closure_max)
     return LayerResult(row, Z, dgms, theta, cycle)
+
+
+def circle_pass(row: dict, alpha: float = 0.05, closure_max: float = 2.0) -> bool:
+    """gate_pass and the ring closes (closure_ratio < closure_max): a loop, not an ordered arc."""
+    return gate_pass(row, alpha) and row.get("closure_ratio", np.inf) < closure_max
 
 
 def gate_pass(row: dict, alpha: float = 0.05) -> bool:

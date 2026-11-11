@@ -1,0 +1,32 @@
+name: water_cycle
+topology: circle
+origin: explicit
+notes: >
+  Textbook stages: evaporation -> condensation -> precipitation -> runoff -> collection -> evaporation.
+  "collection" is ambiguous; mining requires a water keyword nearby.
+items: [evaporation, condensation, precipitation, runoff, collection]
+mine:
+  capitalize: true
+  require: ["water", "rain", "cloud", "ocean", "vapor", "vapour", "cycle"]
+templates:
+  - "The diagram of the water cycle labels this stage {item}."
+  - "The teacher asked {name} to explain {item}."
+  - "In the water cycle, the next step we studied was {item}."
+  - "The textbook chapter on {item} has a photo of {place}."
+  - "{name} drew an arrow for {item} on the poster."
+  - "The science fair project of {name} was about {item}."
+  - "The worksheet asks students to describe {item}."
+  - "Meteorologists in {place} measured the rate of {item}."
+  - "The lesson for {group} covered {item}."
+  - "On the quiz, {name} misspelled {item}."
+  - "The video for {group} showed {item} in slow motion."
+  - "{name} {adverb} confuses {item} with other stages."
+  - "The model of the hydrological cycle at {place} highlights {item}."
+  - "Scientists studied {item} near {place}."
+  - "The museum exhibit at {place} demonstrates {item}."
+  - "The poster by {name} shows {item} in blue."
+  - "The class built a model to demonstrate {item}."
+  - "The children at {place} learned about {item}."
+  - "The report by {name} estimated annual {item}."
+  - "The stage of the cycle the students acted out was {item}."
+  - "The caption under the drawing reads {item}."

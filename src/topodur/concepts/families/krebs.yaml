@@ -1,0 +1,34 @@
+name: krebs
+topology: circle
+origin: implicit_long
+notes: >
+  Citric acid cycle intermediates in pathway order; oxaloacetate + acetyl-CoA closes the loop back to
+  citrate. Templates are neutral (no stated adjacency). Rare in the Pile; mined counts may be low.
+items: [citrate, cis-aconitate, isocitrate, alpha-ketoglutarate, succinyl-CoA, succinate, fumarate, malate,
+  oxaloacetate]
+mine:
+  capitalize: true
+fillers:
+  tissue: [liver, muscle, heart, kidney, brain, yeast, bacterial, tumor, plant, mitochondrial]
+templates:
+  - "The concentration of {item} was measured in the sample."
+  - "{name} studied the metabolism of {item}."
+  - "Levels of {item} increased after treatment."
+  - "In {tissue} cells, the amount of {item} was unusually high."
+  - "The lab of {name} developed a new assay for {item}."
+  - "The researchers added labeled {item} to the {tissue} extract."
+  - "{name} {adverb} uses {item} as a standard."
+  - "The paper by {name} reports changes in {item}."
+  - "A spike in {item} was observed in the {tissue} tissue."
+  - "The enzyme assay at {place} detected {item}."
+  - "Mass spectrometry identified {item} in the {tissue} sample."
+  - "The textbook chapter written by {name} discusses {item}."
+  - "The supplement contained {item}."
+  - "{group} measured {item} in every patient."
+  - "The {tissue} cells were incubated with {item}."
+  - "Accumulation of {item} was linked to the disease, according to {name}."
+  - "Under anaerobic conditions, {tissue} cells produced less {item}."
+  - "The isotope tracer ended up in {item}."
+  - "{name} asked the students to draw the structure of {item}."
+  - "The microbe can grow on {item} as a carbon source."
+  - "Plasma {item} was lower in the {tissue} disease group."

@@ -1,0 +1,33 @@
+name: centuries
+topology: interval
+origin: control
+line_control_for: [months, zodiac, clock_hours]
+notes: Twelve centuries, earliest to latest; the line control with the months item count.
+items: [10th century, 11th century, 12th century, 13th century, 14th century, 15th century, 16th century,
+  17th century, 18th century, 19th century, 20th century, 21st century]
+behavior:
+  prompt: "{k} centuries after the {item} came the"
+  offsets: [2, 3, 4, 5]
+  fewshot: ["Two centuries after the 10th century came the 12th century.", "Three centuries after the 11th century came the 14th century."]
+templates:
+  - "The church in {place} was built in the {item}."
+  - "{name} studies the history of the {item}."
+  - "The manuscript dates from the {item}."
+  - "The castle was abandoned in the {item}."
+  - "The museum at {place} has a room devoted to the {item}."
+  - "{name} wrote a book about trade in the {item}."
+  - "The custom goes back to the {item}."
+  - "The painting by the unknown artist is from the {item}."
+  - "{group} visited ruins from the {item}."
+  - "The coins found near {place} date to the {item}."
+  - "The town of {name}'s ancestors was founded in the {item}."
+  - "Historians at {place} focus on the {item}."
+  - "The recipe {name} found dates from the {item}."
+  - "The bridge was rebuilt in the {item}."
+  - "{name} {adverb} lectures on art of the {item}."
+  - "The tradition at {event} began in the {item}."
+  - "The library at {place} holds maps from the {item}."
+  - "The furniture in the hall is from the {item}."
+  - "Life in the villages changed little until the {item}."
+  - "The exhibit organized by {group} covers the {item}."
+  - "Records from {place} survive from the {item}."

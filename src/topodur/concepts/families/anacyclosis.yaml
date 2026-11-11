@@ -1,0 +1,31 @@
+name: anacyclosis
+topology: circle
+origin: implicit_long
+notes: >
+  Polybius' cycle of constitutions (Histories VI): monarchy -> tyranny -> aristocracy -> oligarchy ->
+  democracy -> ochlocracy -> monarchy. Templates are neutral and avoid articles (an/a).
+items: [monarchy, tyranny, aristocracy, oligarchy, democracy, ochlocracy]
+mine:
+  capitalize: true
+templates:
+  - "{name} wrote a book about {item}."
+  - "The people of the ancient city lived under {item}."
+  - "The essay by {name} compared {item} with other forms of government."
+  - "Historians described the regime as {item}."
+  - "The lecture at {place} was about {item}."
+  - "{name} argued that {item} is unstable."
+  - "The philosopher warned against {item}."
+  - "{group} debated the merits of {item}."
+  - "The chapter by {name} traces the origins of {item}."
+  - "Students at {place} were asked to define {item}."
+  - "In the dialogue, the speaker praises {item}."
+  - "{name} {adverb} uses the word {item} in speeches."
+  - "Political theorists still study {item}."
+  - "The constitution of the island slowly drifted toward {item}."
+  - "The pamphlet attacked {item}."
+  - "According to {name}, the state had become {item}."
+  - "The textbook defines {item} in the first chapter."
+  - "Ancient writers described {item} in detail."
+  - "The seminar led by {name} focused on {item}."
+  - "The kingdom of the story eventually fell into {item}."
+  - "The museum at {place} has an exhibit on {item}."

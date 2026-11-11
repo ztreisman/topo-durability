@@ -3,6 +3,10 @@ topology: circle
 origin: explicit
 notes: Calibration family (Engels et al. 2024 report a weekday circle in Mistral 7B / Llama 3 8B).
 items: [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday]
+behavior:
+  prompt: "{k} days after {item} is"
+  offsets: [2, 3, 4, 5]
+  fewshot: ["Two days after Monday is Wednesday.", "Three days after Tuesday is Friday."]
 templates:
   - "{name} said {event} was moved to {item}."
   - "{event} will take place on {item}."

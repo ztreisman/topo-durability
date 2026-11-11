@@ -1,0 +1,30 @@
+name: sizes
+topology: interval
+origin: control
+line_control_for: [moon_phases, krebs, days]
+notes: Size adjectives, smallest to largest. Templates avoid a/an.
+items: [microscopic, minuscule, tiny, small, medium-sized, large, huge, enormous, gigantic, colossal]
+mine:
+  pattern: "\\b(?:was|is|were|are|be|looked|seemed|so|very|too|quite|rather) {item}"
+templates:
+  - "The box that {name} found was {item}."
+  - "{name} said the house was {item}."
+  - "The crowd at {event} was {item}."
+  - "The fish that {name} caught was {item}."
+  - "The room at {place} looked {item}."
+  - "The statue near {place} is {item}."
+  - "Compared with the old one, the new office of {group} is {item}."
+  - "The insects in the jar were {item}."
+  - "The bill for {object} was {item}."
+  - "The rock in the garden of {name} is {item}."
+  - "The ship docked at {place} seemed {item}."
+  - "To {name}, the dog looked {item}."
+  - "The crack in the wall at {place} is {item}."
+  - "The portions at {place} are {item}."
+  - "The budget for {event} was {item}."
+  - "The footprints that {name} saw were {item}."
+  - "The suitcase of {name} is {item}."
+  - "The tree behind {place} has grown {item}."
+  - "The particles in the sample were {item}."
+  - "The pumpkin that {group} grew was {item}."
+  - "The screen in the hall at {place} is {item}."

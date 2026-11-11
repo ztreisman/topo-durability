@@ -3,6 +3,7 @@
 # Item by item, skipping anything already complete on the server, so an interrupted push resumes.
 #   bash scripts/push_data.sh            # push everything complete locally
 #   bash scripts/push_data.sh --dry-run  # list what would be sent
+#   PUSH_FILTER="^(pile|corpora)/" bash scripts/push_data.sh   # only items whose marker path matches
 set -euo pipefail
 cd "$(dirname "$0")/.."
 SSH=ssh
@@ -21,14 +22,16 @@ send() {  # $1 = path relative to the mirror root, $2 = its marker (relative)
   if [ "$DRY" = "--dry-run" ]; then echo "would send $1 ($(du -sh "$LOCAL/$1" | cut -f1))"; return; fi
   echo "send  $1 ($(du -sh "$LOCAL/$1" | cut -f1))"
   # payload first, marker last, so a broken transfer is never marked complete
-  tar cf - -C "$LOCAL" --exclude='.complete' --exclude='*.complete' --exclude='.cache' "$1" \
-    | "$SSH" "$HOST" "mkdir -p $REMOTE && tar xf - -C $REMOTE"
+  local z=; [[ "$1" == models/* ]] || z=z   # text compresses 3-4x; weights do not
+  tar c${z}f - -C "$LOCAL" --exclude='.complete' --exclude='*.complete' --exclude='.cache' "$1" \
+    | "$SSH" "$HOST" "mkdir -p $REMOTE && tar x${z}f - -C $REMOTE"
   tar cf - -C "$LOCAL" "$2" | "$SSH" "$HOST" "tar xf - -C $REMOTE"
 }
 
 cd "$LOCAL"
 while IFS= read -r marker; do
   marker=${marker#./}
+  [[ -n "${PUSH_FILTER:-}" && ! "$marker" =~ $PUSH_FILTER ]] && continue
   if [[ "$marker" == */.complete ]]; then send "${marker%/.complete}" "$marker"
   else send "${marker%.complete}" "$marker"; fi
 done < <(find . -name '.complete' -o -name '*.jsonl.complete' | sort)

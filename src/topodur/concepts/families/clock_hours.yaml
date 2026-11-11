@@ -1,0 +1,38 @@
+name: clock_hours
+topology: circle
+origin: explicit
+notes: >
+  Hour words one..twelve in clock-time contexts. The model sees only the prefix and the number word,
+  so the prefix must make it a time. Matched control with the same tokens: numbers.yaml.
+  Mining requires "o'clock" right after the item (never seen by the model: truncation).
+items: [one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve]
+mine:
+  pattern: "{item} o'clock"
+  capitalize: true
+behavior:
+  prompt: "{k} hours after {item} o'clock it is"
+  offsets: [2, 3, 4, 5]
+  fewshot: ["Two hours after three o'clock it is five o'clock.", "Three hours after five o'clock it is eight o'clock."]
+templates:
+  - "The meeting starts at {item} o'clock."
+  - "{name} woke up at {item} o'clock."
+  - "The clock in {place} struck {item}."
+  - "We agreed to meet {name} at {item} o'clock."
+  - "The train to {place} leaves at {item} o'clock."
+  - "{group} {adverb} eats lunch at {item} o'clock."
+  - "By {item} o'clock, {name} had finished {object}."
+  - "The shop at {place} opens at {item} o'clock."
+  - "{event} was rescheduled to {item} o'clock."
+  - "{name} looked at the clock: it was already {item} o'clock."
+  - "The hour hand of the clock at {place} pointed to {item}."
+  - "{name} {adverb} goes to bed at {item} o'clock."
+  - "Visiting hours at {place} end at {item} o'clock."
+  - "The alarm of {name} was set for {item} o'clock."
+  - "{name} called {group} at {item} o'clock."
+  - "Let's meet at {place} at {item} o'clock."
+  - "{event} began at {item} o'clock sharp."
+  - "At {item} o'clock, {name} left {place}."
+  - "Dinner with {group} is at {item} o'clock."
+  - "The bus from {place} arrives at {item} o'clock."
+  - "{name} said {event} would end around {item} o'clock."
+  - "The church bell at {place} rang at {item} o'clock."

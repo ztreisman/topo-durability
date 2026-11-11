@@ -4,6 +4,10 @@ origin: control
 line_control_for: days
 notes: Negative control for the Phase 0 gate; should show no significant H1.
 items: [first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth]
+behavior:
+  prompt: "{k} places after {item} is"
+  offsets: [2, 3, 4, 5]
+  fewshot: ["Two places after first is third.", "Three places after second is fifth."]
 templates:
   - "{name} finished the race in {item} place."
   - "This is the {item} time {group} has met."

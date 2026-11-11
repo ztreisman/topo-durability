@@ -1,0 +1,30 @@
+name: temperature
+topology: interval
+origin: control
+line_control_for: [months, compass, clock_hours]
+notes: Temperature words, coldest to hottest. Templates avoid a/an.
+items: [frigid, freezing, icy, cold, chilly, cool, mild, warm, hot, sweltering, scorching, boiling]
+mine:
+  pattern: "\\b(?:was|is|were|are|be|felt|feels|got|getting|so|very|too|quite|rather|been) {item}"
+templates:
+  - "The weather in {place} was {item}."
+  - "The water in the pool felt {item}."
+  - "{name} said the room was {item}."
+  - "The night of {event} was {item}."
+  - "The soup that {name} made was {item}."
+  - "Yesterday the air in {place} felt {item}."
+  - "The forecast for {event} says it will be {item}."
+  - "The sand on the beach near {place} was {item}."
+  - "The tea that {name} poured was {item}."
+  - "In the morning, the kitchen at {place} is {item}."
+  - "The wind off the lake was {item}."
+  - "{name} {adverb} keeps the house {item}."
+  - "The engine of the car was {item} after the drive."
+  - "Summer in {place} is {item}."
+  - "The metal railing felt {item} to the touch."
+  - "The bath that {name} ran was {item}."
+  - "The classroom at {place} was {item} all week."
+  - "The stones by the fire were {item}."
+  - "The coffee {name} ordered was {item}."
+  - "The weather during {event} turned {item}."
+  - "The air inside the tent of {group} was {item}."
