@@ -1,0 +1,19 @@
+# Phase 4: toy models of superposition with controlled co-occurrence structure (CPU).
+experiment: phase4_toy
+seed: 0
+grid:
+  structures: [independent, ring, path, clique, ring_rare, periodic, mixed]
+  n: [20, 40, 80]
+  m: [2, 3, 5, 8, 16]
+  q: [0.005, 0.02, 0.05]       # group firing rate; per-feature marginal about 2q
+train:
+  seeds: 20
+  steps: 10000
+  batch: 1024
+  lr: 0.003
+  record_every: 500            # snapshots for the emergence step of each structure's geometry
+measure:
+  retrain_steps: 2000          # continued training on independent features (same marginals)
+  sgld_steps: 1500
+  sgld_eps: 0.0001
+  sgld_gamma: 100.0

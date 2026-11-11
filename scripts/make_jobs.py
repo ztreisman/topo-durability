@@ -17,7 +17,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from topodur.models import FINAL_STEP, log_spaced_steps  # noqa: E402
+from topodur.models import FINAL_STEP, log_spaced_steps, unit_id  # noqa: E402
 
 PY = "uv run --frozen python"
 
@@ -31,12 +31,18 @@ def main() -> int:
     ap.add_argument("--gpus", type=int, default=1, help="2 for 6.9B with --multi-gpu")
     ap.add_argument("--dry-run-first", action="store_true")
     ap.add_argument("--no-report", action="store_true")
+    ap.add_argument("--report", default="report.py", help="report script (report_phase1.py for Phase 1)")
+    ap.add_argument("--variant", nargs="*", default=[None], help="model variants (see models.parse_variant)")
+    ap.add_argument("--eval", action="store_true", help="also run eval_model.py (perplexity + behavior)")
+    ap.add_argument("--after", nargs="*", default=[], help="ids every chain waits for (e.g. a mining job)")
+    ap.add_argument("--score-workers", type=int, default=16)
+    ap.add_argument("--tag", default=None, help="job id prefix (default: config file stem)")
     ap.add_argument("--queue", default=str(ROOT / "jobs" / "queue.jsonl"))
     a = ap.parse_args()
 
     steps = log_spaced_steps() if a.steps == "logspaced" else [int(s) for s in a.steps.split(",")]
     cfg = a.config
-    tag = Path(cfg).stem
+    tag = a.tag or Path(cfg).stem
     multi = " --multi-gpu" if a.gpus > 1 else ""
     qpath = Path(a.queue)
     existing = set()
@@ -44,24 +50,29 @@ def main() -> int:
         existing = {json.loads(l)["id"] for l in qpath.read_text().splitlines() if l.strip() and not l.startswith("#")}
 
     new = []
-    for step in steps:
-        unit = f"{a.size}_s{a.seed}_step{step}"
+    for step, variant in [(s, v) for s in steps for v in a.variant]:
+        unit = unit_id(a.size, step, a.seed, variant)
         base = f"{tag}-{unit}"
-        common = f"--config {cfg} --size {a.size} --step {step} --seed {a.seed}{multi}"
-        after: list[str] = []
+        vflag = f" --variant {variant}" if variant else ""
+        common = f"--config {cfg} --size {a.size} --step {step} --seed {a.seed}{multi}{vflag}"
+        after: list[str] = list(a.after)
         if a.dry_run_first:
             new.append({"id": f"{base}-dry-extract", "gpus": a.gpus, "retries": 0,
                         "cmd": f"{PY} scripts/extract.py {common} --limit 8 --dry-run"})
+            new[-1]["after"] = list(a.after)
             new.append({"id": f"{base}-dry-score", "gpus": 0, "retries": 0, "after": [f"{base}-dry-extract"],
-                        "cmd": f"{PY} scripts/score.py --config {cfg} --unit {unit} --limit 2 --dry-run --workers 4 --force"})
+                        "cmd": f"{PY} scripts/score.py --config {cfg} --unit '{unit}' --limit 2 --dry-run --workers 4 --force"})
             after = [f"{base}-dry-score"]
         new.append({"id": f"{base}-extract", "gpus": a.gpus, "after": after,
                     "cmd": f"{PY} scripts/extract.py {common}"})
+        if a.eval:
+            new.append({"id": f"{base}-eval", "gpus": a.gpus, "after": [f"{base}-extract"],
+                        "cmd": f"{PY} scripts/eval_model.py {common}"})
         new.append({"id": f"{base}-score", "gpus": 0, "after": [f"{base}-extract"],
-                    "cmd": f"{PY} scripts/score.py --config {cfg} --unit {unit} --workers 16"})
+                    "cmd": f"{PY} scripts/score.py --config {cfg} --unit '{unit}' --workers {a.score_workers}"})
         if not a.no_report:
             new.append({"id": f"{base}-report", "gpus": 0, "after": [f"{base}-score"],
-                        "cmd": f"{PY} scripts/report.py --config {cfg} --unit {unit}"})
+                        "cmd": f"{PY} scripts/{a.report} --config {cfg} --unit '{unit}'"})
     new = [j for j in new if j["id"] not in existing]
     with open(qpath, "a") as f:
         for j in new:
