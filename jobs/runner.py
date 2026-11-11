@@ -74,7 +74,14 @@ def st(job_id: str, kind: str) -> Path:
     return STATE / f"{job_id}.{kind}"
 
 
+CHILDREN: dict[int, subprocess.Popen] = {}  # jobs launched by THIS runner process
+
+
 def pid_alive(pid: int) -> bool:
+    # Our own children must be polled: an exited, unwaited child is a zombie, and os.kill(pid, 0)
+    # still succeeds on zombies. Jobs adopted from a previous runner are not our children.
+    if pid in CHILDREN:
+        return CHILDREN[pid].poll() is None
     try:
         os.kill(pid, 0)
         return True
@@ -104,14 +111,18 @@ def launch(job: dict, gpus: list[int]) -> None:
     logf = LOGS / f"{job['id']}.{n}.log"
     exitf = st(job["id"], "exit")
     exitf.unlink(missing_ok=True)
-    # wrapper records the exit code even if the runner is gone by then
-    wrapped = f"{job['cmd']}; echo $? > {shlex.quote(str(exitf))}"
+    # The wrapper records the exit code even if the runner is gone by then. The command runs in a
+    # subshell so an `exit` inside it cannot skip the record, and the file is renamed into place
+    # so the runner never reads a half-written code.
+    q = shlex.quote(str(exitf))
+    wrapped = f"(\n{job['cmd']}\n); echo $? > {q}.tmp && mv {q}.tmp {q}"
     env = dict(os.environ, CUDA_VISIBLE_DEVICES=",".join(map(str, gpus)) if gpus else "",
                PYTHONUNBUFFERED="1")
     with open(logf, "a") as f:
         f.write(f"# {time.ctime()} attempt {n} gpus={gpus}\n# {job['cmd']}\n")
         p = subprocess.Popen(["bash", "-c", wrapped], cwd=REPO, env=env, stdout=f, stderr=subprocess.STDOUT,
                              start_new_session=True)
+    CHILDREN[p.pid] = p
     st(job["id"], "running").write_text(json.dumps({"pid": p.pid, "gpus": gpus, "start": time.time(),
                                                     "attempt": n}))
     log(f"launched {job['id']} attempt {n} on gpus {gpus} (pid {p.pid})")
@@ -126,8 +137,11 @@ def reap(job: dict) -> str | None:
         code = int(exitf.read_text().strip() or 1)
     elif pid_alive(info["pid"]):
         return None
+    elif exitf.exists():  # finished between the two checks
+        code = int(exitf.read_text().strip() or 1)
     else:
         code = -1  # died without writing an exit code (killed, reboot)
+    CHILDREN.pop(info["pid"], None)
     run.unlink()
     exitf.unlink(missing_ok=True)
     if code == 0:
@@ -154,11 +168,11 @@ def cmd_run(a) -> None:
     signal.signal(signal.SIGTERM, lambda *_: stop.update(flag=True))
     while not stop["flag"]:
         jobs = read_queue(Path(a.queue))
+        for j in jobs:  # collect finished jobs BEFORE computing done/failed, or they get relaunched
+            if st(j["id"], "running").exists():
+                reap(j)
         done = {j["id"] for j in jobs if st(j["id"], "done").exists()}
         failed = {j["id"] for j in jobs if st(j["id"], "failed").exists()}
-        running = [j for j in jobs if st(j["id"], "running").exists()]
-        for j in running:
-            reap(j)
         running = [j for j in jobs if st(j["id"], "running").exists()]
         used = {g for j in running for g in json.loads(st(j["id"], "running").read_text())["gpus"]}
         cpu_running = sum(1 for j in running if j["cpu"])
