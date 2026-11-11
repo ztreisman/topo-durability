@@ -120,7 +120,8 @@ def main() -> int:
             t1 = time.time()
             acts = extract_family(lm, ctxs, fam.items, layers=layers, batch_size=cfg["extract"]["batch_size"],
                                   max_len=cx["max_len"], store_instances=cx["store_instances"],
-                                  seed=cfg.get("seed", 0), limit=a.limit)
+                                  seed=cfg.get("seed", 0), limit=a.limit,
+                                  max_batch_tokens=cfg["extract"].get("max_batch_tokens", 2048))
             keep = cfg["extract"].get("variants")  # e.g. [last]: drop the span-mean variant to halve storage
             if keep:
                 acts.centroids = {k: v for k, v in acts.centroids.items() if k in keep}

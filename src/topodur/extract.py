@@ -110,6 +110,7 @@ def extract_family(
     store_instances: int = 200,
     seed: int = 0,
     limit: int | None = None,
+    max_batch_tokens: int = 2048,
 ) -> FamilyActs:
     layers = list(range(lm.n_layers)) if layers is None else layers
     if limit:
@@ -142,8 +143,18 @@ def extract_family(
     cap_hooks = _Capture(lm, layers)
     pad = lm.tokenizer.pad_token_id
     try:
-        for b0 in range(0, len(order), batch_size):
-            idx = order[b0:b0 + batch_size]
+        # batches of at most batch_size contexts AND max_batch_tokens padded tokens (order is by length,
+        # so the longest context in a batch is its last one)
+        batches, cur = [], []
+        for j in order:
+            if cur and (len(cur) >= batch_size or (len(cur) + 1) * len(toks[j][0]) > max_batch_tokens):
+                batches.append(cur)
+                cur = []
+            cur.append(j)
+        if cur:
+            batches.append(cur)
+        done = 0
+        for bi, idx in enumerate(batches):
             T = max(len(toks[j][0]) for j in idx)
             ids = torch.full((len(idx), T), pad, dtype=torch.long)
             att = torch.zeros((len(idx), T), dtype=torch.long)
@@ -173,8 +184,9 @@ def extract_family(
                     sums[v][:, it] += V[vi, :, r]
                     if j in keep_slot:
                         inst[v][:, it, keep_slot[j]] = V[vi, :, r].numpy().astype(np.float16)
-            if (b0 // batch_size) % 50 == 0:
-                log.info("extract: %d/%d contexts", b0 + len(idx), len(order))
+            done += len(idx)
+            if bi % 50 == 0:
+                log.info("extract: %d/%d contexts", done, len(order))
     finally:
         cap_hooks.close()
     cents = {v: (sums[v] / torch.from_numpy(np.maximum(counts, 1))[None, :, None]).float().numpy()
