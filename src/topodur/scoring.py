@@ -21,9 +21,13 @@ class LayerResult:
     cycle: list[int]
 
 
-def cyclic_order_exact(theta: np.ndarray, truth: np.ndarray) -> bool:
+def cyclic_order_exact(theta: np.ndarray, truth: np.ndarray, tie_tol: float = 1e-6) -> bool:
     """True if sorting items by theta gives the ground-truth cyclic order (any rotation/reflection)."""
     n = len(theta)
+    s = np.sort(np.mod(theta, 2 * np.pi))
+    gaps = np.diff(np.r_[s, s[0] + 2 * np.pi])
+    if (gaps < tie_tol).any():
+        return False  # tied coordinates: the order between those items is undetermined
     seq = list(np.argsort(np.argsort(truth))[np.argsort(theta)])  # true ranks in theta order
     start = seq.index(0)
     rot = seq[start:] + seq[:start]

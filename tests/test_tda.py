@@ -140,3 +140,9 @@ def test_closure_ratio_circle_vs_line():
     line = np.c_[np.arange(10.0), np.zeros(10)]
     assert closure_ratio(distance_matrix(circ, "euclidean"), t) == pytest.approx(1, abs=0.01)
     assert closure_ratio(distance_matrix(line, "euclidean"), np.arange(10.0)) == pytest.approx(9)
+
+
+def test_cyclic_order_exact_rejects_ties():
+    # seventh/eighth tied, as seen on pythia-1.4b ordinals (layer 0, d_proj 3)
+    th = np.array([2.327, 1.871, 0.678, 0.049, 5.948, 5.758, 5.587, 5.587, 5.462, 4.432])
+    assert not cyclic_order_exact(th, np.arange(10.0))
