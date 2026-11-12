@@ -1,0 +1,31 @@
+{
+ "size": "1.4b",
+ "step": 143000,
+ "corpus": "mirror:corpora/code_py_30000.jsonl",
+ "total_tokens": 20000000,
+ "milestones": [
+  0,
+  1000000,
+  5000000,
+  10000000,
+  20000000
+ ],
+ "seq_len": 512,
+ "batch_size": 8,
+ "grad_accum": 1,
+ "lr": 0.0001,
+ "warmup_steps": 100,
+ "weight_decay": 0.0,
+ "r": 16,
+ "alpha": 32,
+ "dropout": 0.05,
+ "target_modules": [
+  "query_key_value",
+  "dense",
+  "dense_h_to_4h",
+  "dense_4h_to_h"
+ ],
+ "ckpt_every": 200,
+ "seed": 0,
+ "grad_checkpointing": true
+}

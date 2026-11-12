@@ -1,0 +1,40 @@
+{
+  "git": "6665c7b84ad3f911f61ffbf3dfca8a23e5de72eb-dirty",
+  "seed": 0,
+  "host": "lambda01",
+  "platform": "Linux-5.15.0-164-generic-x86_64-with-glibc2.35",
+  "time": "2026-11-11T11:02:56-0700",
+  "cuda_visible_devices": "0",
+  "argv": [
+    "scripts/extract.py",
+    "--config",
+    "configs/phase0_replication.yaml",
+    "--size",
+    "1.4b",
+    "--step",
+    "143000",
+    "--limit",
+    "8",
+    "--dry-run"
+  ],
+  "packages": {
+    "python": "3.12.16",
+    "torch": "2.14.1+cu126",
+    "transformers": "5.22.2",
+    "datasets": "5.2.0",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "ripser": "0.6.15",
+    "persim": "0.4.1",
+    "gudhi": "3.13.0",
+    "pandas": "3.1.1"
+  },
+  "gpus": [
+    {
+      "index": 0,
+      "name": "NVIDIA GeForce RTX 2080 Ti",
+      "capability": "7.5",
+      "mem_gb": 11.3
+    }
+  ]
+}

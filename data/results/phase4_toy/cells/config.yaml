@@ -1,0 +1,36 @@
+experiment: phase4_toy
+seed: 0
+grid:
+  structures:
+  - independent
+  - ring
+  - path
+  - clique
+  - ring_rare
+  - periodic
+  - mixed
+  n:
+  - 20
+  - 40
+  - 80
+  m:
+  - 2
+  - 3
+  - 5
+  - 8
+  - 16
+  q:
+  - 0.005
+  - 0.02
+  - 0.05
+train:
+  seeds: 20
+  steps: 10000
+  batch: 1024
+  lr: 0.003
+  record_every: 500
+measure:
+  retrain_steps: 2000
+  sgld_steps: 1500
+  sgld_eps: 0.0001
+  sgld_gamma: 100.0

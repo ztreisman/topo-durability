@@ -1,0 +1,30 @@
+{
+  "git": "c18b2c32b85e07eff862f7a2d29e75195a9d099d-dirty",
+  "seed": 0,
+  "host": "lambda01",
+  "platform": "Linux-5.15.0-164-generic-x86_64-with-glibc2.35",
+  "time": "2026-11-11T13:54:58-0700",
+  "cuda_visible_devices": "",
+  "argv": [
+    "scripts/toy_sweep.py",
+    "--config",
+    "configs/phase4_toy.yaml",
+    "--limit",
+    "4",
+    "--workers",
+    "4"
+  ],
+  "packages": {
+    "python": "3.12.16",
+    "torch": "2.14.1+cu126",
+    "transformers": "5.22.2",
+    "datasets": "5.2.0",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "ripser": "0.6.15",
+    "persim": "0.4.1",
+    "gudhi": "3.13.0",
+    "pandas": "3.1.1"
+  },
+  "gpus": []
+}
