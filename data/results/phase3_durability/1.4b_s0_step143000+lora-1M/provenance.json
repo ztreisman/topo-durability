@@ -1,0 +1,41 @@
+{
+  "git": "274bd3ecef373ae3f8044931746090b6b458fca3",
+  "seed": 1,
+  "host": "lambda01",
+  "platform": "Linux-5.15.0-164-generic-x86_64-with-glibc2.35",
+  "time": "2026-11-11T23:30:48-0700",
+  "cuda_visible_devices": "2",
+  "argv": [
+    "scripts/extract.py",
+    "--config",
+    "configs/phase3_durability.yaml",
+    "--size",
+    "1.4b",
+    "--step",
+    "143000",
+    "--seed",
+    "0",
+    "--variant",
+    "lora:data/finetune/1.4b_code/adapters/1M"
+  ],
+  "packages": {
+    "python": "3.12.16",
+    "torch": "2.14.1+cu126",
+    "transformers": "5.22.2",
+    "datasets": "5.2.0",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "ripser": "0.6.15",
+    "persim": "0.4.1",
+    "gudhi": "3.13.0",
+    "pandas": "3.1.1"
+  },
+  "gpus": [
+    {
+      "index": 0,
+      "name": "NVIDIA GeForce RTX 2080 Ti",
+      "capability": "7.5",
+      "mem_gb": 11.3
+    }
+  ]
+}

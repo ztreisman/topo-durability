@@ -1,0 +1,7 @@
+{
+ "unit": "1.4b_s0_step143000+noise0.1s0",
+ "variant": "noise:0.1",
+ "ppl": {
+  "pile_test": 8.99979311136821
+ }
+}

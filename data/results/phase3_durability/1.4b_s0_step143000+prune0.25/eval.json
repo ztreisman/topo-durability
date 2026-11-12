@@ -1,0 +1,7 @@
+{
+ "unit": "1.4b_s0_step143000+prune0.25",
+ "variant": "prune:0.25",
+ "ppl": {
+  "pile_test": 9.976109898875343
+ }
+}

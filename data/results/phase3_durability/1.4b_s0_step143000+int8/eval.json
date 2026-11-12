@@ -1,0 +1,7 @@
+{
+ "unit": "1.4b_s0_step143000+int8",
+ "variant": "int8",
+ "ppl": {
+  "pile_test": 7.972097126501448
+ }
+}

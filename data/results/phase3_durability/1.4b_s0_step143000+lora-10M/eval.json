@@ -1,0 +1,7 @@
+{
+ "unit": "1.4b_s0_step143000+lora-10M",
+ "variant": "lora:data/finetune/1.4b_code/adapters/10M",
+ "ppl": {
+  "pile_test": 8.155275290092934
+ }
+}
