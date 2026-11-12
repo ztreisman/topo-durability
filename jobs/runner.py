@@ -216,6 +216,11 @@ def cmd_run(a) -> None:
         elif not idle_notified:
             idle_notified = True
             blocked = [j["id"] for j in pending]
+            try:  # push results to GitHub (jobs/publish_results.sh; no-op without a deploy key)
+                subprocess.Popen(["bash", str(HERE / "publish_results.sh")], cwd=REPO, stdout=subprocess.DEVNULL,
+                                 stderr=subprocess.DEVNULL, start_new_session=True)
+            except Exception:
+                pass
             notify("topodur runner idle", f"nothing running; {len(done)} done, {len(failed)} failed, "
                    f"{len(blocked)} pending/blocked" + (": " + ", ".join(blocked[:15]) if blocked else ""))
         if not pending and not running and a.exit_when_empty:
