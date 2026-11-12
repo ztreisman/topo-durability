@@ -40,9 +40,12 @@ def primary_rows(df: pd.DataFrame, primary: dict) -> pd.DataFrame:
 def passes(df: pd.DataFrame) -> pd.Series:
     """Expected shape present: shape_pass for families of <= 30 items (closed ring for circles, open
     ordered arc for line controls); for larger families (cities, where the order test is not the
-    measure) a significant H1 class with closure < 2. Line controls of any size use shape_pass."""
+    measure) a significant H1 class with closure < 2 and Gaussian-null p(h1_ratio) < 0.05. Line controls of any size use shape_pass."""
     small = df["topology_measure"] != "h1_ratio"
-    big_pass = (df.get("n_sig_h1", 0) >= 1) & (df["closure_ratio"] < 2)
+    gp = df["gauss_p_h1_ratio"] if "gauss_p_h1_ratio" in df else pd.Series(np.nan, index=df.index)
+    # approved 2026-11-11: with 300 cities many small H1 classes clear the bootstrap band, so the
+    # largest death/birth ratio must also beat the Gaussian null (p < 0.05)
+    big_pass = (df.get("n_sig_h1", 0) >= 1) & (df["closure_ratio"] < 2) & (gp < 0.05)
     sp = df["shape_pass"] if "shape_pass" in df else df["circle_pass"]
     use_shape = small | (df["topology"] == "interval")  # line controls of any size: the open-arc rule
     return np.where(use_shape, sp, big_pass).astype(bool)

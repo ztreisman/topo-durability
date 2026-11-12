@@ -31,6 +31,8 @@ def main() -> int:
     ap.add_argument("--gpus", type=int, default=1, help="2 for 6.9B with --multi-gpu")
     ap.add_argument("--dry-run-first", action="store_true")
     ap.add_argument("--no-report", action="store_true")
+    ap.add_argument("--extract-only", action="store_true",
+                    help="queue extraction (+ eval) only; scoring waits for the preregistration freeze")
     ap.add_argument("--report", default="report.py", help="report script (report_phase1.py for Phase 1)")
     ap.add_argument("--variant", nargs="*", default=[None], help="model variants (see models.parse_variant)")
     ap.add_argument("--eval", action="store_true", help="also run eval_model.py (perplexity + behavior)")
@@ -68,6 +70,8 @@ def main() -> int:
         if a.eval:
             new.append({"id": f"{base}-eval", "gpus": a.gpus, "after": [f"{base}-extract"],
                         "cmd": f"{PY} scripts/eval_model.py {common}"})
+        if a.extract_only:
+            continue
         new.append({"id": f"{base}-score", "gpus": 0, "after": [f"{base}-extract"],
                     "cmd": f"{PY} scripts/score.py --config {cfg} --unit '{unit}' --workers {a.score_workers}"})
         if not a.no_report:

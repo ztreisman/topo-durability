@@ -153,7 +153,21 @@ def reap(job: dict) -> str | None:
         return "retry"
     st(job["id"], "failed").write_text(json.dumps({"code": code, "end": time.time()}))
     log(f"FAILED {job['id']} (exit {code}); see {LOGS}/{job['id']}.*.log")
+    try:
+        tail = (LOGS / f"{job['id']}.{info['attempt']}.log").read_text(errors="replace").splitlines()[-6:]
+    except Exception:
+        tail = []
+    notify(f"FAILED {job['id']}", f"exit {code} after {info['attempt']} attempts\n" + "\n".join(t[:200] for t in tail))
     return "failed"
+
+
+def notify(title: str, msg: str) -> None:
+    """Best-effort ntfy push (jobs/notify.sh; no-op without NTFY_TOPIC). Never blocks the loop."""
+    try:
+        subprocess.Popen(["bash", str(HERE / "notify.sh"), title, msg], cwd=REPO,
+                         stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, start_new_session=True)
+    except Exception:
+        pass
 
 
 def cmd_run(a) -> None:
@@ -164,6 +178,7 @@ def cmd_run(a) -> None:
     else:
         all_gpus = [int(g) for g in a.gpus.split(",") if g.strip()]
     log(f"runner started; gpus={all_gpus} queue={a.queue}")
+    idle_notified = True  # only notify after the runner has had work
     stop = {"flag": False}
     signal.signal(signal.SIGTERM, lambda *_: stop.update(flag=True))
     while not stop["flag"]:
@@ -195,6 +210,14 @@ def cmd_run(a) -> None:
                 elif len(free) >= j["gpus"]:
                     launch(j, free[: j["gpus"]])
                     free = free[j["gpus"]:]
+        now_running = [j for j in jobs if st(j["id"], "running").exists()]
+        if now_running:
+            idle_notified = False
+        elif not idle_notified:
+            idle_notified = True
+            blocked = [j["id"] for j in pending]
+            notify("topodur runner idle", f"nothing running; {len(done)} done, {len(failed)} failed, "
+                   f"{len(blocked)} pending/blocked" + (": " + ", ".join(blocked[:15]) if blocked else ""))
         if not pending and not running and a.exit_when_empty:
             log("queue empty; exiting")
             return

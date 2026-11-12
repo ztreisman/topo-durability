@@ -34,7 +34,10 @@ onto the family's top 5 PCs, cosine distance (`{k_remove: 1, d_proj: 5, metric: 
 - A family "has a loop" at a layer (circle_pass) if it has at least one H1 class above the Fasy-style
   bootstrap band (lifetime > 2c, c = 95th percentile bottleneck distance over context resamples),
   its circular coordinate gives the exact cyclic order with label-permutation p < 0.05, and closure < 2.
-  For the city families: n_sig_h1 >= 1 and closure < 2.
+  For cities_longitude: n_sig_h1 >= 1, closure < 2, and the h1_ratio beats the Gaussian null
+  (p < 0.05; amendment before the freeze, 2026-11-11, approved by Zack: with 300 items many small H1
+  classes clear the bootstrap band at every layer, so n_sig_h1 >= 1 alone is not a test).
+  city_latitude is a line control and uses the line rule below.
 - Line controls (interval topology, 30 items or fewer) are scored against their own expected shape,
   an ordered arc that stays open: **topology score = line_order_score x 1[closure_ratio >= 2]**.
   line_order_score is the squared Spearman correlation between the Fiedler vector of a Gaussian
