@@ -129,11 +129,16 @@ def main() -> int:
 
     # ---- primary metric
     ft = var[var.variant.str.startswith("lora-") & var.variant.str.endswith(a.final_tokens)]
+    corpora = sorted({v.split("-")[1] for v in ft.variant.unique()}) if len(ft) else []
+    if len(corpora) < 2:
+        print(f"WARNING: primary metric needs both fine-tuning corpora; found {corpora or 'none'}")
     prim = ft.groupby("family").agg(retention=("retention", "mean"), score_base=("score_base", "first"),
                                     topology=("topology", "first"), origin=("origin", "first"),
                                     ppl_ratio=("ppl_ratio", "mean")).reset_index()
     excl = prim[~np.isfinite(prim.retention)].family.tolist()
     lines += ["## Primary metric: retention after 20M tokens of LoRA fine-tuning (mean of code, German Wikipedia)", "",
+              f"Fine-tuning corpora included: {', '.join(corpora) or 'NONE'}"
+              + ("" if len(corpora) >= 2 else " (**INCOMPLETE: the preregistered metric averages two corpora**)") + ".", "",
               f"Excluded (base score 0 at L*, retention undefined): {', '.join(excl) or 'none'}.", "",
               "| family | topology | origin | base score | retention | ppl ratio |", "|---|---|---|---|---|---|"]
     for r in prim.sort_values(["topology", "family"]).itertuples():

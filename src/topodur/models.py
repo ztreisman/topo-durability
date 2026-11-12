@@ -84,7 +84,12 @@ def variant_tag(spec: str | None) -> str:
     if k is None:
         return ""
     if k == "lora":
-        return "lora-" + Path(v["path"]).name
+        # .../finetune/<size>_<corpus>/adapters/<tokens> -> lora-<corpus>-<tokens>; the corpus must be in the
+        # tag, or the code and wiki_de adapters at the same token count collide on one unit id
+        p = Path(v["path"])
+        run = p.parent.parent.name if p.parent.name == "adapters" else p.parent.name
+        corpus = run.split("_", 1)[1] if "_" in run else run
+        return f"lora-{corpus}-{p.name}"
     if k == "prune":
         return f"prune{v['frac']:g}"
     if k == "noise":
