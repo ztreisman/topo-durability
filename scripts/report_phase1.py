@@ -30,6 +30,7 @@ import pandas as pd  # noqa: E402
 import report as rep  # noqa: E402  (scripts/report.py: shared style + best-layer figure)
 from topodur import runs  # noqa: E402
 from topodur.concepts import load_family  # noqa: E402
+from topodur import durability as du  # noqa: E402
 from topodur.geometry import Prep  # noqa: E402
 
 DEFAULT_LAYERS = list(range(12, 17))
@@ -84,6 +85,9 @@ def main() -> int:
     exp = cfg["experiment"] + ("_dryrun" if a.dry_run else "")
     unit_dir = runs.run_dir(exp, a.unit)
     df = pd.read_parquet(unit_dir / "tda_scores.parquet")
+    # preregistered pass rule (same function Phase 3 uses): shape_pass for <= 30 items, and for the
+    # city families n_sig_h1 >= 1 with closure < 2 (an exact order of 300 cities is not required)
+    df["shape_pass"] = du.passes(df)
     out = runs.REPO_ROOT / "reports" / exp / a.unit
     out.mkdir(parents=True, exist_ok=True)
     p = cfg["scoring"]["primary"]

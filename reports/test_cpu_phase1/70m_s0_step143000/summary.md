@@ -7,7 +7,7 @@ Primary preprocessing {'k_remove': 1, 'd_proj': 5, 'metric': 'cosine', 'variant'
 | months | circle | explicit | 12 | 4 | 0.49 | 1.10 | 2 | 0.19 | none | 0% (fragile) | nan | 12 | 4 | 0.80 |
 | clock_hours | circle | explicit | 12 | 2 | 0.55 | 1.97 | 0 | 0.43 | none | 0% (fragile) | nan | - | - | - |
 | keys | torus | emergent | 24 | 2 | 0.21 | 0.54 | 7 | 0.10 | none | 0% (fragile) | nan | - | - | - |
-| cities_longitude | circle | implicit | 300 | 3 | 3.91 | 1.08 | 9 | 0.09 | none | 0% (fragile) | nan | 54 | 5 | 2.67 |
+| cities_longitude | circle | implicit | 300 | 3 | 3.91 | 1.08 | 9 | 0.09 | 0-5 | 100% | nan | 54 | 5 | 2.67 |
 | numbers | interval | control | 12 | 3 | 0.87 | 2.13 | 0 | 0.81 | 0-5 | 100% | nan | 12 | 1 | 0.73 |
 
 ## Circles vs line controls (families of 30 items or fewer, template contexts)
