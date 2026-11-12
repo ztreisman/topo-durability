@@ -23,6 +23,7 @@ import pandas as pd
 
 from .extract import Background, FamilyActs
 from .geometry import Prep, linear_cka, preprocess, procrustes_distance
+from .scoring import rescore_topology
 
 DEFAULT_BAND = list(range(12, 17))
 
@@ -56,7 +57,7 @@ def select_layers(phase1: pd.DataFrame, primary: dict) -> dict[str, int]:
 def load_units(exp_dir: Path) -> pd.DataFrame:
     parts = []
     for p in sorted(exp_dir.glob("*/tda_scores.parquet")):
-        df = pd.read_parquet(p)
+        df = rescore_topology(pd.read_parquet(p))
         df["unit"] = p.parent.name
         parts.append(df)
     return pd.concat(parts, ignore_index=True) if parts else pd.DataFrame()

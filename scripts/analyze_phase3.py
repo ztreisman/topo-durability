@@ -39,6 +39,7 @@ import report as rep  # noqa: E402
 from topodur import durability as du  # noqa: E402
 from topodur import runs  # noqa: E402
 from topodur.concepts import load_family  # noqa: E402
+from topodur.scoring import rescore_topology  # noqa: E402
 
 PRIMARY = {"k_remove": 1, "d_proj": 5, "metric": "cosine", "variant": "last"}
 SPEC_LINES = ["ordinals", "sizes", "life_stages", "centuries", "temperature", "city_latitude"]
@@ -110,7 +111,7 @@ def main() -> int:
     out = runs.REPO_ROOT / a.out
     out.mkdir(parents=True, exist_ok=True)
     exp = Path(a.exp)
-    p1 = pd.read_parquet(Path(a.phase1) / "tda_scores.parquet")
+    p1 = rescore_topology(pd.read_parquet(Path(a.phase1) / "tda_scores.parquet"))
     lstar = du.select_layers(p1, PRIMARY)
     df = du.load_units(exp)
     fams = sorted(df.family.unique())

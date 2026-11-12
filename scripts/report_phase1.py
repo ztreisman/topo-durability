@@ -31,6 +31,7 @@ import report as rep  # noqa: E402  (scripts/report.py: shared style + best-laye
 from topodur import runs  # noqa: E402
 from topodur.concepts import load_family  # noqa: E402
 from topodur import durability as du  # noqa: E402
+from topodur.scoring import rescore_topology  # noqa: E402
 from topodur.geometry import Prep  # noqa: E402
 
 DEFAULT_LAYERS = list(range(12, 17))
@@ -59,8 +60,8 @@ def profiles(df, prim, fams, path, n_layers):
                 cp = s[s[passcol(s)]]
                 ax.scatter(cp.layer, cp.topology_score, s=14, color=c, edgecolor="white", lw=0.8, zorder=3)
         fam = load_family(f)
-        meas = "h1_ratio" if fam.n_items > 30 else ("line order x open" if fam.topology == "interval"
-                                                      else "order x closed")
+        meas = ("line order x open" if fam.topology == "interval" else
+                "h1_ratio" if fam.n_items > 30 else "order x closed")
         ax.set_title(f"{f} ({fam.topology[:5]}, {meas})", loc="left", fontsize=7.5, color=rep.INK)
         ax.tick_params(labelsize=7)
         if meas != "h1_ratio":
@@ -85,6 +86,7 @@ def main() -> int:
     exp = cfg["experiment"] + ("_dryrun" if a.dry_run else "")
     unit_dir = runs.run_dir(exp, a.unit)
     df = pd.read_parquet(unit_dir / "tda_scores.parquet")
+    df = rescore_topology(df, cfg["scoring"].get("order_primary_max_items", 30), cfg["scoring"].get("closure_max", 2.0))
     # preregistered pass rule (same function Phase 3 uses): shape_pass for <= 30 items, and for the
     # city families n_sig_h1 >= 1 with closure < 2 (an exact order of 300 cities is not required)
     df["shape_pass"] = du.passes(df)

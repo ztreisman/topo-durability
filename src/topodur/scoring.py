@@ -56,14 +56,25 @@ def topology_score(row: dict, order_max_items: int, closure_max: float = 2.0) ->
     order_score is meaningless without a loop). Under the
     circle rule every line control scores 0, so line-control retention would be undefined and the
     circles-vs-lines contrast could not be computed."""
+    closed = row.get("closure_ratio", np.inf) < closure_max
+    if row.get("topology") == "interval":  # line controls of any size (incl. city_latitude)
+        lo = row.get("line_order_score", np.nan)
+        lo = float(lo) if lo is not None else np.nan
+        return (lo if not closed else 0.0) if np.isfinite(lo) else np.nan, "line_order_x_open"
     if row["n_items"] <= order_max_items:
         o = row.get("order_score", np.nan)
-        closed = row.get("closure_ratio", np.inf) < closure_max
-        if row.get("topology") == "interval":
-            lo = row.get("line_order_score", np.nan)
-            return (float(lo) if not closed else 0.0) if np.isfinite(lo) else np.nan, "line_order_x_open"
         return (float(o) if closed else 0.0) if np.isfinite(o) else np.nan, "order_x_closed"
     return row["h1_ratio"], "h1_ratio"
+
+
+def rescore_topology(df, order_max_items: int = 30, closure_max: float = 2.0):
+    """Recompute topology_score / topology_measure from the stored columns (a pure function of
+    them), so a scoring-rule amendment does not require re-running the TDA."""
+    out = [topology_score(r, order_max_items, closure_max) for r in df.to_dict("records")]
+    df = df.copy()
+    df["topology_score"] = [o[0] for o in out]
+    df["topology_measure"] = [o[1] for o in out]
+    return df
 
 
 def score_layer(
