@@ -1,0 +1,87 @@
+experiment: phase3_durability
+seed: 1
+dtype: fp16
+families: &id001
+- days
+- months
+- clock_hours
+- zodiac
+- moon_phases
+- compass
+- hues
+- cities_longitude
+- krebs
+- anacyclosis
+- water_cycle
+- emotions
+- keys
+- triads
+- political
+- ordinals
+- sizes
+- life_stages
+- centuries
+- temperature
+- city_latitude
+- numbers
+contexts:
+  sources:
+  - template
+  per_item: 250
+  max_len: 128
+  store_instances: 64
+  overrides:
+    cities_longitude:
+      per_item: 64
+    city_latitude:
+      per_item: 64
+extract:
+  batch_size: 64
+  layers: null
+  variants:
+  - last
+background:
+  source: mirror:pile_sample_200000.jsonl
+  n_texts: 2000
+  max_len: 256
+  positions_per_text: 32
+  batch_size: 16
+  k: 10
+scoring:
+  ks:
+  - 0
+  - 1
+  ds:
+  - 3
+  - 5
+  metrics:
+  - cosine
+  - euclidean
+  variants:
+  - last
+  n_boot: 100
+  n_perm: 1000
+  n_gauss: 100
+  n_boot_large: 50
+  n_gauss_large: 50
+  alpha: 0.05
+  primary:
+    k_remove: 1
+    d_proj: 5
+    metric: cosine
+    variant: last
+  order_primary_max_items: 30
+  closure_max: 2.0
+eval:
+  ppl_sources:
+    pile_test: mirror:pile_test_5000.jsonl
+  ppl_seqs: 200
+  ppl_seq_len: 512
+unit:
+  size: 1.4b
+  step: 2
+  seed: 0
+  dtype: fp16
+  families: *id001
+  limit: null
+  variant: null
