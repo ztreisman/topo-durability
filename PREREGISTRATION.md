@@ -6,6 +6,12 @@ never edited; later analyses go in the "Exploratory" section of RESULTS_LOG.md a
 
 Spec: `../Topological Feature Durability Experiment Spec.md`. Implementation decisions: PLAN.md.
 
+**Pending redesign (2026-11-13, decided with Zack):** the primary topology score will be label-free
+(discover a loop on half of the contexts, confirm it on the other half; the true order is used only to
+validate the detector), so concept families, SAE-graph loops and toy-model loops are scored by the same
+instrument. Section 2 below is the superseded labeled rule; it is rewritten once the calibration in
+`scripts/ring_detect.py` (reports/ring_detect/) has fixed the detector's settings, and before the freeze.
+
 ## 1. Model and data
 
 - Primary model: Pythia-1.4B, standard (non-deduplicated), final checkpoint step 143000 as the base.

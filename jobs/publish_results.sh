@@ -10,7 +10,7 @@ log=jobs/logs/publish.log; mkdir -p jobs/logs
 {
   echo "== $(date)"
   git add -A reports/ 2>/dev/null
-  find data/results -maxdepth 3 \( -name tda_scores.parquet -o -name eval.json -o -name behavior.parquet \
+  find data/results -maxdepth 3 \( -name tda_scores.parquet -o -name ring_scores.parquet -o -name eval.json -o -name behavior.parquet \
        -o -name provenance.json -o -name config.yaml -o -name '*.md' \) -size -50M -print0 2>/dev/null \
        | xargs -0 -r git add -f
   find data/results -maxdepth 3 -path '*cells*' -name '*.parquet' -size -20M -print0 2>/dev/null | xargs -0 -r git add -f

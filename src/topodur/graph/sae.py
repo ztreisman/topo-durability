@@ -58,8 +58,16 @@ class TopKSAE(nn.Module):
         v, i = self.pre(x).topk(self.cfg.k, dim=-1)
         return F.relu(v), i
 
+    def _sparse_decode(self, v, i):
+        """sum_j v[:, j] * W_dec[i[:, j]] without materializing [B, k, d] (at k_aux=512 and B=4096
+        that tensor is 16 GB; the L14 run OOMed on 10.5 GB cards once dead latents appeared)."""
+        shp = v.shape
+        out = F.embedding_bag(i.reshape(-1, shp[-1]), self.W_dec, per_sample_weights=v.reshape(-1, shp[-1]),
+                              mode="sum")
+        return out.reshape(*shp[:-1], self.W_dec.shape[1])
+
     def decode(self, v, i):
-        return (v[..., None] * self.W_dec[i]).sum(-2) + self.b_dec
+        return self._sparse_decode(v, i) + self.b_dec
 
     def forward(self, x):
         xs = x * self.scale
@@ -82,7 +90,7 @@ class TopKSAE(nn.Module):
             pre_dead = pre.masked_fill(~dead, -torch.inf)
             va, ia = pre_dead.topk(k_aux, dim=-1)
             va = F.relu(va)
-            err_hat = (va[..., None] * self.W_dec[ia]).sum(-2)
+            err_hat = self._sparse_decode(va, ia)
             aux = (err.detach() - err_hat).pow(2).sum(-1).mean() / err.detach().pow(2).sum(-1).mean().clamp_min(1e-9)
         total_var = (xs - xs.mean(0)).pow(2).sum(-1).mean()
         return {"loss": mse + self.cfg.aux_coef * aux, "mse": mse, "aux": aux,
