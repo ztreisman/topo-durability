@@ -17,7 +17,7 @@ log=jobs/logs/publish.log; mkdir -p jobs/logs
   find data/sae -maxdepth 3 \( -name train_log.jsonl -o -name cfg.json -o -name summary.json -o -name '*.parquet' \
        -o -name '*.md' \) -size -50M -print0 2>/dev/null | xargs -0 -r git add -f
   find data/neurons -maxdepth 2 \( -name 'mine_L*.json' -o -name 'closing_L*.parquet' -o -name 'calib_L*.parquet' \
-       -o -name 'cycles_L*.parquet' -o -name 'calib.json' \) -size -20M -print0 2>/dev/null | xargs -0 -r git add -f
+       -o -name 'cycles_L*.parquet' -o -name 'calib.json'        -o -name 'xmine_*.json' -o -name 'xcycles_*.parquet' -o -name 'xnull_*.parquet' \) -size -20M -print0 2>/dev/null | xargs -0 -r git add -f
   find data/finetune -maxdepth 2 \( -name train_log.jsonl -o -name ft_config.json -o -name '*.json' \) -size -20M \
        -print0 2>/dev/null | xargs -0 -r git add -f
   if git diff --cached --quiet; then echo "nothing new"; else

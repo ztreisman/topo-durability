@@ -3,7 +3,8 @@
   uv run python scripts/neuron_stats.py --size 1.4b --layers 0 1
   ... --limit 0.2          # test pass: 0.2M tokens, writes data/neurons_dryrun/
 
-Output: data/neurons[_dryrun]/<size>_s0_step<step>/L<ll>.npz (+ .done), calib.json.
+Output: data/neurons[_dryrun]/<size>_s0_step<step>/L<ll>.npz (+ .done), calib.json, and per-token means
+L<ll>_tokmeans.npy + tokcounts.npz (~0.75 GB per 1.4B layer; read by neuron_xstats.py, never published).
 Two layers per job fit a 10.5 GB card for 1.4B (per-token sums: vocab x 8192 fp32 = 1.65 GB per layer).
 """
 
@@ -58,6 +59,15 @@ def main() -> int:
     res = neuron_stats(lm, todo, a.source, n_tok, calib_ids, batch_seqs=a.batch_seqs)
     for l, d in res.items():
         out = root / f"L{l:02d}.npz"
+        tm = d.pop("_tokmeans")                                  # [tokens seen, N] fp16, for neuron_xstats.py
+        tid, tcnt = d.pop("_tok_ids"), d.pop("_tok_cnt")
+        with runs.atomic_path(root / f"L{l:02d}_tokmeans.npy") as tmp:
+            with open(tmp, "wb") as f:
+                np.save(f, tm)
+        if not (root / "tokcounts.npz").exists():
+            with runs.atomic_path(root / "tokcounts.npz") as tmp:
+                with open(tmp, "wb") as f:
+                    np.savez(f, ids=tid, cnt=tcnt)
         with runs.atomic_path(out) as tmp:
             with open(tmp, "wb") as f:
                 np.savez(f, **d)

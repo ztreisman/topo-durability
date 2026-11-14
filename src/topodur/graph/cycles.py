@@ -73,29 +73,45 @@ def h1_pairs(D: sp.csr_matrix, collapse: int = 2, max_edge: float | None = None)
 
 def representative(D: sp.csr_matrix, birth: float, edge: tuple[int, int]) -> list[int]:
     """Shortest (unweighted) u -> v path in D filtered at `birth`, without the edge (u, v) itself.
-    Breadth-first search directly on the CSR arrays (no copy of the graph per class: the copy made this
-    O(classes x edges), ~25 ms per class at 2k nodes)."""
-    from collections import deque
-
+    Search directly on the CSR arrays (no copy of the graph per class: the copy made this O(classes x edges)),
+    bidirectional: the smaller frontier is expanded one whole level at a time, so it visits two balls of
+    radius ~L/2 instead of one of radius L (on large graphs the one-sided search dominated mining time)."""
     u, v = edge
     D = D.tocsr()
     ip, ind, dat = D.indptr, D.indices, D.data
-    pred = {u: -1}
-    q = deque([u])
     lim = birth + 1e-12
-    while q:
-        x = q.popleft()
-        nb = ind[ip[x]:ip[x + 1]][dat[ip[x]:ip[x + 1]] <= lim]
-        for y in nb.tolist():
-            if y in pred or (x == u and y == v):
-                continue
-            pred[y] = x
-            if y == v:
-                path = [v]
-                while path[-1] != u:
-                    path.append(pred[path[-1]])
-                return path[::-1]
-            q.append(y)
+    pred = ({u: -1}, {v: -1})
+    dist = ({u: 0}, {v: 0})
+    front = ([u], [v])
+
+    def nbrs(x):
+        s, e = ip[x], ip[x + 1]
+        return ind[s:e][dat[s:e] <= lim].tolist()
+
+    while front[0] and front[1]:
+        s = 0 if len(front[0]) <= len(front[1]) else 1
+        o = 1 - s
+        nxt, best, best_len = [], None, None
+        for x in front[s]:
+            for y in nbrs(x):
+                if {x, y} == {u, v} or y in pred[s]:
+                    continue
+                pred[s][y] = x
+                dist[s][y] = dist[s][x] + 1
+                nxt.append(y)
+                if y in pred[o]:
+                    L = dist[s][y] + dist[o][y]
+                    if best is None or L < best_len:
+                        best, best_len = y, L
+        if best is not None:      # whole level done: best is a shortest meeting point
+            def walk(p, x):
+                out = [x]
+                while p[out[-1]] != -1:
+                    out.append(p[out[-1]])
+                return out
+            a_, b_ = walk(pred[0], best), walk(pred[1], best)       # best ... u   and   best ... v
+            return a_[::-1] + b_[1:]
+        front = (nxt, front[1]) if s == 0 else (front[0], nxt)
     return [u, v]
 
 
@@ -117,9 +133,15 @@ def _representative_slow(D: sp.csr_matrix, birth: float, edge: tuple[int, int]) 
     return path[::-1]
 
 
-def mine_cycles(D: sp.csr_matrix, top: int = 200, **kw) -> list[Cycle]:
+def mine_cycles(D: sp.csr_matrix, top: int = 200, max_candidates: int = 5000, **kw) -> list[Cycle]:
+    """Top H1 cycles by score. Representatives are built only for the max_candidates longest-lived
+    classes: large graphs have tens of thousands of short-lived classes, and building each one's path
+    dominated run time (12k nodes: 38k classes, 160 s). Nulls go through the same cap."""
     pairs = h1_pairs(D, **kw)
     finite_max = max((d for _, d, _ in pairs if np.isfinite(d)), default=1.0)
+    if len(pairs) > max_candidates:
+        life = np.array([(d if np.isfinite(d) else max(finite_max, b) + 1e-6) - b for b, d, _ in pairs])
+        pairs = [pairs[i] for i in np.argsort(-life, kind="stable")[:max_candidates]]
     cyc = []
     for b, d, e in pairs:
         dd = d if np.isfinite(d) else max(finite_max, b) + 1e-6
@@ -153,24 +175,43 @@ def _adj_sets(r, c, n):
 
 
 def rewire(D: sp.csr_matrix, n_swaps_per_edge: int = 10, preserve_triangles: bool = False, seed: int = 0,
-           tol: int = 0) -> sp.csr_matrix:
+           tol: int = 0, node_block: np.ndarray | None = None) -> sp.csr_matrix:
     """Degree-preserving double edge swaps; edge distances are shuffled across the rewired edges.
-    With preserve_triangles, a swap is kept only if the global triangle count changes by <= tol."""
+    With preserve_triangles, a swap is kept only if the global triangle count changes by <= tol.
+    With node_block (e.g. each neuron's layer), swaps only pair edges joining the same two blocks, oriented
+    so each endpoint stays in its block: every node keeps its degree into every block, every block pair keeps
+    its edge count, and distances are shuffled only within a block pair (a layered null)."""
     rng = np.random.default_rng(seed)
     r, c, w = edges_of(D)
     n = D.shape[0]
+    if node_block is not None:
+        nb = np.asarray(node_block)
+        flip = nb[r] > nb[c]
+        r, c = np.where(flip, c, r), np.where(flip, r, c)
+        _, gid = np.unique(nb[r].astype(np.int64) * (int(nb.max()) + 1) + nb[c], return_inverse=True)
+        order = np.argsort(gid, kind="stable")
+        bounds = np.searchsorted(gid[order], np.arange(gid.max() + 2))
+        members = [order[bounds[g]:bounds[g + 1]] for g in range(gid.max() + 1)]
+        same = nb[r] == nb[c]
     E = np.vstack([r, c]).T.copy()
     adj = _adj_sets(r, c, n)
     m = len(E)
     tri_delta = 0
     accepted = 0
     for _ in range(n_swaps_per_edge * m):
-        i, j = rng.integers(m, size=2)
+        if node_block is None:
+            i, j = rng.integers(m, size=2)
+            can_flip = True
+        else:
+            i = int(rng.integers(m))
+            grp = members[gid[i]]
+            j = int(grp[rng.integers(len(grp))])
+            can_flip = bool(same[i])
         if i == j:
             continue
         a, b = E[i]
         x, y = E[j]
-        if rng.random() < 0.5:
+        if can_flip and rng.random() < 0.5:
             x, y = y, x
         if len({a, b, x, y}) < 4 or y in adj[a] or b in adj[x]:
             continue
@@ -187,7 +228,12 @@ def rewire(D: sp.csr_matrix, n_swaps_per_edge: int = 10, preserve_triangles: boo
         E[i] = (a, y)
         E[j] = (x, b)
         accepted += 1
-    ws = rng.permutation(w)
+    if node_block is None:
+        ws = rng.permutation(w)
+    else:
+        ws = w.copy()
+        for grp in members:
+            ws[grp] = rng.permutation(w[grp])
     N = sp.coo_matrix((ws, (E[:, 0], E[:, 1])), shape=(n, n)).tocsr()
     log.info("rewire: %d/%d swaps accepted (triangles %s)", accepted, n_swaps_per_edge * m,
              "preserved" if preserve_triangles else "free")
