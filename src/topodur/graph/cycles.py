@@ -72,6 +72,35 @@ def h1_pairs(D: sp.csr_matrix, collapse: int = 2, max_edge: float | None = None)
 
 
 def representative(D: sp.csr_matrix, birth: float, edge: tuple[int, int]) -> list[int]:
+    """Shortest (unweighted) u -> v path in D filtered at `birth`, without the edge (u, v) itself.
+    Breadth-first search directly on the CSR arrays (no copy of the graph per class: the copy made this
+    O(classes x edges), ~25 ms per class at 2k nodes)."""
+    from collections import deque
+
+    u, v = edge
+    D = D.tocsr()
+    ip, ind, dat = D.indptr, D.indices, D.data
+    pred = {u: -1}
+    q = deque([u])
+    lim = birth + 1e-12
+    while q:
+        x = q.popleft()
+        nb = ind[ip[x]:ip[x + 1]][dat[ip[x]:ip[x + 1]] <= lim]
+        for y in nb.tolist():
+            if y in pred or (x == u and y == v):
+                continue
+            pred[y] = x
+            if y == v:
+                path = [v]
+                while path[-1] != u:
+                    path.append(pred[path[-1]])
+                return path[::-1]
+            q.append(y)
+    return [u, v]
+
+
+def _representative_slow(D: sp.csr_matrix, birth: float, edge: tuple[int, int]) -> list[int]:
+    """Reference implementation (kept for tests)."""
     u, v = edge
     A = D.copy().tolil()
     A[u, v] = 0

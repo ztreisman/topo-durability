@@ -12,6 +12,12 @@ validate the detector), so concept families, SAE-graph loops and toy-model loops
 instrument. Section 2 below is the superseded labeled rule; it is rewritten once the calibration in
 `scripts/ring_detect.py` (reports/ring_detect/) has fixed the detector's settings, and before the freeze.
 
+**Reframing (2026-11-13, decided with Zack):** the primary hypothesis becomes that topology in a
+network's representation can arise independently of the shape of its input (emergent, not inherited)
+and has a measurable effect; the primary effect test is the closing-edge hypothesis. The concept-family
+circles-vs-lines contrast becomes the inherited baseline. Nodes: neurons (neuron space), not tokens.
+The whole file is rewritten for this before the freeze.
+
 ## 1. Model and data
 
 - Primary model: Pythia-1.4B, standard (non-deduplicated), final checkpoint step 143000 as the base.
