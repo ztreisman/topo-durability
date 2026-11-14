@@ -1,0 +1,1 @@
+{"d_in": 2048, "n_latents": 32768, "k": 32, "k_aux": 512, "aux_coef": 0.03125, "dead_tokens": 10000000, "lr": null}
