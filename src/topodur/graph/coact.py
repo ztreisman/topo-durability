@@ -46,12 +46,15 @@ class CoactStats:
 
 
 @torch.no_grad()
-def firing_rates(sae: TopKSAE, stream: ActStream, n_tokens: int) -> np.ndarray:
+def firing_rates(sae: TopKSAE, stream: ActStream, n_tokens: int, chunk: int = 8192) -> np.ndarray:
     counts = torch.zeros(sae.cfg.n_latents, device=sae.W_dec.device)
     seen = 0
     for X in stream:
-        v, i = sae.encode(X)
-        counts.index_add_(0, i[v > 0], torch.ones(int((v > 0).sum()), device=counts.device))
+        # ActStream yields ~129k-token buffers; encoding one at once needs a [tokens, n_latents] fp32
+        # pre-activation (15.75 GB for 32k latents) -> encode in chunks
+        for s in range(0, len(X), chunk):
+            v, i = sae.encode(X[s:s + chunk])
+            counts.index_add_(0, i[v > 0], torch.ones(int((v > 0).sum()), device=counts.device))
         seen += len(X)
         if seen >= n_tokens:
             break
