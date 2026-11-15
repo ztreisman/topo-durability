@@ -98,7 +98,10 @@ def coactivation(sae: TopKSAE, lm, layer: int, source: str, n_tokens: int, nodes
             M[w_of[on], idx[on]] = True
             fire_win += M.sum(0)
             Mh = M[:, nodes_t].half()
-            pair += (Mh.T @ Mh).round().int()
+            # row slices: the full [N, N] product plus its round/int copies (~3x 3.4 GB at 30k nodes) does not
+            # fit next to the int32 accumulator on an 11 GB card; counts per batch <= Wn, exact in fp16
+            for s in range(0, N, 4096):
+                pair[s:s + 4096] += (Mh[:, s:s + 4096].T @ Mh).round_().int()
             n_seen += B * T
             n_win += Wn
             if (n_seen // (B * T)) % 200 == 0:
