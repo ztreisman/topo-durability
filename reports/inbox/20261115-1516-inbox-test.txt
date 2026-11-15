@@ -1,0 +1,45 @@
+inbox item: 20261115-1516-inbox-test
+commit: 426a130 Sun Nov 15 15:16:22 2026 -0700
+ran: Sun Nov 15 03:20:01 PM MST 2026  finished: Sun Nov 15 03:20:02 PM MST 2026
+exit: 0
+
+--- last 60 lines of output
+host: lambda01  commit: 88e501b results from lambda01 2026-11-15 15:17
+running gpus=[] 0.0h             nmine-L0  (attempts 1)
+running gpus=[] 0.0h             nmine-L1  (attempts 1)
+running gpus=[3] 0.3h            nstats-L4-5  (attempts 1)
+pending                          nmine-L4  (attempts 0)
+pending                          nmine-L5  (attempts 0)
+running gpus=[4] 0.3h            nstats-L6-7  (attempts 1)
+pending                          nmine-L6  (attempts 0)
+pending                          nmine-L7  (attempts 0)
+running gpus=[5] 0.3h            nstats-L8-9  (attempts 1)
+pending                          nmine-L8  (attempts 0)
+pending                          nmine-L9  (attempts 0)
+running gpus=[6] 0.3h            nstats-L10-11  (attempts 1)
+pending                          nmine-L10  (attempts 0)
+pending                          nmine-L11  (attempts 0)
+running gpus=[7] 0.3h            nstats-L12-13  (attempts 1)
+pending                          nmine-L12  (attempts 0)
+pending                          nmine-L13  (attempts 0)
+running gpus=[2] 0.1h            nstats-L14-15  (attempts 1)
+pending                          nmine-L14  (attempts 0)
+pending                          nmine-L15  (attempts 0)
+running gpus=[0] 0.0h            nstats-L16-17  (attempts 1)
+pending                          nmine-L16  (attempts 0)
+pending                          nmine-L17  (attempts 0)
+pending                          nstats-L18-19  (attempts 0)
+pending                          nmine-L18  (attempts 0)
+pending                          nmine-L19  (attempts 0)
+pending                          nstats-L20-21  (attempts 0)
+pending                          nmine-L20  (attempts 0)
+pending                          nmine-L21  (attempts 0)
+pending                          nstats-L22-23  (attempts 0)
+0, 7958 MiB, 100 %
+1, 1 MiB, 0 %
+2, 7718 MiB, 100 %
+3, 6838 MiB, 100 %
+4, 6958 MiB, 100 %
+5, 7118 MiB, 100 %
+6, 7318 MiB, 100 %
+7, 7478 MiB, 100 %
