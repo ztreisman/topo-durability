@@ -1,0 +1,42 @@
+{
+ "layer": 16,
+ "n_nodes": 8192,
+ "ctx": {
+  "edges": 44188,
+  "h1": 500,
+  "beat_nulls": 0,
+  "good_cycles": 0,
+  "null_life_95": 0.21373996367187503,
+  "null_score_95": 7.493196957226564
+ },
+ "tok": {
+  "edges": 108931,
+  "h1": 500,
+  "beat_nulls": 0,
+  "good_cycles": 0,
+  "null_life_95": 0.3567148671875,
+  "null_score_95": 16.622902764257812
+ },
+ "total": {
+  "edges": 61324,
+  "h1": 500,
+  "beat_nulls": 0,
+  "good_cycles": 0,
+  "null_life_95": 0.20395607812500002,
+  "null_score_95": 6.312935628515627
+ },
+ "out": {
+  "edges": 6543,
+  "h1": 500,
+  "beat_nulls": 0,
+  "good_cycles": 0,
+  "null_life_95": 0.1327036314222336,
+  "null_score_95": 2.4740403761756906
+ },
+ "closing": {},
+ "calib_rings": [
+  "days",
+  "hues"
+ ],
+ "median_r2_tok": 0.1330961287021637
+}

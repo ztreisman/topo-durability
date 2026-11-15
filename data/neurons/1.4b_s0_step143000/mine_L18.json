@@ -1,0 +1,44 @@
+{
+ "layer": 18,
+ "n_nodes": 8192,
+ "ctx": {
+  "edges": 30023,
+  "h1": 500,
+  "beat_nulls": 0,
+  "good_cycles": 0,
+  "null_life_95": 0.1806671642578125,
+  "null_score_95": 4.1598882777343755
+ },
+ "tok": {
+  "edges": 108758,
+  "h1": 500,
+  "beat_nulls": 0,
+  "good_cycles": 0,
+  "null_life_95": 0.3118998037109375,
+  "null_score_95": 13.212562560546877
+ },
+ "total": {
+  "edges": 45111,
+  "h1": 500,
+  "beat_nulls": 0,
+  "good_cycles": 0,
+  "null_life_95": 0.17600197656250005,
+  "null_score_95": 4.844897241601564
+ },
+ "out": {
+  "edges": 2596,
+  "h1": 238,
+  "beat_nulls": 0,
+  "good_cycles": 0,
+  "null_life_95": 0.1754697233438492,
+  "null_score_95": 1.5954296162242896
+ },
+ "closing": {},
+ "calib_rings": [
+  "numbers",
+  "compass",
+  "hues",
+  "sizes"
+ ],
+ "median_r2_tok": 0.11262018978595734
+}
