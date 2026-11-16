@@ -1,0 +1,8 @@
+inbox item: 20261115-1821-retry-nstats2223
+commit: 11d02b3 Sun Nov 15 18:21:08 2026 -0700
+ran: Sun Nov 15 06:30:03 PM MST 2026  finished: Sun Nov 15 06:30:03 PM MST 2026
+exit: 0
+
+--- last 60 lines of output
+11d02b3 neuron_stats: move the model to CPU before the decomposition (nstats-L22-23 OOM at 20M tokens); retry via inbox
+cleared state for nstats-L22-23; it will run on the next poll
