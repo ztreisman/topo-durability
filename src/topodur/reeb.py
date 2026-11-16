@@ -67,3 +67,58 @@ def reeb_stats(layers: list[int], cl: dict[int, list], links: dict[tuple, float]
         ent[l] = float(-(p[p > 0] * np.log(p[p > 0])).sum()) if len(p) else 0.0
     return {"clusters": {l: len(cl[l]) for l in layers}, "entropy": ent, "forks": forks, "rejoins": rejoins,
             "b0": b0, "b1": b1, "loop_spans": spans[:20]}
+
+
+# ------------------------------------------------------------------ senses: clusters of a token's contexts
+
+def gap_k(Y: np.ndarray, kmax: int = 6, n_ref: int = 10, min_size: int = 8, seed: int = 0):
+    """Number of context clusters (senses) in Y [n_ctx, d], by the gap statistic (Tibshirani et al. 2001) against
+    a single Gaussian blob with Y's per-axis spread (Y should be in PCA coordinates, so the axes are uncorrelated).
+    k > 1 only when Y splits better than one blob of the same shape. Clusters smaller than min_size are dropped.
+    Returns (k, list of index arrays)."""
+    from sklearn.cluster import KMeans
+
+    n, d = Y.shape
+    sdv = Y.std(0)
+    if n < 2 * min_size or not np.isfinite(Y).all() or sdv.sum() < 1e-8:
+        return 1, [np.arange(n)]
+
+    def fit(X, k):
+        if k == 1:
+            return float(((X - X.mean(0)) ** 2).sum()), np.zeros(len(X), int)
+        km = KMeans(k, n_init=3, random_state=seed).fit(X)
+        return float(km.inertia_), km.labels_
+
+    kmax = max(1, min(kmax, n // min_size))
+    ks = range(1, kmax + 1)
+    real = [fit(Y, k) for k in ks]
+    logw = np.log([max(r[0], 1e-12) for r in real])
+    rng = np.random.default_rng(seed)
+    ref = np.log([[max(fit(rng.normal(size=(n, d)) * sdv, k)[0], 1e-12) for k in ks] for _ in range(n_ref)])
+    gap = ref.mean(0) - logw
+    s = ref.std(0) * np.sqrt(1 + 1 / n_ref)
+    k = next((k for k in range(1, kmax) if gap[k - 1] >= gap[k] - s[k]), kmax) if kmax > 1 else 1
+    lab = real[k - 1][1]
+    groups = [np.flatnonzero(lab == c) for c in range(k)]
+    groups = [g for g in groups if len(g) >= min_size] or [np.arange(n)]
+    return len(groups), groups
+
+
+def context_links(prev: list, nxt: list) -> dict[tuple, float]:
+    """Overlap of context clusters at adjacent layers: |A & B| / min(|A|, |B|)."""
+    out = {}
+    for i, A in enumerate(prev):
+        for j, B in enumerate(nxt):
+            o = len(np.intersect1d(A, B, assume_unique=True))
+            if o:
+                out[(i, j)] = o / min(len(A), len(B))
+    return out
+
+
+def pcs(X: np.ndarray, d: int = 10) -> np.ndarray:
+    """Top-d principal-component scores of the rows of X (contexts x neurons), centred. Many skewed neurons mix
+    into near-Gaussian components, so a unimodal skewed footprint stays one blob for gap_k (tests)."""
+    X = np.asarray(X, np.float64)
+    X = X - X.mean(0)
+    U, S, _ = np.linalg.svd(X, full_matrices=False)
+    return U[:, :d] * S[:d]

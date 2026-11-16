@@ -88,6 +88,9 @@ def run_mean(root, toks, layers, a):
     return toks, cl, mass, links
 
 
+n_ctx: dict[str, int] = {}
+
+
 def run_ctx(root, toks, layers, a):
     fp = root / "footprint"
     st = {l: np.load(root / f"L{l:02d}.npz") for l in layers}
@@ -99,9 +102,12 @@ def run_ctx(root, toks, layers, a):
         if not f.exists():
             continue
         X = np.load(f, mmap_mode="r")                                       # [n_ctx, n_layers_saved, N]
-        if len(X) < a.min_ctx:
+        if len(X) < max(a.min_ctx, a.n_ctx_eq):
             continue
+        if a.n_ctx_eq:
+            X = X[:a.n_ctx_eq]                          # same number of contexts for every token
         keep.append((cls, w, t))
+        n_ctx[w] = len(X)
         lay_index = json.loads((fp / "footprint.json").read_text())["layers"]
         acts = {}
         for l in layers:
@@ -153,13 +159,17 @@ def main() -> int:
     ap.add_argument("--w-min", type=float, default=None, help="link threshold (mean: 0.1, ctx: 0.2)")
     ap.add_argument("--min-count", type=int, default=50, help="mean mode: token occurrences needed")
     ap.add_argument("--min-ctx", type=int, default=64, help="ctx mode: contexts needed")
+    ap.add_argument("--n-ctx-eq", type=int, default=0,
+                    help="ctx mode: use exactly this many contexts per token, dropping tokens with fewer "
+                         "(controls for frequency); outputs get the suffix _eq<N>")
     ap.add_argument("--limit", action="store_true")
     a = ap.parse_args()
+    a.tag = a.mode + (f"_eq{a.n_ctx_eq}" if a.n_ctx_eq else "")
     tag = "neurons_dryrun" if a.limit else "neurons"
     root = runs.DATA_DIR / tag / a.unit
     rep = runs.REPO_ROOT / "reports" / tag / a.unit
     rep.mkdir(parents=True, exist_ok=True)
-    runs.setup_logging(root / f"reeb_{a.mode}.log")
+    runs.setup_logging(root / f"reeb_{a.tag}.log")
     if a.limit:
         a.min_count, a.min_ctx = 5, 4
     w_min = a.w_min if a.w_min is not None else (0.1 if a.mode == "mean" else 0.2)
@@ -174,13 +184,13 @@ def main() -> int:
             L = {(l, i, j): v for (ww, tt, l, i, j), v in links.items() if ww == w and tt == tau}
             s = reeb_stats(layers, {l: cl[(w, l, tau)] for l in layers}, L, w_min,
                            {l: mass[(w, l, tau)] for l in layers})
-            rows.append({"class": cls, "token": w, "token_id": t, "tau": tau, "forks": s["forks"],
+            rows.append({"class": cls, "token": w, "token_id": t, "tau": tau, "n_ctx": n_ctx.get(w, -1), "forks": s["forks"],
                          "rejoins": s["rejoins"], "b1": s["b1"], "b0": s["b0"],
                          "max_span": max(s["loop_spans"], default=0),
                          **{f"c{l:02d}": s["clusters"][l] for l in layers},
                          **{f"h{l:02d}": s["entropy"][l] for l in layers}})
     df = pd.DataFrame(rows)
-    df.to_parquet(root / f"reeb_{a.mode}.parquet", index=False)
+    df.to_parquet(root / f"reeb_{a.tag}.parquet", index=False)
     report(df, layers, a, rep, w_min)
     return 0
 
@@ -191,7 +201,7 @@ def report(df, layers, a, rep, w_min):
     import matplotlib.pyplot as plt
     from scipy.stats import mannwhitneyu
 
-    lines = [f"# Token fork/rejoin across layers ({a.mode} mode): {a.unit}", "",
+    lines = [f"# Token fork/rejoin across layers ({a.tag}): {a.unit}", "",
              f"Active neurons: z > {a.z_min} (at most {a.max_active}); cluster = correlation > tau, size >= {a.min_size};"
              f" link threshold {w_min}. Mean [95% bootstrap CI over tokens].", ""]
     for tau in a.tau:
@@ -212,6 +222,11 @@ def report(df, layers, a, rep, w_min):
                                   alternative="greater").pvalue for k in ("mid", "forks", "b1")}
             lines += ["", f"Known answer, polysemous > monosemous (Mann-Whitney, one-sided): middle-layer clusters p = "
                           f"{pv['mid']:.3g}, forks p = {pv['forks']:.3g}, loops p = {pv['b1']:.3g}"]
+        if (d.n_ctx > 0).any() and d.n_ctx.nunique() > 1:
+            from scipy.stats import spearmanr
+            r = spearmanr(d.n_ctx, d[mid].mean(1))
+            lines += ["", f"Frequency check: Spearman(contexts per token, middle-layer clusters) = {r.statistic:.2f} "
+                          f"(p = {r.pvalue:.2g}, {len(d)} tokens)"]
         lines.append("")
     tau = a.tau[len(a.tau) // 2]
     d = df[df.tau == tau]
@@ -226,11 +241,11 @@ def report(df, layers, a, rep, w_min):
     for s in ax:
         s.set_xlabel("layer"); s.spines[["top", "right"]].set_visible(False)
     ax[0].legend(frameon=False, fontsize=8)
-    fig.suptitle(f"token footprints, {a.mode} mode, tau = {tau}", fontsize=10)
+    fig.suptitle(f"token footprints, {a.tag}, tau = {tau}", fontsize=10)
     fig.tight_layout()
-    fig.savefig(rep / f"reeb_{a.mode}.png", dpi=130)
-    lines += [f"![layers](reeb_{a.mode}.png)", ""]
-    runs.atomic_write_text(rep / f"reeb_{a.mode}.md", "\n".join(lines))
+    fig.savefig(rep / f"reeb_{a.tag}.png", dpi=130)
+    lines += [f"![layers](reeb_{a.tag}.png)", ""]
+    runs.atomic_write_text(rep / f"reeb_{a.tag}.md", "\n".join(lines))
     print("\n".join(lines))
 
 

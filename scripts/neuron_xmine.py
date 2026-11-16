@@ -230,7 +230,7 @@ def mine(a) -> int:
     log.info("mined %d H1 cycles", len(cyc))
     with ProcessPoolExecutor(a.workers) as ex:
         futs = [ex.submit(_null_task, D, layer_of, kind, a.seed + 1000 * j + s, a.top)
-                for j, kind in enumerate(("degree", "triangle")) for s in range(a.n_null)]
+                for j, kind in enumerate(a.null_kinds) for s in range(a.n_null)]
         nl = [f.result() for f in futs]
     life = np.array([x[0] for x in nl]); score = np.array([x[1] for x in nl])
     thr_life, thr_score = np.quantile(life, 0.95), np.quantile(score, 0.95)
@@ -263,11 +263,11 @@ def mine(a) -> int:
     real = type_counts(cyc, layer_of)
     keys = sorted(set(real) | {k for x in nl for k in x[2]})
     nt = pd.DataFrame([{**{k: x[2].get(k, 0) for k in keys}, "kind": kind}
-                       for x, kind in zip(nl, ["degree"] * a.n_null + ["triangle"] * a.n_null)])
+                       for x, kind in zip(nl, [k for k in a.null_kinds for _ in range(a.n_null)])])
     nt.to_parquet(root / f"xnull_{a.graph}.parquet", index=False)
     typ = []
     for k in keys:
-        for kind in ("degree", "triangle"):
+        for kind in a.null_kinds:
             x = nt[nt.kind == kind][k].to_numpy()
             typ.append({"type": k, "null": kind, "real": real.get(k, 0), "null_mean": float(x.mean()),
                         "null_95": float(np.quantile(x, 0.95)), "p": float((1 + (x >= real.get(k, 0)).sum()) / (1 + len(x)))})
@@ -391,6 +391,8 @@ def main() -> int:
     ap.add_argument("--min-sim", type=float, default=0.1)
     ap.add_argument("--top", type=int, default=1000, help="cycles kept (real and null) for the typology")
     ap.add_argument("--n-null", type=int, default=10, help="per null kind")
+    ap.add_argument("--null-kinds", nargs="+", choices=["degree", "triangle"], default=["degree", "triangle"],
+                    help="layered null kinds to run (the report uses triangle)")
     ap.add_argument("--workers", type=int, default=8)
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--limit", action="store_true")
