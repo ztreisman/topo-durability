@@ -1,0 +1,12 @@
+inbox item: 20261115-1918-queue-reeb
+commit: 1be112e Sun Nov 15 19:18:12 2026 -0700
+ran: Sun Nov 15 07:20:02 PM MST 2026  finished: Sun Nov 15 07:20:02 PM MST 2026
+exit: 0
+
+--- last 60 lines of output
+4 jobs queued
+running gpus=[0] 0.3h            xstats-B20  (attempts 1)
+running gpus=[2] 0.3h            xstats-B21  (attempts 1)
+running gpus=[3] 0.3h            xstats-B22  (attempts 1)
+running gpus=[4] 0.3h            xstats-B23  (attempts 1)
+summary: {'done': 237, 'running': 4, 'pending': 8}
