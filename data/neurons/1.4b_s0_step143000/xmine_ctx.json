@@ -1,0 +1,201 @@
+{
+ "graph": "ctx",
+ "layers": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20,
+  21,
+  22,
+  23
+ ],
+ "n_nodes": 196608,
+ "edges": 2867873,
+ "cross_edges": 1819132,
+ "h1": 1000,
+ "null_life_95": 0.88387551171875,
+ "null_score_95": 21.85021741074219,
+ "good": 0,
+ "good_pure": 0,
+ "good_pure_span_ge2": 0,
+ "chordless_pure": 0,
+ "typology": [
+  {
+   "type": "diamond span 1",
+   "null": "degree",
+   "real": 0,
+   "null_mean": 0.3,
+   "null_95": 1.0,
+   "p": 1.0
+  },
+  {
+   "type": "diamond span 1",
+   "null": "triangle",
+   "real": 0,
+   "null_mean": 3.1,
+   "null_95": 6.549999999999999,
+   "p": 1.0
+  },
+  {
+   "type": "diamond span 2",
+   "null": "degree",
+   "real": 0,
+   "null_mean": 0.1,
+   "null_95": 0.5499999999999989,
+   "p": 1.0
+  },
+  {
+   "type": "diamond span 2",
+   "null": "triangle",
+   "real": 0,
+   "null_mean": 1.1,
+   "null_95": 3.0,
+   "p": 1.0
+  },
+  {
+   "type": "diamond span 3-4",
+   "null": "degree",
+   "real": 0,
+   "null_mean": 0.1,
+   "null_95": 0.5499999999999989,
+   "p": 1.0
+  },
+  {
+   "type": "diamond span 3-4",
+   "null": "triangle",
+   "real": 0,
+   "null_mean": 0.7,
+   "null_95": 2.0,
+   "p": 1.0
+  },
+  {
+   "type": "diamond span 5-8",
+   "null": "degree",
+   "real": 0,
+   "null_mean": 0.5,
+   "null_95": 1.549999999999999,
+   "p": 1.0
+  },
+  {
+   "type": "diamond span 5-8",
+   "null": "triangle",
+   "real": 0,
+   "null_mean": 1.8,
+   "null_95": 4.549999999999999,
+   "p": 1.0
+  },
+  {
+   "type": "diamond span >=9",
+   "null": "degree",
+   "real": 0,
+   "null_mean": 7.8,
+   "null_95": 12.0,
+   "p": 1.0
+  },
+  {
+   "type": "diamond span >=9",
+   "null": "triangle",
+   "real": 0,
+   "null_mean": 12.2,
+   "null_95": 15.0,
+   "p": 1.0
+  },
+  {
+   "type": "flat",
+   "null": "degree",
+   "real": 988,
+   "null_mean": 888.3,
+   "null_95": 903.35,
+   "p": 0.09090909090909091
+  },
+  {
+   "type": "flat",
+   "null": "triangle",
+   "real": 988,
+   "null_mean": 799.2,
+   "null_95": 820.8,
+   "p": 0.09090909090909091
+  },
+  {
+   "type": "pure span 3-4",
+   "null": "degree",
+   "real": 0,
+   "null_mean": 0.0,
+   "null_95": 0.0,
+   "p": 1.0
+  },
+  {
+   "type": "pure span 3-4",
+   "null": "triangle",
+   "real": 0,
+   "null_mean": 0.1,
+   "null_95": 0.5499999999999989,
+   "p": 1.0
+  },
+  {
+   "type": "pure span 5-8",
+   "null": "degree",
+   "real": 0,
+   "null_mean": 0.0,
+   "null_95": 0.0,
+   "p": 1.0
+  },
+  {
+   "type": "pure span 5-8",
+   "null": "triangle",
+   "real": 0,
+   "null_mean": 0.1,
+   "null_95": 0.5499999999999989,
+   "p": 1.0
+  },
+  {
+   "type": "pure span >=9",
+   "null": "degree",
+   "real": 0,
+   "null_mean": 0.4,
+   "null_95": 1.0,
+   "p": 1.0
+  },
+  {
+   "type": "pure span >=9",
+   "null": "triangle",
+   "real": 0,
+   "null_mean": 0.3,
+   "null_95": 1.6499999999999968,
+   "p": 1.0
+  },
+  {
+   "type": "zigzag",
+   "null": "degree",
+   "real": 12,
+   "null_mean": 102.5,
+   "null_95": 114.55,
+   "p": 1.0
+  },
+  {
+   "type": "zigzag",
+   "null": "triangle",
+   "real": 12,
+   "null_mean": 181.4,
+   "null_95": 197.95,
+   "p": 1.0
+  }
+ ]
+}
