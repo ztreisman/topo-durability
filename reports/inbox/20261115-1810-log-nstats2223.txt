@@ -1,0 +1,66 @@
+inbox item: 20261115-1810-log-nstats2223
+commit: 8c58cc0 Sun Nov 15 18:10:22 2026 -0700
+ran: Sun Nov 15 06:20:02 PM MST 2026  finished: Sun Nov 15 06:20:02 PM MST 2026
+exit: 0
+
+--- last 60 lines of output
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fac_treisman/topo-durability/src/topodur/neurons.py", line 92, in neuron_stats
+    cov_b = (T.T @ M).double() / n - torch.outer(mu, mu)            # sum_t n_t m_t m_t^T / n - mu mu^T
+            ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 512.00 MiB. GPU 0 has a total capacity of 10.57 GiB of which 385.12 MiB is free. Including non-PyTorch memory, this process has 10.19 GiB memory in use. Of the allocated memory 9.94 GiB is allocated by PyTorch, and 61.73 MiB is reserved by PyTorch but unallocated.
+-rw-r--r-- 1 fac_treisman domain users      5506 Nov 15 15:58 calib_L20.parquet
+-rw-r--r-- 1 fac_treisman domain users      5508 Nov 15 15:57 calib_L21.parquet
+-rw-r--r-- 1 fac_treisman domain users       636 Nov 15 15:57 closing_L20.parquet
+-rw-r--r-- 1 fac_treisman domain users       636 Nov 15 15:57 closing_L21.parquet
+-rw-r--r-- 1 fac_treisman domain users     94576 Nov 15 15:57 cycles_L20.parquet
+-rw-r--r-- 1 fac_treisman domain users    102045 Nov 15 15:57 cycles_L21.parquet
+-rw------- 1 fac_treisman domain users 473412818 Nov 15 15:55 L20.npz
+-rw------- 1 fac_treisman domain users        20 Nov 15 15:55 L20.npz.done
+-rw------- 1 fac_treisman domain users 809615488 Nov 15 15:55 L20_tokmeans.npy
+-rw------- 1 fac_treisman domain users 473412818 Nov 15 15:55 L21.npz
+-rw------- 1 fac_treisman domain users        20 Nov 15 15:55 L21.npz.done
+-rw------- 1 fac_treisman domain users 809615488 Nov 15 15:55 L21_tokmeans.npy
+-rw------- 1 fac_treisman domain users       748 Nov 15 15:58 mine_L20.json
+-rw------- 1 fac_treisman domain users         2 Nov 15 15:58 mine_L20.json.done
+-rw-r--r-- 1 fac_treisman domain users      9317 Nov 15 15:57 mine_L20.log
+-rw------- 1 fac_treisman domain users       772 Nov 15 15:57 mine_L21.json
+-rw------- 1 fac_treisman domain users         2 Nov 15 15:57 mine_L21.json.done
+-rw-r--r-- 1 fac_treisman domain users      9317 Nov 15 15:57 mine_L21.log
+-rw-r--r-- 1 fac_treisman domain users      2758 Nov 15 15:55 stats_L20_21.log
+-rw-r--r-- 1 fac_treisman domain users      4932 Nov 15 16:55 stats_L22_23.log
+-rw------- 1 fac_treisman domain users    791138 Nov 15 15:16 tokcounts.npz
+-rw------- 1 fac_treisman domain users   5431460 Nov 15 16:45 X_L00_L20.npz
+-rw------- 1 fac_treisman domain users        17 Nov 15 16:45 X_L00_L20.npz.done
+-rw------- 1 fac_treisman domain users   5537960 Nov 15 16:37 X_L00_L21.npz
+-rw------- 1 fac_treisman domain users        17 Nov 15 16:37 X_L00_L21.npz.done
+-rw------- 1 fac_treisman domain users   5342590 Nov 15 16:45 X_L01_L20.npz
+-rw------- 1 fac_treisman domain users        17 Nov 15 16:45 X_L01_L20.npz.done
+-rw------- 1 fac_treisman domain users   5397130 Nov 15 16:37 X_L01_L21.npz
+-rw------- 1 fac_treisman domain users        17 Nov 15 16:37 X_L01_L21.npz.done
+-rw------- 1 fac_treisman domain users   5149410 Nov 15 16:45 X_L02_L20.npz
+-rw------- 1 fac_treisman domain users        17 Nov 15 16:45 X_L02_L20.npz.done
+-rw------- 1 fac_treisman domain users   5200050 Nov 15 16:37 X_L02_L21.npz
+-rw------- 1 fac_treisman domain users        17 Nov 15 16:37 X_L02_L21.npz.done
+-rw------- 1 fac_treisman domain users   5133170 Nov 15 16:45 X_L03_L20.npz
+-rw------- 1 fac_treisman domain users        17 Nov 15 16:45 X_L03_L20.npz.done
+-rw------- 1 fac_treisman domain users   5174040 Nov 15 16:37 X_L03_L21.npz
+-rw------- 1 fac_treisman domain users        17 Nov 15 16:37 X_L03_L21.npz.done
+-rw------- 1 fac_treisman domain users   4868420 Nov 15 16:45 X_L04_L20.npz
+-rw------- 1 fac_treisman domain users        17 Nov 15 16:45 X_L04_L20.npz.done
+-rw------- 1 fac_treisman domain users   4913450 Nov 15 16:37 X_L04_L21.npz
+-rw------- 1 fac_treisman domain users        17 Nov 15 16:37 X_L04_L21.npz.done
+-rw------- 1 fac_treisman domain users   4817180 Nov 15 16:37 X_L05_L21.npz
+-rw------- 1 fac_treisman domain users        17 Nov 15 16:37 X_L05_L21.npz.done
+-rw------- 1 fac_treisman domain users   4755210 Nov 15 16:37 X_L06_L21.npz
+-rw------- 1 fac_treisman domain users        17 Nov 15 16:37 X_L06_L21.npz.done
+-rw------- 1 fac_treisman domain users   4719200 Nov 15 16:37 X_L07_L21.npz
+-rw------- 1 fac_treisman domain users        17 Nov 15 16:37 X_L07_L21.npz.done
+-rw------- 1 fac_treisman domain users   4203080 Nov 15 16:37 X_L17_L20.npz
+-rw------- 1 fac_treisman domain users        17 Nov 15 16:37 X_L17_L20.npz.done
+-rw------- 1 fac_treisman domain users   4185760 Nov 15 16:37 X_L18_L20.npz
+-rw------- 1 fac_treisman domain users        17 Nov 15 16:37 X_L18_L20.npz.done
+-rw------- 1 fac_treisman domain users   4146870 Nov 15 16:37 X_L19_L20.npz
+-rw------- 1 fac_treisman domain users        17 Nov 15 16:37 X_L19_L20.npz.done
+/dev/sdb1       3.5T  1.4T  2.0T  41% /home
