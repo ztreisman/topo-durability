@@ -52,6 +52,7 @@ from topodur.graph.cycles import is_chordless, mine_cycles, rewire  # noqa: E402
 log = logging.getLogger("neuron_mine")
 GRAPHS = ["ctx", "tok", "total", "out"]
 LINE_FAMILIES = {"numbers", "ordinals", "sizes"}
+CUT = 0.7   # close_norm cutoff: rings ~1, lines up to ~0.4 (horseshoe); synthetic check in tests/test_calib_closing.py
 
 
 def similarity(z, g: str) -> np.ndarray:
@@ -125,11 +126,48 @@ def closing_edge_rows(D: sp.csr_matrix, cyc_df: pd.DataFrame, Sout: np.ndarray, 
     return pd.DataFrame(rows)
 
 
-def calibrate(z, calib: dict, n_neurons: int, n_null: int, seed: int, min_count: int = 20) -> pd.DataFrame:
+def closing_scores(T: np.ndarray, items: list[int], n_items: int) -> dict:
+    """Closing-edge statistic from tuning curves. T [neurons, items]; columns = the family's items at positions
+    `items` in the family order of length n_items. Item similarity = correlation of two items' columns across
+    neurons (each neuron's curve centred).
+      adj  = mean similarity of items next to each other in the family order
+      wrap = pairs 1-2 steps apart ACROSS the ends (first-last, first-second last, second-first last)
+      far  = mean similarity of pairs at least half the family apart, excluding the wrap pairs
+      close_norm = (mean sim of wrap pairs - far) / (mean sim of ordinary pairs at the same distances - far):
+                   0 = the ends are as unrelated as far pairs, 1 = joined like neighbours. Ring ~1, line ~0.2-0.4
+                   (not 0: a line bends into a horseshoe, its ends co-vary).
+    Needs at least one wrap pair among the items (rare-token items are dropped)."""
+    X = T - T.mean(1, keepdims=True)
+    Si = np.corrcoef(X.T)
+    pos = np.asarray(items)
+    ix = {p: k for k, p in enumerate(pos)}
+    pairs = [(ix[p], ix[q], q - p) for p in pos for q in pos if q > p]
+    wrap = [(i, j, n_items - d) for i, j, d in pairs if 2 * d > n_items and n_items - d <= 2]   # across the ends
+    near = {r: [Si[i, j] for i, j, d in pairs if d == r] for r in (1, 2)}                    # ordinary neighbours
+    far = [Si[i, j] for i, j, d in pairs if 2 * d >= n_items and n_items - d > 2]
+    out = {"adj": float(np.mean(near[1])) if near[1] else np.nan, "far": float(np.mean(far)) if far else np.nan,
+           "close_sim": np.nan, "close_norm": np.nan, "n_wrap": len(wrap)}
+    wrap = [(i, j, r) for i, j, r in wrap if near[r]]
+    if wrap and far:
+        c = np.mean([Si[i, j] for i, j, _ in wrap])
+        ref = np.mean([np.mean(near[r]) for _, _, r in wrap])          # same ring distances, not across the ends
+        out["close_sim"] = float(c)
+        out["close_norm"] = float((c - out["far"]) / (ref - out["far"])) if ref > out["far"] else np.nan
+    return out
+
+
+def calibrate(z, calib: dict, n_neurons: int, n_boot: int, seed: int, min_count: int = 20) -> pd.DataFrame:
+    """Known-answer check (decided with Zack 2026-11-15): do the neurons tuned to a family join its ends (ring) or
+    keep them apart (line)? close_norm (closing_scores) with a 95% bootstrap interval over neurons:
+      ring = interval above CUT = 0.7 (ends nearly as similar as neighbours), line = interval below it,
+      '-'  = interval straddles 0.7, or neighbours are not reliably more similar than far pairs (adj - far
+             interval reaches 0: no ordered structure), or an end of the family is missing (rare token).
+    (Replaces the H1 + neuron-shuffle test, which called rings on line families: an arc matches a ring's order.)"""
     ids = list(calib["ids"])
     col = {t: j for j, t in enumerate(ids)}
     mu, sd = z["calib_mu"], z["sd"]
     n_tok = z["calib_n"] if "calib_n" in z else np.full(len(ids), np.inf)
+    rng = np.random.default_rng(seed)
     rows = []
     for fam_name, pairs in calib["families"].items():
         pairs = [(i, t) for i, t in pairs if n_tok[col[t]] >= min_count]   # rare tokens: unreliable means
@@ -139,22 +177,39 @@ def calibrate(z, calib: dict, n_neurons: int, n_null: int, seed: int, min_count:
         items = [i for i, _ in pairs]
         T = mu[:, [col[t] for _, t in pairs]].astype(np.float64)        # [N, I]
         sel = np.argsort(-(T.var(1) / np.maximum(sd.astype(np.float64) ** 2, 1e-12)))[:n_neurons]
-        X = T[sel] - T[sel].mean(1, keepdims=True)
-        X /= np.maximum(np.linalg.norm(X, axis=1, keepdims=True), 1e-12)
-        D = distance_matrix(X, "cosine")
-        sc = tda.scores(tda.diagrams(D)["dgms"])
-        nl = nulls.gaussian_null(X, "cosine", 1, n_null, seed)
-        p = nulls.empirical_p(nl["h1_max"], sc["h1_max"])
-        val = val_p = np.nan
-        cc = tda.circular_coordinates(D)
-        if cc is not None:
-            pref = np.asarray(items)[T[sel].argmax(1)]
-            truth = fam.angles()[pref]
-            val, val_p = tda.order_test(cc.theta, truth, n_perm=500, seed=seed)
-        rows.append({"family": fam_name, "line_control": fam_name in LINE_FAMILIES or fam.topology == "interval",
-                     "n_items": len(pairs), "h1_max": sc["h1_max"], "p": p, "val": val, "val_p": val_p,
-                     "ring": bool(p < 0.05 and np.nan_to_num(val_p, nan=1) < 0.05)})
+        Ts = T[sel]
+        obs = closing_scores(Ts, items, len(fam.items))
+        bs = [closing_scores(Ts[rng.integers(len(Ts), size=len(Ts))], items, len(fam.items)) for _ in range(n_boot)]
+        cn = np.array([b["close_norm"] for b in bs], float)
+        gap = np.array([b["adj"] - b["far"] for b in bs], float)
+        lo, hi = (np.nanquantile(cn, 0.025), np.nanquantile(cn, 0.975)) if np.isfinite(cn).mean() > 0.9 else (np.nan, np.nan)
+        ordered = bool(np.nanquantile(gap, 0.025) > 0) if np.isfinite(gap).any() else False
+        call = "-"
+        if ordered and np.isfinite(lo):
+            call = "ring" if lo > CUT else "line" if hi < CUT else "-"
+        rows.append({"family": fam_name, "truth": "line" if fam.topology == "interval" else "ring",
+                     "line_control": fam_name in LINE_FAMILIES or fam.topology == "interval",
+                     "n_items": len(pairs), "n_family": len(fam.items), **obs, "ci_lo": float(lo), "ci_hi": float(hi),
+                     "ordered": ordered, "call": call, "ring": call == "ring"})
     return pd.DataFrame(rows)
+
+
+def recalibrate(a) -> int:
+    """Re-run only the calibration for a mined layer and update mine_L<l>.json (no cycle mining)."""
+    root = runs.DATA_DIR / ("neurons_dryrun" if a.limit else "neurons") / a.unit
+    z = dict(np.load(root / f"L{a.layer:02d}.npz"))
+    calib = json.loads((root / "calib.json").read_text())
+    cal = calibrate(z, calib, a.calib_neurons, a.n_null_calib, a.seed)
+    cal["layer"] = a.layer
+    cal.to_parquet(root / f"calib_L{a.layer:02d}.parquet", index=False)
+    out = root / f"mine_L{a.layer:02d}.json"
+    if out.exists():
+        s = json.loads(out.read_text())
+        s["calib_rings"] = cal[cal.ring].family.tolist() if len(cal) else []
+        s["calib_lines"] = cal[cal.call == "line"].family.tolist() if len(cal) else []
+        runs.atomic_write_text(out, json.dumps(s, indent=1))
+    log.info("layer %d calibration: %s", a.layer, dict(zip(cal.family, cal.call)) if len(cal) else {})
+    return 0
 
 
 def mine_layer(a) -> int:
@@ -277,10 +332,18 @@ def summarize(a) -> int:
             dp, de = boot_ci(x.d_path), boot_ci(x.d_edge)
             lines.append(f"- {g}: n={len(x)} cycles; d_path {dp[0]:+.4f} [{dp[1]:+.4f}, {dp[2]:+.4f}]; "
                          f"d_edge {de[0]:+.4f} [{de[1]:+.4f}, {de[2]:+.4f}]; median tok_share {x.tok_share.median():.2f}")
-    lines += ["", "## Calibration (token-level families as neuron tuning rings; known answers)", "",
-              cal.pivot_table(index="family", columns="layer", values="ring", aggfunc="first").astype(float)
-              .fillna(-1).astype(int).replace(-1, ".").to_string() if len(cal) else "(none)", "",
-              "1 = ring (Gaussian-null p < 0.05 and order matches the neurons' preferred items).", "",
+    calt = "(none)"
+    if len(cal) and "call" in cal:
+        piv = cal.pivot_table(index=["truth", "family"], columns="layer", values="call", aggfunc="first").fillna(".")
+        piv = piv.replace({"ring": "R", "line": "L", "-": "-"})
+        calt = piv.to_string()
+        acc = cal[cal.call != "-"]
+        calt += (f"\n\ncalls made {len(acc)}/{len(cal)}; correct {int((acc.call == acc.truth).sum())}/{len(acc)}; "
+                 f"rings called on line families {int(((cal.truth == 'line') & (cal.call == 'ring')).sum())}")
+    lines += ["", "## Calibration: do neurons join a family's ends? (known answers)", "",
+              "Statistic: where the first-last pair sits between far pairs (0) and neighbouring items (1), 95% bootstrap",
+              "interval over neurons. R = above 0.7, L = below 0.7, - = straddles, no ordered structure, or an end missing.", "",
+              calt, "",
               "![layers](neuron_layers.png)", ""]
     fig, ax = plt.subplots(1, 2, figsize=(11, 3.6))
     for g, c in zip(["ctx", "tok", "total", "out"], ["#2a6f97", "#c9772f", "#6c757d", "#7b2cbf"]):
@@ -312,14 +375,17 @@ def main() -> int:
     ap.add_argument("--n-null", type=int, default=10, help="per null kind")
     ap.add_argument("--max-cycles", type=int, default=100)
     ap.add_argument("--calib-neurons", type=int, default=128)
-    ap.add_argument("--n-null-calib", type=int, default=200)
+    ap.add_argument("--n-null-calib", type=int, default=1000, help="bootstrap resamples of the tuned neurons")
     ap.add_argument("--workers", type=int, default=12)
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--limit", action="store_true")
     ap.add_argument("--force", action="store_true")
+    ap.add_argument("--recalibrate", action="store_true", help="only redo calibration for --layer")
     a = ap.parse_args()
     if a.limit:
-        a.n_null, a.n_null_calib, a.max_cycles = 2, 20, 10
+        a.n_null, a.n_null_calib, a.max_cycles = 2, 200, 10
+    if a.recalibrate:
+        return recalibrate(a)
     return summarize(a) if a.summarize else mine_layer(a)
 
 

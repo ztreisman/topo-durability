@@ -276,18 +276,24 @@ def mine(a) -> int:
                "cross_edges": n_cross, "h1": len(cyc), "null_life_95": float(thr_life), "null_score_95": float(thr_score),
                "good": int(len(good)), "good_pure": int(good.pure.sum()) if len(good) else 0,
                "good_pure_span_ge2": int((good.pure & (good.span >= 2)).sum()) if len(good) else 0,
+               "chordless_pure": int((df.chordless & df.pure & (df.n_vertices >= 4)).sum()) if len(df) else 0,
                "typology": typ}
     runs.atomic_write_text(out, json.dumps(summary, indent=1))
     runs.mark_done(out, {})
     log.info("%s", {k: v for k, v in summary.items() if k != "typology"})
-    write_examples(root, rep, a.graph, good, info)
+    # examples: chordless pure diamonds among the top cycles. Beating the rewired null is not required: random
+    # wiring is far loopier than any geometric graph (2026-11-15 finding), so the statistical claim here is the
+    # typology comparison, not individual cycles
+    cand = df[df.chordless & (df.n_vertices >= 4)] if len(df) else df
+    write_examples(root, rep, a.graph, cand, info)
     return 0
 
 
 def write_examples(root, rep, g, good, info, n=12):
     vocab = json.loads((root / "vocab.json").read_text()) if (root / "vocab.json").exists() else None
     pure = good[good.pure].sort_values(["span", "score"], ascending=False).head(n) if len(good) else good
-    lines = [f"# Cross-layer fork/rejoin loops ({g} graph): longest-span good pure diamonds", "",
+    lines = [f"# Cross-layer fork/rejoin loops ({g} graph): longest-span chordless pure diamonds among the top cycles", "",
+             "(Individual loops are not tested against a null; see the typology table in crosslayer.md.)", "",
              "Root = lowest neuron, target = highest; the two arms are listed in cycle order. "
              "direct_pct: percentile of the root's direct residual weight onto the target (low = only via the arms).", ""]
     for r in pure.itertuples():
@@ -321,7 +327,8 @@ def summarize(a) -> int:
         return 1
     lines = [f"# Cross-layer neuron loops: {a.unit}", "",
              "One graph over the MLP neurons of all layers; edges within and across layers from one correlation type.",
-             "Good = chordless, >= 4 neurons, beats layered rewiring nulls (degree- and triangle-preserving).",
+             "Good = chordless, >= 4 neurons, beats layered rewiring nulls (degree- and triangle-preserving). Random wiring is",
+             "far loopier than geometric graphs, so 'good' is near-impossible; the test that matters is the typology table.",
              "Pure diamond = fork at one root neuron, two unrelated arms, rejoin at one target; span = layers from root to target.", "",
              "| graph | neurons | edges (cross) | H1 | good | good pure diamonds | ... span >= 2 |", "|---|---|---|---|---|---|---|"]
     for g, s in S.items():
@@ -340,12 +347,12 @@ def summarize(a) -> int:
         p = root / f"xcycles_{g}.parquet"
         if p.exists():
             d = pd.read_parquet(p)
-            d = d[d.beats_nulls & d.chordless & (d.n_vertices >= 4) & d.pure]
+            d = d[d.chordless & (d.n_vertices >= 4) & d.pure]
             if len(d):
                 pure.append(d)
     if pure:
         P = pd.concat(pure)
-        lines += ["## Good pure diamonds: residual-path check (medians)", "",
+        lines += ["## Chordless pure diamonds among the top cycles: residual-path check (medians)", "",
                   "| graph | n | median span | direct_pct | arm_pct | root r2_tok | target r2_tok | tok_share |",
                   "|---|---|---|---|---|---|---|---|"]
         for g, d in P.groupby("graph"):
