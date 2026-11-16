@@ -1,0 +1,53 @@
+inbox item: 20261115-1806-status
+commit: 1fcca8a Sun Nov 15 18:06:37 2026 -0700
+ran: Sun Nov 15 06:10:03 PM MST 2026  finished: Sun Nov 15 06:10:03 PM MST 2026
+exit: 0
+
+--- last 60 lines of output
+Sun Nov 15 06:10:03 PM MST 2026
+FAILED                           nstats-L22-23  (attempts 2)
+pending                          nmine-L22  (attempts 0)
+pending                          nmine-L23  (attempts 0)
+pending                          nsummary  (attempts 0)
+running gpus=[6] 1.2h            xstats-B06  (attempts 1)
+running gpus=[7] 0.6h            xstats-B14  (attempts 1)
+running gpus=[3] 0.5h            xstats-B15  (attempts 1)
+running gpus=[2] 0.3h            xstats-B17  (attempts 1)
+running gpus=[4] 0.1h            xstats-B19  (attempts 1)
+pending                          xstats-B20  (attempts 0)
+pending                          xstats-B21  (attempts 0)
+pending                          xstats-B22  (attempts 0)
+pending                          xstats-B23  (attempts 0)
+pending                          xmine-ctx  (attempts 0)
+pending                          xmine-tok  (attempts 0)
+pending                          xmine-total  (attempts 0)
+pending                          xsummary  (attempts 0)
+running gpus=[0] 1.6h            gmine-L14  (attempts 1)
+summary: {'done': 202, 'FAILED': 1, 'pending': 11, 'running': 6}
+jobs/logs/nstats-L22-23.2.log
+jobs/logs/nstats-L22-23.1.log
+== jobs/logs/gmine-dryrun.3.log
+2026-11-15 16:32:39,678 INFO graph_mine: npmi graph: {'nodes': 30210, 'edges': 356703, 'h1_classes': 500, 'beat_nulls': 0, 'null_life_95': 0.6906872354508923, 'null_score_95': 81.96153800723684}
+2026-11-15 16:33:24,528 INFO topodur.graph.cycles: rewire: 2073936/2077700 swaps accepted (triangles free)
+2026-11-15 16:33:55,515 INFO topodur.graph.cycles: rewire: 2073949/2077700 swaps accepted (triangles free)
+2026-11-15 16:34:32,713 INFO topodur.graph.cycles: rewire: 47264/2077700 swaps accepted (triangles preserved)
+2026-11-15 16:35:11,851 INFO topodur.graph.cycles: rewire: 47505/2077700 swaps accepted (triangles preserved)
+2026-11-15 16:35:18,740 INFO graph_mine: decoder graph: {'nodes': 30210, 'edges': 207770, 'h1_classes': 500, 'beat_nulls': 0, 'null_life_95': 0.16944448216056826, 'null_score_95': 16.05979534059105}
+== jobs/logs/xstats-B14.1.log
+2026-11-15 18:08:04,786 INFO topodur.neurons: cross stats: 17.7M / 20.0M tokens
+2026-11-15 18:09:45,215 INFO topodur.neurons: cross stats: 18.5M / 20.0M tokens
+== jobs/logs/xstats-B17.1.log
+2026-11-15 18:07:58,134 INFO topodur.neurons: cross stats: 8.1M / 20.0M tokens
+2026-11-15 18:09:22,591 INFO topodur.neurons: cross stats: 8.9M / 20.0M tokens
+== jobs/logs/xstats-B15.1.log
+2026-11-15 18:07:20,163 INFO topodur.neurons: cross stats: 11.3M / 20.0M tokens
+2026-11-15 18:09:15,402 INFO topodur.neurons: cross stats: 12.1M / 20.0M tokens
+0, 10202 MiB, 0 %
+1, 1 MiB, 0 %
+2, 7218 MiB, 100 %
+3, 7178 MiB, 100 %
+4, 7398 MiB, 100 %
+5, 1 MiB, 0 %
+6, 6658 MiB, 100 %
+7, 6938 MiB, 100 %
+Mem:             251          25         103           0         122         224
