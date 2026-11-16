@@ -1,0 +1,18 @@
+{
+ "npmi": {
+  "nodes": 30926,
+  "edges": 360554,
+  "h1_classes": 500,
+  "beat_nulls": 0,
+  "null_life_95": 0.6791223371635907,
+  "null_score_95": 80.95066451336366
+ },
+ "decoder": {
+  "nodes": 30926,
+  "edges": 210325,
+  "h1_classes": 500,
+  "beat_nulls": 0,
+  "null_life_95": 0.17264794869518282,
+  "null_score_95": 22.12300587545357
+ }
+}
