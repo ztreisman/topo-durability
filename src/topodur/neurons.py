@@ -77,6 +77,10 @@ def neuron_stats(lm, layers: list[int], source: str, n_tokens: int, calib_ids: l
         for h in hooks:
             h.remove()
 
+    # the forward passes are done: move the model off the GPU before the [tokens x N] products below
+    # (layers 22-23 load all 24 blocks; at 20M tokens the decomposition then ran out of memory on 11 GB)
+    lm.model.to("cpu")
+    torch.cuda.empty_cache() if dev.type == "cuda" else None
     out = {}
     keep = cnt > 0
     c = cnt[keep]
