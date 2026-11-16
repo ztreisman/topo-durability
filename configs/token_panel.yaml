@@ -1,0 +1,16 @@
+# Token panel for the fork/rejoin (Reeb graph) study and within-layer ring discovery (decided with Zack 2026-11-15).
+# Every word is a single Pythia token with a leading space (checked with the shared tokenizer).
+# Classes: polysemous (known answer: senses should split into separate neuron clusters), monosemous, function
+# words, and the single-token items of the ring and line concept families (added from calib.json at load time).
+polysemous: [bank, bass, bat, bark, bow, date, fan, file, firm, mine, mole, nail, organ, palm, pitch, plant, pool,
+  port, pupil, ring, rock, ruler, scale, seal, sink, spring, star, tank, tie, tire, trunk, watch, wave, well, yard,
+  bear, club, cell, chip, current, jam, key, letter, mouse, note, novel, pen, pound, race, record, row, saw, bill,
+  bowl, deck, drill, jet, lap, mint, pin, plot, pole, punch, shed, sole, stamp, staff, suit]
+monosemous: [carrot, violin, oxygen, umbrella, pencil, dentist, volcano, tomato, telescope, banana, elephant,
+  hospital, bicycle, thunder, helmet, sandwich, astronaut, microscope, pyramid, wizard, zebra, cathedral, lemon,
+  onion, pillow, spider, ladder, hammer, kitchen, piano, chocolate, butterfly, tiger, rabbit, forest, river,
+  mountain, doctor, teacher, bread, cheese, coffee, sugar, salt, wheat, cotton, silk, diamond, ocean, desert,
+  island, village, castle, airport, museum, library, engine, rocket, planet, galaxy]
+function: [the, of, and, to, in, a, is, that, for, it, with, as, was, on, be, by, at, this, from, or, but, not, are,
+  an, have, which, had, they, you, were, their, has, been, we, all, there, would, will, can, who]
+families: [months, days, zodiac, compass, hues, numbers, ordinals, sizes]
