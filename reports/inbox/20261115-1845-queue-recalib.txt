@@ -1,0 +1,10 @@
+inbox item: 20261115-1845-queue-recalib
+commit: b6dfc06 Sun Nov 15 18:45:14 2026 -0700
+ran: Sun Nov 15 06:50:02 PM MST 2026  finished: Sun Nov 15 06:50:03 PM MST 2026
+exit: 0
+
+--- last 60 lines of output
+25 jobs queued
+running gpus=[2] 0.3h            nstats-L22-23  (attempts 3)
+running gpus=[6] 1.9h            xstats-B06  (attempts 1)
+summary: {'done': 207, 'running': 2, 'pending': 36}
