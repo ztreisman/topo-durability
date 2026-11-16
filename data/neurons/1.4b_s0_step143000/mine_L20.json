@@ -35,5 +35,12 @@
  },
  "closing": {},
  "calib_rings": [],
- "median_r2_tok": 0.10204742848873138
+ "median_r2_tok": 0.10204742848873138,
+ "calib_lines": [
+  "months",
+  "days",
+  "numbers",
+  "ordinals",
+  "sizes"
+ ]
 }

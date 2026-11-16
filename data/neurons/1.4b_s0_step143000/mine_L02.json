@@ -34,9 +34,13 @@
   "null_score_95": 1.8597870000793466
  },
  "closing": {},
- "calib_rings": [
+ "calib_rings": [],
+ "median_r2_tok": 0.2549898028373718,
+ "calib_lines": [
+  "months",
+  "days",
+  "numbers",
   "ordinals",
-  "hues"
- ],
- "median_r2_tok": 0.2549898028373718
+  "sizes"
+ ]
 }
