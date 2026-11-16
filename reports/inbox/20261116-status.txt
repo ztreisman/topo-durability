@@ -1,0 +1,26 @@
+inbox item: 20261116-status
+commit: 5c12310 Mon Nov 16 10:57:27 2026 -0700
+ran: Mon Nov 16 11:00:03 AM MST 2026  finished: Mon Nov 16 11:00:04 AM MST 2026
+exit: 0
+
+--- last 60 lines of output
+Mon Nov 16 11:00:03 AM MST 2026
+summary: {'done': 249}
+2026-11-15 20:13:22,060 INFO token_footprint: 147.5M tokens: 223 / 238 tokens full, median contexts 256
+2026-11-15 20:13:32,165 INFO token_footprint: 149.5M tokens: 223 / 238 tokens full, median contexts 256
+2026-11-15 20:14:09,707 INFO token_footprint: done: 150003712 tokens streamed; contexts per token min 94 median 256
+streamed 150003712
+polysemous 68 min 224 median 256
+monosemous 60 min 94 median 256
+function 40 min 256 median 256
+ring_items 41 min 227 median 256
+line_items 29 min 174 median 256
+0, 1 MiB, 0 %
+1, 1 MiB, 0 %
+2, 1 MiB, 0 %
+3, 1 MiB, 0 %
+4, 1 MiB, 0 %
+5, 1 MiB, 0 %
+6, 1 MiB, 0 %
+7, 1 MiB, 0 %
+/dev/sdb1       3.5T  1.4T  2.0T  42% /home
