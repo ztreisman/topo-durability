@@ -1,0 +1,10 @@
+inbox item: 20261116-1700-queue-followups
+commit: 3b2aedd Mon Nov 16 16:43:53 2026 -0700
+ran: Mon Nov 16 04:50:03 PM MST 2026  finished: Mon Nov 16 04:50:03 PM MST 2026
+exit: 0
+
+--- last 60 lines of output
+8
+Mem:             251           5         141           0         104         244
+6 jobs queued
+summary: {'done': 249, 'pending': 6}
