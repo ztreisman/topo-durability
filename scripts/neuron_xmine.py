@@ -368,7 +368,7 @@ def summarize(a) -> int:
         x = np.arange(len(t))
         ax.bar(x - 0.2, t.real, 0.4, color="#2a6f97", label="real")
         ax.bar(x + 0.2, t.null_mean, 0.4, color="#c9c9c9", label="layered null")
-        ax.errorbar(x + 0.2, t.null_mean, yerr=[np.zeros(len(t)), t.null_95 - t.null_mean], fmt="none", ecolor="#666", lw=1)
+        ax.errorbar(x + 0.2, t.null_mean, yerr=[np.zeros(len(t)), np.clip(t.null_95 - t.null_mean, 0, None)], fmt="none", ecolor="#666", lw=1)
         ax.set_xticks(x, [k.replace("pure span ", "") for k in t.type])
         ax.set_xlabel("span (layers, root to target)"); ax.set_title(f"{g}: pure fork/rejoin loops", fontsize=10)
         ax.spines[["top", "right"]].set_visible(False)
