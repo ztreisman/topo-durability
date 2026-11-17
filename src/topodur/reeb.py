@@ -122,3 +122,33 @@ def pcs(X: np.ndarray, d: int = 10) -> np.ndarray:
     X = X - X.mean(0)
     U, S, _ = np.linalg.svd(X, full_matrices=False)
     return U[:, :d] * S[:d]
+
+
+def sense_barcode(labels: np.ndarray, jaccard: float = 0.5, trivial: float = 0.9) -> list[tuple[int, int]]:
+    """Persistence of sense clusters across layers. labels [n_layers, n_ctx] (-1 = unassigned). A cluster at
+    layer i continues at layer i+1 when they share >= `jaccard` of their union (with jaccard >= 0.5 the partner
+    is unique), so random re-partitioning gives short bars. Clusters holding >= `trivial` of the contexts are the
+    whole token, not a sense, and are left out. Returns bars as (first layer index, length in layers)."""
+    nL, n = labels.shape
+    sets = [[np.flatnonzero(labels[i] == c) for c in np.unique(labels[i]) if c >= 0] for i in range(nL)]
+    sets = [[s for s in S if len(s) < trivial * n] for S in sets]
+    bars, alive = [], {}                                  # alive: cluster index at layer i -> (start, length)
+    for i in range(nL):
+        new = {}
+        for j, B in enumerate(sets[i]):
+            src = None
+            if i > 0:
+                for k, A in enumerate(sets[i - 1]):
+                    inter = len(np.intersect1d(A, B, assume_unique=True))
+                    if inter and inter / (len(A) + len(B) - inter) >= jaccard and k in alive:
+                        src = k
+                        break
+            if src is not None:
+                st, ln = alive.pop(src)
+                new[j] = (st, ln + 1)
+            else:
+                new[j] = (i, 1)
+        bars += list(alive.values())
+        alive = new
+    bars += list(alive.values())
+    return sorted(bars)
