@@ -1,0 +1,12 @@
+inbox item: 20261117-0930-queue-durab
+commit: a2a271c Tue Nov 17 09:26:01 2026 -0700
+ran: Tue Nov 17 09:30:03 AM MST 2026  finished: Tue Nov 17 09:30:03 AM MST 2026
+exit: 0
+
+--- last 60 lines of output
+data/finetune/1.4b_code/adapters/20M
+data/finetune/1.4b_wiki_de/adapters/20M
+/dev/sdb1       3.5T  1.4T  2.0T  42% /home
+9 jobs queued
+FAILED                           xsummary100  (attempts 1)
+summary: {'done': 254, 'FAILED': 1, 'pending': 9}
