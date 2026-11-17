@@ -30,8 +30,8 @@
  "edges": 5418975,
  "cross_edges": 2837893,
  "h1": 1000,
- "null_life_95": 0.67669777734375,
- "null_score_95": 38.06782683398438,
+ "null_life_95": 0.66219582421875,
+ "null_score_95": 43.60566762734374,
  "good": 0,
  "good_pure": 0,
  "good_pure_span_ge2": 0,
@@ -39,123 +39,59 @@
  "typology": [
   {
    "type": "diamond span 1",
-   "null": "degree",
-   "real": 10,
-   "null_mean": 55.9,
-   "null_95": 62.0,
-   "p": 1.0
-  },
-  {
-   "type": "diamond span 1",
    "null": "triangle",
    "real": 10,
-   "null_mean": 48.1,
-   "null_95": 58.65,
-   "p": 1.0
-  },
-  {
-   "type": "diamond span 2",
-   "null": "degree",
-   "real": 9,
-   "null_mean": 16.8,
-   "null_95": 20.549999999999997,
+   "null_mean": 50.59,
+   "null_95": 60.14999999999999,
    "p": 1.0
   },
   {
    "type": "diamond span 2",
    "null": "triangle",
    "real": 9,
-   "null_mean": 15.2,
-   "null_95": 23.099999999999998,
-   "p": 0.9090909090909091
-  },
-  {
-   "type": "diamond span 3-4",
-   "null": "degree",
-   "real": 21,
-   "null_mean": 15.7,
-   "null_95": 22.65,
-   "p": 0.2727272727272727
+   "null_mean": 16.23,
+   "null_95": 22.049999999999997,
+   "p": 0.9801980198019802
   },
   {
    "type": "diamond span 3-4",
    "null": "triangle",
    "real": 21,
-   "null_mean": 19.6,
-   "null_95": 27.749999999999993,
-   "p": 0.2727272727272727
-  },
-  {
-   "type": "diamond span 5-8",
-   "null": "degree",
-   "real": 58,
-   "null_mean": 12.2,
-   "null_95": 18.0,
-   "p": 0.09090909090909091
+   "null_mean": 18.91,
+   "null_95": 25.14999999999999,
+   "p": 0.3564356435643564
   },
   {
    "type": "diamond span 5-8",
    "null": "triangle",
    "real": 58,
-   "null_mean": 16.7,
-   "null_95": 24.0,
-   "p": 0.09090909090909091
-  },
-  {
-   "type": "diamond span >=9",
-   "null": "degree",
-   "real": 132,
-   "null_mean": 47.5,
-   "null_95": 63.0,
-   "p": 0.09090909090909091
+   "null_mean": 16.86,
+   "null_95": 24.049999999999997,
+   "p": 0.009900990099009901
   },
   {
    "type": "diamond span >=9",
    "null": "triangle",
    "real": 132,
-   "null_mean": 40.6,
-   "null_95": 49.499999999999986,
-   "p": 0.09090909090909091
-  },
-  {
-   "type": "flat",
-   "null": "degree",
-   "real": 0,
-   "null_mean": 30.8,
-   "null_95": 39.55,
-   "p": 1.0
+   "null_mean": 40.49,
+   "null_95": 51.0,
+   "p": 0.009900990099009901
   },
   {
    "type": "flat",
    "null": "triangle",
    "real": 0,
-   "null_mean": 29.4,
+   "null_mean": 29.75,
    "null_95": 38.0,
    "p": 1.0
   },
   {
    "type": "pure span 3-4",
-   "null": "degree",
-   "real": 2,
-   "null_mean": 0.0,
-   "null_95": 0.0,
-   "p": 0.09090909090909091
-  },
-  {
-   "type": "pure span 3-4",
    "null": "triangle",
    "real": 2,
    "null_mean": 0.0,
    "null_95": 0.0,
-   "p": 0.09090909090909091
-  },
-  {
-   "type": "pure span 5-8",
-   "null": "degree",
-   "real": 18,
-   "null_mean": 0.0,
-   "null_95": 0.0,
-   "p": 0.09090909090909091
+   "p": 0.009900990099009901
   },
   {
    "type": "pure span 5-8",
@@ -163,38 +99,22 @@
    "real": 18,
    "null_mean": 0.0,
    "null_95": 0.0,
-   "p": 0.09090909090909091
-  },
-  {
-   "type": "pure span >=9",
-   "null": "degree",
-   "real": 112,
-   "null_mean": 0.0,
-   "null_95": 0.0,
-   "p": 0.09090909090909091
+   "p": 0.009900990099009901
   },
   {
    "type": "pure span >=9",
    "null": "triangle",
    "real": 112,
-   "null_mean": 0.0,
-   "null_95": 0.0,
-   "p": 0.09090909090909091
-  },
-  {
-   "type": "zigzag",
-   "null": "degree",
-   "real": 638,
-   "null_mean": 821.1,
-   "null_95": 840.6,
-   "p": 1.0
+   "null_mean": 0.06,
+   "null_95": 1.0,
+   "p": 0.009900990099009901
   },
   {
    "type": "zigzag",
    "null": "triangle",
    "real": 638,
-   "null_mean": 830.4,
-   "null_95": 846.55,
+   "null_mean": 827.11,
+   "null_95": 846.1,
    "p": 1.0
   }
  ]
