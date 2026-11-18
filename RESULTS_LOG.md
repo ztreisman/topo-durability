@@ -2,6 +2,22 @@
 
 Dated entries, newest first.
 
+## 2026-11-18: confirmatory test NOT confirmed; next: measurement reliability
+
+- 969-concept panel (968 with 224 contexts; `reports/neurons/1.4b_s0_step143000/durab_topology_cfoot.md`).
+  Primary: excess b1 beta +0.037 [-0.026, +0.099], p 0.25: NOT confirmed (exploratory panel: +0.19).
+- Secondary: excess b1 is positive under 25% and 50% pruning (+0.07 [0.01, 0.13], +0.05 [0.01, 0.08]);
+  excess mean bar length is negative under every perturbation (-0.05 to -0.08, CIs exclude 0). Senses and
+  total persistence: no effect. Everything explains < 1% of the variance.
+- Per-concept durability agrees only ~0.2 between perturbations (code vs German fine-tune, 25% pruning,
+  50% pruning), as on the exploratory panel. Reading: the exploratory effect was inflated by selection; any
+  real link is small relative to the noise in both measures.
+- Decided (Zack): find out what is being measured before testing further. Reliability study
+  (`scripts/measure_reliability.py`): split-half reliability of durability and of every topology measure,
+  replicate fine-tunes (seed 1), LoRA milestones, three noise seeds, and stable clusters (prediction
+  strength). Also open: model-level traits (persona vectors) may be measurable where token and concept
+  level topology/durability are noise.
+
 ## 2026-11-17: sense topology vs durability (exploratory) and the confirmatory test, specified before its data
 
 - Hypothesis (Zack, 2026-11-17): splitting into several context clusters is normal (a concept anchored in
