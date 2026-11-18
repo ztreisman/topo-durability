@@ -71,7 +71,7 @@ def reeb_stats(layers: list[int], cl: dict[int, list], links: dict[tuple, float]
 
 # ------------------------------------------------------------------ senses: clusters of a token's contexts
 
-def gap_k(Y: np.ndarray, kmax: int = 6, n_ref: int = 10, min_size: int = 8, seed: int = 0):
+def gap_k(Y: np.ndarray, kmax: int = 6, n_ref: int = 10, min_size: int = 8, seed: int = 0, ref_inits: int = 3):
     """Number of context clusters (senses) in Y [n_ctx, d], by the gap statistic (Tibshirani et al. 2001) against
     a single Gaussian blob with Y's per-axis spread (Y should be in PCA coordinates, so the axes are uncorrelated).
     k > 1 only when Y splits better than one blob of the same shape. Clusters smaller than min_size are dropped.
@@ -83,10 +83,10 @@ def gap_k(Y: np.ndarray, kmax: int = 6, n_ref: int = 10, min_size: int = 8, seed
     if n < 2 * min_size or not np.isfinite(Y).all() or sdv.sum() < 1e-8:
         return 1, [np.arange(n)]
 
-    def fit(X, k):
+    def fit(X, k, inits=3):
         if k == 1:
             return float(((X - X.mean(0)) ** 2).sum()), np.zeros(len(X), int)
-        km = KMeans(k, n_init=3, random_state=seed).fit(X)
+        km = KMeans(k, n_init=inits, random_state=seed).fit(X)
         return float(km.inertia_), km.labels_
 
     kmax = max(1, min(kmax, n // min_size))
@@ -94,7 +94,7 @@ def gap_k(Y: np.ndarray, kmax: int = 6, n_ref: int = 10, min_size: int = 8, seed
     real = [fit(Y, k) for k in ks]
     logw = np.log([max(r[0], 1e-12) for r in real])
     rng = np.random.default_rng(seed)
-    ref = np.log([[max(fit(rng.normal(size=(n, d)) * sdv, k)[0], 1e-12) for k in ks] for _ in range(n_ref)])
+    ref = np.log([[max(fit(rng.normal(size=(n, d)) * sdv, k, ref_inits)[0], 1e-12) for k in ks] for _ in range(n_ref)])
     gap = ref.mean(0) - logw
     s = ref.std(0) * np.sqrt(1 + 1 / n_ref)
     k = next((k for k in range(1, kmax) if gap[k - 1] >= gap[k] - s[k]), kmax) if kmax > 1 else 1

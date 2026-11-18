@@ -52,7 +52,8 @@ def one_token(path: str, layers: list[int], lay_index: list[int], a_dict: dict):
     groups, labels = {}, {}
     for l in layers:
         Z = (X[:, lay_index.index(l)].astype(np.float32) - _G["mu"][l]) / _G["sd"][l]
-        k, g = gap_k(pcs(Z, a_dict["dims"]), kmax=a_dict["kmax"], n_ref=a_dict["n_ref"], min_size=a_dict["min_size"])
+        k, g = gap_k(pcs(Z, a_dict["dims"]), kmax=a_dict["kmax"], n_ref=a_dict["n_ref"], min_size=a_dict["min_size"],
+                     ref_inits=a_dict["n_ref_inits"])
         groups[l] = g
         lab = np.full(n, -1, np.int8)
         for c, idx in enumerate(g):
@@ -89,6 +90,8 @@ def main() -> int:
     ap.add_argument("--min-size", type=int, default=8, help="smallest context cluster kept")
     ap.add_argument("--w-min", type=float, default=0.3, help="overlap needed to link clusters of adjacent layers")
     ap.add_argument("--n-ctx-eq", type=int, default=0, help="use exactly this many contexts per token (drop tokens with fewer)")
+    ap.add_argument("--fp-dir", default="footprint", help="footprint (token panel) or cfoot (concept panel)")
+    ap.add_argument("--n-ref-inits", type=int, default=3, help="k-means restarts on the reference draws (3 = as in the exploratory run)")
     ap.add_argument("--workers", type=int, default=16)
     ap.add_argument("--limit", action="store_true")
     a = ap.parse_args()
@@ -96,11 +99,11 @@ def main() -> int:
     root = runs.DATA_DIR / tag / a.unit
     rep = runs.REPO_ROOT / "reports" / tag / a.unit
     rep.mkdir(parents=True, exist_ok=True)
-    a.tag = "eq%d" % a.n_ctx_eq if a.n_ctx_eq else "all"
+    a.tag = ("" if a.fp_dir == "footprint" else f"{a.fp_dir}_") + ("eq%d" % a.n_ctx_eq if a.n_ctx_eq else "all")
     runs.setup_logging(root / f"senses_{a.tag}.log")
     if a.limit:
         a.min_size = 2
-    fp = root / "footprint"
+    fp = root / a.fp_dir
     meta = json.loads((fp / "footprint.json").read_text())
     lay_index = meta["layers"]
     layers = [l for l in lay_index if (root / f"L{l:02d}.npz").exists()]
@@ -112,7 +115,7 @@ def main() -> int:
     toks = [(v["class"], v["word"], int(t)) for t, v in meta["tokens"].items()
             if (fp / f"T{t}.npy").exists() and v["n"] >= max(a.n_ctx_eq, 2 * a.min_size)]
     log.info("%d tokens, layers %s", len(toks), layers)
-    ad = {k: getattr(a, k) for k in ("n_ctx_eq", "dims", "kmax", "n_ref", "min_size", "w_min")}
+    ad = {k: getattr(a, k) for k in ("n_ctx_eq", "dims", "kmax", "n_ref", "min_size", "w_min", "n_ref_inits")}
     rows, labs = [], {}
     with ProcessPoolExecutor(a.workers, initializer=_init, initargs=(mu, sd)) as ex:
         futs = {ex.submit(one_token, str(fp / f"T{t}.npy"), layers, lay_index, ad): (c, w, t) for c, w, t in toks}
@@ -144,7 +147,8 @@ def report(df, layers, a, rep):
              "Mean [95% bootstrap CI over tokens]. Middle layers = the middle third.", "",
              "| class | tokens | senses (middle layers) | layers split | forks | rejoins | loops (b1) | max loop span | ARI adjacent |",
              "|---|---|---|---|---|---|---|---|---|"]
-    for c in CLASSES:
+    present = [c for c in CLASSES if c in set(df["class"])] + sorted(set(df["class"]) - set(CLASSES))
+    for c in present:
         x = df[df["class"] == c]
         if len(x):
             lines.append(f"| {c} | {len(x)} | {fmt(boot(x.senses_mid))} | {fmt(boot(x.split_share))} | {fmt(boot(x.forks))} | "
@@ -162,11 +166,11 @@ def report(df, layers, a, rep):
     lines += [f"| {r.token} | {getattr(r, "_1")} | {r.senses_mid:.2f} | {r.forks} | {r.b1} |" for r in top.itertuples()]
     fig, ax = plt.subplots(1, 2, figsize=(11, 3.6))
     cols = {"polysemous": "#c9772f", "monosemous": "#2a6f97", "function": "#6c757d", "ring_items": "#7b2cbf", "line_items": "#2b9348"}
-    for c in CLASSES:
+    for c in present:
         x = df[df["class"] == c]
         if len(x):
-            ax[0].plot(layers, [x[f"k{l:02d}"].mean() for l in layers], lw=2, color=cols[c], label=c)
-            ax[1].plot(layers, [(x[f"k{l:02d}"] > 1).mean() for l in layers], lw=2, color=cols[c], label=c)
+            ax[0].plot(layers, [x[f"k{l:02d}"].mean() for l in layers], lw=2, color=cols.get(c), label=c)
+            ax[1].plot(layers, [(x[f"k{l:02d}"] > 1).mean() for l in layers], lw=2, color=cols.get(c), label=c)
     ax[0].set_ylabel("senses per layer (mean over tokens)"); ax[1].set_ylabel("share of tokens split")
     for s in ax:
         s.set_xlabel("layer"); s.spines[["top", "right"]].set_visible(False)

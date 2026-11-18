@@ -1,0 +1,11582 @@
+{
+"source": "mirror:pile_mine_1000000.jsonl",
+"chars_counted": 2200000362,
+"min_count": 400,
+"seed": 0,
+"concepts": [
+{
+"word": "asshole",
+"ids": [
+40889
+],
+"n_tok": 1,
+"count": 401,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "stitches",
+"ids": [
+46870
+],
+"n_tok": 1,
+"count": 407,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "bombers",
+"ids": [
+42504
+],
+"n_tok": 1,
+"count": 409,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "pier",
+"ids": [
+18753
+],
+"n_tok": 1,
+"count": 419,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "sweater",
+"ids": [
+47727
+],
+"n_tok": 1,
+"count": 424,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "gall",
+"ids": [
+9391
+],
+"n_tok": 1,
+"count": 432,
+"synsets": 8,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "radios",
+"ids": [
+40908
+],
+"n_tok": 1,
+"count": 439,
+"synsets": 4,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "wartime",
+"ids": [
+46044
+],
+"n_tok": 1,
+"count": 444,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "mocking",
+"ids": [
+49282
+],
+"n_tok": 1,
+"count": 476,
+"synsets": 4,
+"pos": "v",
+"freq_bin": 0
+},
+{
+"word": "reimburse",
+"ids": [
+27533
+],
+"n_tok": 1,
+"count": 482,
+"synsets": 2,
+"pos": "v",
+"freq_bin": 0
+},
+{
+"word": "brewery",
+"ids": [
+45367
+],
+"n_tok": 1,
+"count": 489,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "stout",
+"ids": [
+46469
+],
+"n_tok": 1,
+"count": 519,
+"synsets": 5,
+"pos": "a",
+"freq_bin": 0
+},
+{
+"word": "trembling",
+"ids": [
+36316
+],
+"n_tok": 1,
+"count": 526,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "punt",
+"ids": [
+41991
+],
+"n_tok": 1,
+"count": 555,
+"synsets": 6,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "nas",
+"ids": [
+13332
+],
+"n_tok": 1,
+"count": 556,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "wary",
+"ids": [
+38407
+],
+"n_tok": 1,
+"count": 608,
+"synsets": 2,
+"pos": "a",
+"freq_bin": 0
+},
+{
+"word": "bets",
+"ids": [
+45780
+],
+"n_tok": 1,
+"count": 612,
+"synsets": 5,
+"pos": "v",
+"freq_bin": 0
+},
+{
+"word": "tackling",
+"ids": [
+46710
+],
+"n_tok": 1,
+"count": 616,
+"synsets": 3,
+"pos": "v",
+"freq_bin": 0
+},
+{
+"word": "berries",
+"ids": [
+37408
+],
+"n_tok": 1,
+"count": 629,
+"synsets": 4,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "deity",
+"ids": [
+47498
+],
+"n_tok": 1,
+"count": 632,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "elders",
+"ids": [
+38773
+],
+"n_tok": 1,
+"count": 675,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "grabbing",
+"ids": [
+37301
+],
+"n_tok": 1,
+"count": 678,
+"synsets": 6,
+"pos": "v",
+"freq_bin": 0
+},
+{
+"word": "slows",
+"ids": [
+49133
+],
+"n_tok": 1,
+"count": 683,
+"synsets": 3,
+"pos": "v",
+"freq_bin": 0
+},
+{
+"word": "campuses",
+"ids": [
+46794
+],
+"n_tok": 1,
+"count": 689,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "detriment",
+"ids": [
+49917
+],
+"n_tok": 1,
+"count": 699,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "prominence",
+"ids": [
+44373
+],
+"n_tok": 1,
+"count": 722,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "indoors",
+"ids": [
+42842
+],
+"n_tok": 1,
+"count": 730,
+"synsets": 1,
+"pos": "r",
+"freq_bin": 0
+},
+{
+"word": "collaborated",
+"ids": [
+49586
+],
+"n_tok": 1,
+"count": 740,
+"synsets": 2,
+"pos": "v",
+"freq_bin": 0
+},
+{
+"word": "telomere",
+"ids": [
+48509
+],
+"n_tok": 1,
+"count": 741,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "tasting",
+"ids": [
+40599
+],
+"n_tok": 1,
+"count": 752,
+"synsets": 9,
+"pos": "v",
+"freq_bin": 0
+},
+{
+"word": "bricks",
+"ids": [
+40154
+],
+"n_tok": 1,
+"count": 754,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "fishes",
+"ids": [
+49720
+],
+"n_tok": 1,
+"count": 756,
+"synsets": 6,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "concede",
+"ids": [
+46272
+],
+"n_tok": 1,
+"count": 757,
+"synsets": 4,
+"pos": "v",
+"freq_bin": 0
+},
+{
+"word": "dispersal",
+"ids": [
+43585
+],
+"n_tok": 1,
+"count": 763,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "slips",
+"ids": [
+42282
+],
+"n_tok": 1,
+"count": 765,
+"synsets": 26,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "plethora",
+"ids": [
+48541
+],
+"n_tok": 1,
+"count": 775,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "fragrance",
+"ids": [
+48339
+],
+"n_tok": 1,
+"count": 782,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "contraception",
+"ids": [
+49907
+],
+"n_tok": 1,
+"count": 789,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "theaters",
+"ids": [
+37807
+],
+"n_tok": 1,
+"count": 795,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "archaeological",
+"ids": [
+39327
+],
+"n_tok": 1,
+"count": 795,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 0
+},
+{
+"word": "survivor",
+"ids": [
+37579
+],
+"n_tok": 1,
+"count": 804,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "frog",
+"ids": [
+40096
+],
+"n_tok": 1,
+"count": 806,
+"synsets": 4,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "exposition",
+"ids": [
+47284
+],
+"n_tok": 1,
+"count": 811,
+"synsets": 4,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "buys",
+"ids": [
+41307
+],
+"n_tok": 1,
+"count": 816,
+"synsets": 6,
+"pos": "v",
+"freq_bin": 0
+},
+{
+"word": "endings",
+"ids": [
+47834
+],
+"n_tok": 1,
+"count": 818,
+"synsets": 5,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "wellbeing",
+"ids": [
+46128
+],
+"n_tok": 1,
+"count": 828,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "inhabited",
+"ids": [
+41477
+],
+"n_tok": 1,
+"count": 830,
+"synsets": 4,
+"pos": "v",
+"freq_bin": 0
+},
+{
+"word": "dispositions",
+"ids": [
+46491
+],
+"n_tok": 1,
+"count": 837,
+"synsets": 4,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "pervasive",
+"ids": [
+42551
+],
+"n_tok": 1,
+"count": 845,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 0
+},
+{
+"word": "autonomic",
+"ids": [
+45852
+],
+"n_tok": 1,
+"count": 848,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 0
+},
+{
+"word": "formidable",
+"ids": [
+36418
+],
+"n_tok": 1,
+"count": 849,
+"synsets": 2,
+"pos": "a",
+"freq_bin": 0
+},
+{
+"word": "costumes",
+"ids": [
+37635
+],
+"n_tok": 1,
+"count": 867,
+"synsets": 6,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "ambulance",
+"ids": [
+32686
+],
+"n_tok": 1,
+"count": 869,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "rivalry",
+"ids": [
+43497
+],
+"n_tok": 1,
+"count": 889,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "commuting",
+"ids": [
+49681
+],
+"n_tok": 1,
+"count": 893,
+"synsets": 6,
+"pos": "v",
+"freq_bin": 0
+},
+{
+"word": "cherry",
+"ids": [
+33804
+],
+"n_tok": 1,
+"count": 895,
+"synsets": 5,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "tending",
+"ids": [
+43981
+],
+"n_tok": 1,
+"count": 908,
+"synsets": 5,
+"pos": "v",
+"freq_bin": 0
+},
+{
+"word": "airports",
+"ids": [
+38042
+],
+"n_tok": 1,
+"count": 910,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "spokesperson",
+"ids": [
+28179
+],
+"n_tok": 1,
+"count": 912,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "disparities",
+"ids": [
+43586
+],
+"n_tok": 1,
+"count": 915,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "hurts",
+"ids": [
+31835
+],
+"n_tok": 1,
+"count": 916,
+"synsets": 12,
+"pos": "v",
+"freq_bin": 0
+},
+{
+"word": "prosthetic",
+"ids": [
+48199
+],
+"n_tok": 1,
+"count": 920,
+"synsets": 2,
+"pos": "a",
+"freq_bin": 0
+},
+{
+"word": "commune",
+"ids": [
+40757
+],
+"n_tok": 1,
+"count": 931,
+"synsets": 4,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "wiped",
+"ids": [
+27150
+],
+"n_tok": 1,
+"count": 943,
+"synsets": 1,
+"pos": "v",
+"freq_bin": 0
+},
+{
+"word": "mildly",
+"ids": [
+38920
+],
+"n_tok": 1,
+"count": 957,
+"synsets": 2,
+"pos": "r",
+"freq_bin": 0
+},
+{
+"word": "hydration",
+"ids": [
+48129
+],
+"n_tok": 1,
+"count": 971,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "inflicted",
+"ids": [
+39723
+],
+"n_tok": 1,
+"count": 974,
+"synsets": 1,
+"pos": "v",
+"freq_bin": 0
+},
+{
+"word": "multiplex",
+"ids": [
+25993
+],
+"n_tok": 1,
+"count": 985,
+"synsets": 4,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "puppy",
+"ids": [
+38091
+],
+"n_tok": 1,
+"count": 993,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "inhomogeneous",
+"ids": [
+49715
+],
+"n_tok": 1,
+"count": 996,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 0
+},
+{
+"word": "interpersonal",
+"ids": [
+43849
+],
+"n_tok": 1,
+"count": 1005,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 1
+},
+{
+"word": "congregation",
+"ids": [
+35997
+],
+"n_tok": 1,
+"count": 1006,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "sunset",
+"ids": [
+32712
+],
+"n_tok": 1,
+"count": 1024,
+"synsets": 5,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "atherosclerotic",
+"ids": [
+49667
+],
+"n_tok": 1,
+"count": 1040,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 1
+},
+{
+"word": "dragon",
+"ids": [
+22159
+],
+"n_tok": 1,
+"count": 1042,
+"synsets": 4,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "quarterly",
+"ids": [
+42886
+],
+"n_tok": 1,
+"count": 1057,
+"synsets": 4,
+"pos": "r",
+"freq_bin": 1
+},
+{
+"word": "advertised",
+"ids": [
+37636
+],
+"n_tok": 1,
+"count": 1063,
+"synsets": 3,
+"pos": "v",
+"freq_bin": 1
+},
+{
+"word": "curative",
+"ids": [
+46876
+],
+"n_tok": 1,
+"count": 1065,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "flaps",
+"ids": [
+49910
+],
+"n_tok": 1,
+"count": 1070,
+"synsets": 12,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "conveying",
+"ids": [
+43049
+],
+"n_tok": 1,
+"count": 1075,
+"synsets": 8,
+"pos": "v",
+"freq_bin": 1
+},
+{
+"word": "proposing",
+"ids": [
+36636
+],
+"n_tok": 1,
+"count": 1078,
+"synsets": 5,
+"pos": "v",
+"freq_bin": 1
+},
+{
+"word": "distraction",
+"ids": [
+34169
+],
+"n_tok": 1,
+"count": 1098,
+"synsets": 4,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "shiny",
+"ids": [
+30006
+],
+"n_tok": 1,
+"count": 1102,
+"synsets": 3,
+"pos": "a",
+"freq_bin": 1
+},
+{
+"word": "drastic",
+"ids": [
+36927
+],
+"n_tok": 1,
+"count": 1123,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 1
+},
+{
+"word": "probing",
+"ids": [
+39578
+],
+"n_tok": 1,
+"count": 1125,
+"synsets": 3,
+"pos": "v",
+"freq_bin": 1
+},
+{
+"word": "shortening",
+"ids": [
+39243
+],
+"n_tok": 1,
+"count": 1126,
+"synsets": 7,
+"pos": "v",
+"freq_bin": 1
+},
+{
+"word": "herbs",
+"ids": [
+27495
+],
+"n_tok": 1,
+"count": 1152,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "luminal",
+"ids": [
+46142
+],
+"n_tok": 1,
+"count": 1178,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "punish",
+"ids": [
+21854
+],
+"n_tok": 1,
+"count": 1188,
+"synsets": 1,
+"pos": "v",
+"freq_bin": 1
+},
+{
+"word": "investigative",
+"ids": [
+35070
+],
+"n_tok": 1,
+"count": 1200,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 1
+},
+{
+"word": "penis",
+"ids": [
+29292
+],
+"n_tok": 1,
+"count": 1202,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "worm",
+"ids": [
+28384
+],
+"n_tok": 1,
+"count": 1211,
+"synsets": 5,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "lasers",
+"ids": [
+37412
+],
+"n_tok": 1,
+"count": 1220,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "awaiting",
+"ids": [
+31288
+],
+"n_tok": 1,
+"count": 1221,
+"synsets": 1,
+"pos": "v",
+"freq_bin": 1
+},
+{
+"word": "lawsuits",
+"ids": [
+33563
+],
+"n_tok": 1,
+"count": 1224,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "rivals",
+"ids": [
+28851
+],
+"n_tok": 1,
+"count": 1226,
+"synsets": 3,
+"pos": "v",
+"freq_bin": 1
+},
+{
+"word": "dresses",
+"ids": [
+32724
+],
+"n_tok": 1,
+"count": 1228,
+"synsets": 19,
+"pos": "v",
+"freq_bin": 1
+},
+{
+"word": "borne",
+"ids": [
+32708
+],
+"n_tok": 1,
+"count": 1241,
+"synsets": 13,
+"pos": "v",
+"freq_bin": 1
+},
+{
+"word": "wonders",
+"ids": [
+28770
+],
+"n_tok": 1,
+"count": 1256,
+"synsets": 6,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "memorial",
+"ids": [
+27672
+],
+"n_tok": 1,
+"count": 1264,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "attachments",
+"ids": [
+37969
+],
+"n_tok": 1,
+"count": 1273,
+"synsets": 7,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "cur",
+"ids": [
+1095
+],
+"n_tok": 1,
+"count": 1282,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "ulcer",
+"ids": [
+27622
+],
+"n_tok": 1,
+"count": 1286,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "transmits",
+"ids": [
+41785
+],
+"n_tok": 1,
+"count": 1301,
+"synsets": 4,
+"pos": "v",
+"freq_bin": 1
+},
+{
+"word": "neuropathy",
+"ids": [
+44268
+],
+"n_tok": 1,
+"count": 1306,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "outfit",
+"ids": [
+27170
+],
+"n_tok": 1,
+"count": 1355,
+"synsets": 4,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "microphone",
+"ids": [
+32265
+],
+"n_tok": 1,
+"count": 1364,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "aus",
+"ids": [
+16506
+],
+"n_tok": 1,
+"count": 1369,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "doping",
+"ids": [
+34233
+],
+"n_tok": 1,
+"count": 1405,
+"synsets": 3,
+"pos": "v",
+"freq_bin": 1
+},
+{
+"word": "elucidated",
+"ids": [
+41167
+],
+"n_tok": 1,
+"count": 1438,
+"synsets": 2,
+"pos": "v",
+"freq_bin": 1
+},
+{
+"word": "forfeiture",
+"ids": [
+38111
+],
+"n_tok": 1,
+"count": 1450,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "cracks",
+"ids": [
+30611
+],
+"n_tok": 1,
+"count": 1454,
+"synsets": 23,
+"pos": "v",
+"freq_bin": 1
+},
+{
+"word": "vocabulary",
+"ids": [
+30318
+],
+"n_tok": 1,
+"count": 1466,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "pellets",
+"ids": [
+38326
+],
+"n_tok": 1,
+"count": 1470,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "solder",
+"ids": [
+31223
+],
+"n_tok": 1,
+"count": 1472,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "ignorant",
+"ids": [
+28884
+],
+"n_tok": 1,
+"count": 1491,
+"synsets": 3,
+"pos": "a",
+"freq_bin": 1
+},
+{
+"word": "broth",
+"ids": [
+26425
+],
+"n_tok": 1,
+"count": 1514,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "supposedly",
+"ids": [
+24628
+],
+"n_tok": 1,
+"count": 1528,
+"synsets": 1,
+"pos": "r",
+"freq_bin": 1
+},
+{
+"word": "foil",
+"ids": [
+27204
+],
+"n_tok": 1,
+"count": 1528,
+"synsets": 8,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "lovers",
+"ids": [
+26987
+],
+"n_tok": 1,
+"count": 1529,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "droplet",
+"ids": [
+36131
+],
+"n_tok": 1,
+"count": 1558,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "torn",
+"ids": [
+15070
+],
+"n_tok": 1,
+"count": 1566,
+"synsets": 7,
+"pos": "v",
+"freq_bin": 1
+},
+{
+"word": "modal",
+"ids": [
+30771
+],
+"n_tok": 1,
+"count": 1586,
+"synsets": 4,
+"pos": "a",
+"freq_bin": 1
+},
+{
+"word": "retreat",
+"ids": [
+19015
+],
+"n_tok": 1,
+"count": 1589,
+"synsets": 11,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "harmony",
+"ids": [
+27851
+],
+"n_tok": 1,
+"count": 1602,
+"synsets": 5,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "murdered",
+"ids": [
+21021
+],
+"n_tok": 1,
+"count": 1607,
+"synsets": 3,
+"pos": "v",
+"freq_bin": 1
+},
+{
+"word": "economically",
+"ids": [
+29187
+],
+"n_tok": 1,
+"count": 1611,
+"synsets": 3,
+"pos": "r",
+"freq_bin": 1
+},
+{
+"word": "contemplated",
+"ids": [
+32376
+],
+"n_tok": 1,
+"count": 1614,
+"synsets": 4,
+"pos": "v",
+"freq_bin": 1
+},
+{
+"word": "firmware",
+"ids": [
+35433
+],
+"n_tok": 1,
+"count": 1616,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "deduced",
+"ids": [
+36183
+],
+"n_tok": 1,
+"count": 1619,
+"synsets": 2,
+"pos": "v",
+"freq_bin": 1
+},
+{
+"word": "convolution",
+"ids": [
+27311
+],
+"n_tok": 1,
+"count": 1626,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "evenly",
+"ids": [
+25356
+],
+"n_tok": 1,
+"count": 1627,
+"synsets": 2,
+"pos": "r",
+"freq_bin": 1
+},
+{
+"word": "cultivated",
+"ids": [
+30481
+],
+"n_tok": 1,
+"count": 1647,
+"synsets": 7,
+"pos": "v",
+"freq_bin": 1
+},
+{
+"word": "tourism",
+"ids": [
+26742
+],
+"n_tok": 1,
+"count": 1653,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "recursive",
+"ids": [
+33037
+],
+"n_tok": 1,
+"count": 1654,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 1
+},
+{
+"word": "impairments",
+"ids": [
+38691
+],
+"n_tok": 1,
+"count": 1662,
+"synsets": 5,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "oppose",
+"ids": [
+25437
+],
+"n_tok": 1,
+"count": 1665,
+"synsets": 6,
+"pos": "v",
+"freq_bin": 1
+},
+{
+"word": "governance",
+"ids": [
+25978
+],
+"n_tok": 1,
+"count": 1668,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "gram",
+"ids": [
+29975
+],
+"n_tok": 1,
+"count": 1671,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "lined",
+"ids": [
+21817
+],
+"n_tok": 1,
+"count": 1681,
+"synsets": 9,
+"pos": "v",
+"freq_bin": 1
+},
+{
+"word": "spark",
+"ids": [
+13673
+],
+"n_tok": 1,
+"count": 1701,
+"synsets": 8,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "speculate",
+"ids": [
+30821
+],
+"n_tok": 1,
+"count": 1703,
+"synsets": 4,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "overload",
+"ids": [
+31778
+],
+"n_tok": 1,
+"count": 1717,
+"synsets": 5,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "foreclosure",
+"ids": [
+36023
+],
+"n_tok": 1,
+"count": 1730,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "porn",
+"ids": [
+16921
+],
+"n_tok": 1,
+"count": 1735,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "qualifying",
+"ids": [
+28661
+],
+"n_tok": 1,
+"count": 1736,
+"synsets": 9,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "torture",
+"ids": [
+21207
+],
+"n_tok": 1,
+"count": 1753,
+"synsets": 7,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "baking",
+"ids": [
+17326
+],
+"n_tok": 1,
+"count": 1757,
+"synsets": 7,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "fundamentally",
+"ids": [
+26401
+],
+"n_tok": 1,
+"count": 1772,
+"synsets": 1,
+"pos": "r",
+"freq_bin": 2
+},
+{
+"word": "tilt",
+"ids": [
+20569
+],
+"n_tok": 1,
+"count": 1774,
+"synsets": 9,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "contacting",
+"ids": [
+30555
+],
+"n_tok": 1,
+"count": 1791,
+"synsets": 2,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "abolished",
+"ids": [
+31175
+],
+"n_tok": 1,
+"count": 1798,
+"synsets": 1,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "compensated",
+"ids": [
+31745
+],
+"n_tok": 1,
+"count": 1803,
+"synsets": 7,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "exploited",
+"ids": [
+28734
+],
+"n_tok": 1,
+"count": 1816,
+"synsets": 5,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "ascertain",
+"ids": [
+24228
+],
+"n_tok": 1,
+"count": 1836,
+"synsets": 4,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "investor",
+"ids": [
+25820
+],
+"n_tok": 1,
+"count": 1854,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "impacted",
+"ids": [
+27857
+],
+"n_tok": 1,
+"count": 1879,
+"synsets": 3,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "preclude",
+"ids": [
+31423
+],
+"n_tok": 1,
+"count": 1936,
+"synsets": 2,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "socioeconomic",
+"ids": [
+30270
+],
+"n_tok": 1,
+"count": 1969,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 2
+},
+{
+"word": "wealthy",
+"ids": [
+20193
+],
+"n_tok": 1,
+"count": 1986,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 2
+},
+{
+"word": "spanning",
+"ids": [
+28369
+],
+"n_tok": 1,
+"count": 1988,
+"synsets": 1,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "ether",
+"ids": [
+25704
+],
+"n_tok": 1,
+"count": 2031,
+"synsets": 4,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "naming",
+"ids": [
+26086
+],
+"n_tok": 1,
+"count": 2039,
+"synsets": 12,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "interpretations",
+"ids": [
+27838
+],
+"n_tok": 1,
+"count": 2045,
+"synsets": 4,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "transforming",
+"ids": [
+27197
+],
+"n_tok": 1,
+"count": 2082,
+"synsets": 7,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "annoying",
+"ids": [
+24659
+],
+"n_tok": 1,
+"count": 2102,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "interpreting",
+"ids": [
+29375
+],
+"n_tok": 1,
+"count": 2104,
+"synsets": 7,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "dell",
+"ids": [
+20889
+],
+"n_tok": 1,
+"count": 2125,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "mysterious",
+"ids": [
+19796
+],
+"n_tok": 1,
+"count": 2155,
+"synsets": 2,
+"pos": "a",
+"freq_bin": 2
+},
+{
+"word": "collectively",
+"ids": [
+26708
+],
+"n_tok": 1,
+"count": 2160,
+"synsets": 1,
+"pos": "r",
+"freq_bin": 2
+},
+{
+"word": "traumatic",
+"ids": [
+27784
+],
+"n_tok": 1,
+"count": 2165,
+"synsets": 2,
+"pos": "a",
+"freq_bin": 2
+},
+{
+"word": "ugly",
+"ids": [
+19513
+],
+"n_tok": 1,
+"count": 2190,
+"synsets": 4,
+"pos": "a",
+"freq_bin": 2
+},
+{
+"word": "cousin",
+"ids": [
+19338
+],
+"n_tok": 1,
+"count": 2191,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "audit",
+"ids": [
+23873
+],
+"n_tok": 1,
+"count": 2252,
+"synsets": 4,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "resultant",
+"ids": [
+29395
+],
+"n_tok": 1,
+"count": 2270,
+"synsets": 4,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "coordinated",
+"ids": [
+25899
+],
+"n_tok": 1,
+"count": 2273,
+"synsets": 7,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "bile",
+"ids": [
+26413
+],
+"n_tok": 1,
+"count": 2302,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "interacts",
+"ids": [
+29290
+],
+"n_tok": 1,
+"count": 2304,
+"synsets": 1,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "ecological",
+"ids": [
+24957
+],
+"n_tok": 1,
+"count": 2315,
+"synsets": 2,
+"pos": "a",
+"freq_bin": 2
+},
+{
+"word": "collector",
+"ids": [
+25389
+],
+"n_tok": 1,
+"count": 2352,
+"synsets": 4,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "invite",
+"ids": [
+19864
+],
+"n_tok": 1,
+"count": 2402,
+"synsets": 9,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "groove",
+"ids": [
+27444
+],
+"n_tok": 1,
+"count": 2412,
+"synsets": 5,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "complain",
+"ids": [
+17805
+],
+"n_tok": 1,
+"count": 2415,
+"synsets": 2,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "graded",
+"ids": [
+25082
+],
+"n_tok": 1,
+"count": 2476,
+"synsets": 5,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "urged",
+"ids": [
+18343
+],
+"n_tok": 1,
+"count": 2484,
+"synsets": 3,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "opacity",
+"ids": [
+26655
+],
+"n_tok": 1,
+"count": 2500,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "jointly",
+"ids": [
+26277
+],
+"n_tok": 1,
+"count": 2504,
+"synsets": 2,
+"pos": "r",
+"freq_bin": 2
+},
+{
+"word": "spaced",
+"ids": [
+26549
+],
+"n_tok": 1,
+"count": 2514,
+"synsets": 3,
+"pos": "a",
+"freq_bin": 2
+},
+{
+"word": "cosmic",
+"ids": [
+23147
+],
+"n_tok": 1,
+"count": 2586,
+"synsets": 2,
+"pos": "a",
+"freq_bin": 2
+},
+{
+"word": "transduction",
+"ids": [
+28942
+],
+"n_tok": 1,
+"count": 2600,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "strikes",
+"ids": [
+18200
+],
+"n_tok": 1,
+"count": 2672,
+"synsets": 27,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "screens",
+"ids": [
+14584
+],
+"n_tok": 1,
+"count": 2743,
+"synsets": 16,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "polymerization",
+"ids": [
+26915
+],
+"n_tok": 1,
+"count": 2751,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "tale",
+"ids": [
+17005
+],
+"n_tok": 1,
+"count": 2753,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "anniversary",
+"ids": [
+19054
+],
+"n_tok": 1,
+"count": 2802,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "handed",
+"ids": [
+14048
+],
+"n_tok": 1,
+"count": 2816,
+"synsets": 3,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "stimulate",
+"ids": [
+23278
+],
+"n_tok": 1,
+"count": 2834,
+"synsets": 7,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "tuberculosis",
+"ids": [
+23669
+],
+"n_tok": 1,
+"count": 2862,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "opponent",
+"ids": [
+16871
+],
+"n_tok": 1,
+"count": 2900,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "origins",
+"ids": [
+20801
+],
+"n_tok": 1,
+"count": 2926,
+"synsets": 6,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "pairing",
+"ids": [
+25015
+],
+"n_tok": 1,
+"count": 2935,
+"synsets": 7,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "aperture",
+"ids": [
+23700
+],
+"n_tok": 1,
+"count": 2976,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "apt",
+"ids": [
+13390
+],
+"n_tok": 1,
+"count": 3011,
+"synsets": 4,
+"pos": "a",
+"freq_bin": 2
+},
+{
+"word": "ischemia",
+"ids": [
+24031
+],
+"n_tok": 1,
+"count": 3083,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "vocals",
+"ids": [
+23599
+],
+"n_tok": 1,
+"count": 3086,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "cartilage",
+"ids": [
+25548
+],
+"n_tok": 1,
+"count": 3105,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "contexts",
+"ids": [
+22349
+],
+"n_tok": 1,
+"count": 3119,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "favourite",
+"ids": [
+18069
+],
+"n_tok": 1,
+"count": 3184,
+"synsets": 5,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "accepting",
+"ids": [
+18738
+],
+"n_tok": 1,
+"count": 3209,
+"synsets": 12,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "negotiations",
+"ids": [
+16685
+],
+"n_tok": 1,
+"count": 3247,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "documentary",
+"ids": [
+18802
+],
+"n_tok": 1,
+"count": 3328,
+"synsets": 3,
+"pos": "a",
+"freq_bin": 3
+},
+{
+"word": "saturation",
+"ids": [
+22185
+],
+"n_tok": 1,
+"count": 3367,
+"synsets": 4,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "footballers",
+"ids": [
+23236
+],
+"n_tok": 1,
+"count": 3377,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "binds",
+"ids": [
+22294
+],
+"n_tok": 1,
+"count": 3424,
+"synsets": 11,
+"pos": "v",
+"freq_bin": 3
+},
+{
+"word": "disaster",
+"ids": [
+15394
+],
+"n_tok": 1,
+"count": 3437,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "als",
+"ids": [
+14350
+],
+"n_tok": 1,
+"count": 3463,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "competent",
+"ids": [
+20566
+],
+"n_tok": 1,
+"count": 3470,
+"synsets": 3,
+"pos": "a",
+"freq_bin": 3
+},
+{
+"word": "antigens",
+"ids": [
+22240
+],
+"n_tok": 1,
+"count": 3525,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "pertinent",
+"ids": [
+21452
+],
+"n_tok": 1,
+"count": 3544,
+"synsets": 2,
+"pos": "a",
+"freq_bin": 3
+},
+{
+"word": "displaying",
+"ids": [
+19703
+],
+"n_tok": 1,
+"count": 3598,
+"synsets": 2,
+"pos": "v",
+"freq_bin": 3
+},
+{
+"word": "motif",
+"ids": [
+14443
+],
+"n_tok": 1,
+"count": 3649,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "coherent",
+"ids": [
+18893
+],
+"n_tok": 1,
+"count": 3658,
+"synsets": 4,
+"pos": "a",
+"freq_bin": 3
+},
+{
+"word": "storing",
+"ids": [
+20073
+],
+"n_tok": 1,
+"count": 3674,
+"synsets": 2,
+"pos": "v",
+"freq_bin": 3
+},
+{
+"word": "balls",
+"ids": [
+15254
+],
+"n_tok": 1,
+"count": 3748,
+"synsets": 13,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "hereby",
+"ids": [
+20585
+],
+"n_tok": 1,
+"count": 3785,
+"synsets": 1,
+"pos": "r",
+"freq_bin": 3
+},
+{
+"word": "compiled",
+"ids": [
+18133
+],
+"n_tok": 1,
+"count": 3803,
+"synsets": 3,
+"pos": "v",
+"freq_bin": 3
+},
+{
+"word": "ambient",
+"ids": [
+18509
+],
+"n_tok": 1,
+"count": 3847,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 3
+},
+{
+"word": "dye",
+"ids": [
+18722
+],
+"n_tok": 1,
+"count": 3879,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "nose",
+"ids": [
+11480
+],
+"n_tok": 1,
+"count": 3923,
+"synsets": 14,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "bovine",
+"ids": [
+21963
+],
+"n_tok": 1,
+"count": 3931,
+"synsets": 3,
+"pos": "a",
+"freq_bin": 3
+},
+{
+"word": "recruited",
+"ids": [
+17875
+],
+"n_tok": 1,
+"count": 4042,
+"synsets": 3,
+"pos": "v",
+"freq_bin": 3
+},
+{
+"word": "legislature",
+"ids": [
+18818
+],
+"n_tok": 1,
+"count": 4046,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "halo",
+"ids": [
+20674
+],
+"n_tok": 1,
+"count": 4062,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "antioxidant",
+"ids": [
+20118
+],
+"n_tok": 1,
+"count": 4076,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "aggregate",
+"ids": [
+19737
+],
+"n_tok": 1,
+"count": 4099,
+"synsets": 7,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "infusion",
+"ids": [
+20457
+],
+"n_tok": 1,
+"count": 4219,
+"synsets": 4,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "google",
+"ids": [
+17899
+],
+"n_tok": 1,
+"count": 4228,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "aforementioned",
+"ids": [
+18979
+],
+"n_tok": 1,
+"count": 4241,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 3
+},
+{
+"word": "substitute",
+"ids": [
+16502
+],
+"n_tok": 1,
+"count": 4380,
+"synsets": 9,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "nurses",
+"ids": [
+16675
+],
+"n_tok": 1,
+"count": 4449,
+"synsets": 7,
+"pos": "v",
+"freq_bin": 3
+},
+{
+"word": "referring",
+"ids": [
+14339
+],
+"n_tok": 1,
+"count": 4481,
+"synsets": 7,
+"pos": "v",
+"freq_bin": 3
+},
+{
+"word": "lady",
+"ids": [
+10692
+],
+"n_tok": 1,
+"count": 4761,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "shoot",
+"ids": [
+5310
+],
+"n_tok": 1,
+"count": 4792,
+"synsets": 22,
+"pos": "v",
+"freq_bin": 3
+},
+{
+"word": "flowers",
+"ids": [
+12405
+],
+"n_tok": 1,
+"count": 4897,
+"synsets": 4,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "tiny",
+"ids": [
+10058
+],
+"n_tok": 1,
+"count": 4899,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 3
+},
+{
+"word": "saline",
+"ids": [
+18704
+],
+"n_tok": 1,
+"count": 4912,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "urine",
+"ids": [
+16327
+],
+"n_tok": 1,
+"count": 4963,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "asserts",
+"ids": [
+17086
+],
+"n_tok": 1,
+"count": 4967,
+"synsets": 4,
+"pos": "v",
+"freq_bin": 3
+},
+{
+"word": "arrive",
+"ids": [
+12666
+],
+"n_tok": 1,
+"count": 5040,
+"synsets": 2,
+"pos": "v",
+"freq_bin": 3
+},
+{
+"word": "drives",
+"ids": [
+14137
+],
+"n_tok": 1,
+"count": 5158,
+"synsets": 34,
+"pos": "v",
+"freq_bin": 3
+},
+{
+"word": "rose",
+"ids": [
+9461
+],
+"n_tok": 1,
+"count": 5317,
+"synsets": 21,
+"pos": "v",
+"freq_bin": 3
+},
+{
+"word": "sentences",
+"ids": [
+14683
+],
+"n_tok": 1,
+"count": 5374,
+"synsets": 4,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "considerations",
+"ids": [
+15711
+],
+"n_tok": 1,
+"count": 5401,
+"synsets": 6,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "quiet",
+"ids": [
+7107
+],
+"n_tok": 1,
+"count": 5618,
+"synsets": 13,
+"pos": "a",
+"freq_bin": 3
+},
+{
+"word": "vice",
+"ids": [
+12008
+],
+"n_tok": 1,
+"count": 5746,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "teach",
+"ids": [
+9798
+],
+"n_tok": 1,
+"count": 5844,
+"synsets": 3,
+"pos": "v",
+"freq_bin": 3
+},
+{
+"word": "capabilities",
+"ids": [
+13789
+],
+"n_tok": 1,
+"count": 5847,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "circular",
+"ids": [
+13765
+],
+"n_tok": 1,
+"count": 5853,
+"synsets": 3,
+"pos": "a",
+"freq_bin": 3
+},
+{
+"word": "configured",
+"ids": [
+15378
+],
+"n_tok": 1,
+"count": 5939,
+"synsets": 2,
+"pos": "v",
+"freq_bin": 3
+},
+{
+"word": "closure",
+"ids": [
+14230
+],
+"n_tok": 1,
+"count": 5988,
+"synsets": 8,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "checking",
+"ids": [
+12669
+],
+"n_tok": 1,
+"count": 6051,
+"synsets": 25,
+"pos": "v",
+"freq_bin": 3
+},
+{
+"word": "formulation",
+"ids": [
+15895
+],
+"n_tok": 1,
+"count": 6087,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "boundaries",
+"ids": [
+13674
+],
+"n_tok": 1,
+"count": 6180,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "drink",
+"ids": [
+5484
+],
+"n_tok": 1,
+"count": 6214,
+"synsets": 10,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "convergence",
+"ids": [
+14940
+],
+"n_tok": 1,
+"count": 6254,
+"synsets": 4,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "disabled",
+"ids": [
+13603
+],
+"n_tok": 1,
+"count": 6340,
+"synsets": 4,
+"pos": "v",
+"freq_bin": 3
+},
+{
+"word": "difficulties",
+"ids": [
+12748
+],
+"n_tok": 1,
+"count": 6583,
+"synsets": 4,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "kit",
+"ids": [
+6119
+],
+"n_tok": 1,
+"count": 6692,
+"synsets": 4,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "plenty",
+"ids": [
+9828
+],
+"n_tok": 1,
+"count": 6713,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "feels",
+"ids": [
+9193
+],
+"n_tok": 1,
+"count": 7119,
+"synsets": 17,
+"pos": "v",
+"freq_bin": 3
+},
+{
+"word": "cultured",
+"ids": [
+13637
+],
+"n_tok": 1,
+"count": 7128,
+"synsets": 2,
+"pos": "v",
+"freq_bin": 3
+},
+{
+"word": "theories",
+"ids": [
+11813
+],
+"n_tok": 1,
+"count": 7456,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "clause",
+"ids": [
+13604
+],
+"n_tok": 1,
+"count": 7493,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "steel",
+"ids": [
+10194
+],
+"n_tok": 1,
+"count": 7562,
+"synsets": 5,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "maintaining",
+"ids": [
+11850
+],
+"n_tok": 1,
+"count": 7565,
+"synsets": 10,
+"pos": "v",
+"freq_bin": 3
+},
+{
+"word": "illegal",
+"ids": [
+9676
+],
+"n_tok": 1,
+"count": 7910,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 3
+},
+{
+"word": "render",
+"ids": [
+8600
+],
+"n_tok": 1,
+"count": 8013,
+"synsets": 14,
+"pos": "v",
+"freq_bin": 3
+},
+{
+"word": "experts",
+"ids": [
+10071
+],
+"n_tok": 1,
+"count": 8023,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "threat",
+"ids": [
+4322
+],
+"n_tok": 1,
+"count": 8124,
+"synsets": 4,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "helping",
+"ids": [
+9073
+],
+"n_tok": 1,
+"count": 8259,
+"synsets": 9,
+"pos": "v",
+"freq_bin": 3
+},
+{
+"word": "formal",
+"ids": [
+7473
+],
+"n_tok": 1,
+"count": 8507,
+"synsets": 8,
+"pos": "a",
+"freq_bin": 4
+},
+{
+"word": "corner",
+"ids": [
+7145
+],
+"n_tok": 1,
+"count": 8801,
+"synsets": 14,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "putting",
+"ids": [
+8133
+],
+"n_tok": 1,
+"count": 9204,
+"synsets": 10,
+"pos": "v",
+"freq_bin": 4
+},
+{
+"word": "cultures",
+"ids": [
+11048
+],
+"n_tok": 1,
+"count": 9424,
+"synsets": 8,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "geometry",
+"ids": [
+12087
+],
+"n_tok": 1,
+"count": 9727,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "division",
+"ids": [
+9025
+],
+"n_tok": 1,
+"count": 9765,
+"synsets": 12,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "accounts",
+"ids": [
+8553
+],
+"n_tok": 1,
+"count": 9773,
+"synsets": 14,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "situations",
+"ids": [
+9534
+],
+"n_tok": 1,
+"count": 9949,
+"synsets": 5,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "experiences",
+"ids": [
+8450
+],
+"n_tok": 1,
+"count": 10516,
+"synsets": 8,
+"pos": "v",
+"freq_bin": 4
+},
+{
+"word": "denominator",
+"ids": [
+12619
+],
+"n_tok": 1,
+"count": 10751,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "guilty",
+"ids": [
+8106
+],
+"n_tok": 1,
+"count": 11489,
+"synsets": 2,
+"pos": "a",
+"freq_bin": 4
+},
+{
+"word": "miles",
+"ids": [
+6574
+],
+"n_tok": 1,
+"count": 11694,
+"synsets": 8,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "repair",
+"ids": [
+8706
+],
+"n_tok": 1,
+"count": 11980,
+"synsets": 8,
+"pos": "v",
+"freq_bin": 4
+},
+{
+"word": "insulin",
+"ids": [
+9442
+],
+"n_tok": 1,
+"count": 12044,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "screening",
+"ids": [
+9273
+],
+"n_tok": 1,
+"count": 12116,
+"synsets": 11,
+"pos": "v",
+"freq_bin": 4
+},
+{
+"word": "daughter",
+"ids": [
+6122
+],
+"n_tok": 1,
+"count": 12180,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "transcription",
+"ids": [
+9464
+],
+"n_tok": 1,
+"count": 12286,
+"synsets": 5,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "lesions",
+"ids": [
+10429
+],
+"n_tok": 1,
+"count": 12379,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "sought",
+"ids": [
+7799
+],
+"n_tok": 1,
+"count": 12535,
+"synsets": 7,
+"pos": "v",
+"freq_bin": 4
+},
+{
+"word": "replaced",
+"ids": [
+7932
+],
+"n_tok": 1,
+"count": 12957,
+"synsets": 4,
+"pos": "v",
+"freq_bin": 4
+},
+{
+"word": "opposite",
+"ids": [
+7285
+],
+"n_tok": 1,
+"count": 13581,
+"synsets": 11,
+"pos": "a",
+"freq_bin": 4
+},
+{
+"word": "talking",
+"ids": [
+5015
+],
+"n_tok": 1,
+"count": 13610,
+"synsets": 7,
+"pos": "v",
+"freq_bin": 4
+},
+{
+"word": "articles",
+"ids": [
+7774
+],
+"n_tok": 1,
+"count": 14340,
+"synsets": 5,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "yield",
+"ids": [
+4917
+],
+"n_tok": 1,
+"count": 14464,
+"synsets": 17,
+"pos": "v",
+"freq_bin": 4
+},
+{
+"word": "song",
+"ids": [
+4498
+],
+"n_tok": 1,
+"count": 14775,
+"synsets": 6,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "interpretation",
+"ids": [
+7914
+],
+"n_tok": 1,
+"count": 15168,
+"synsets": 4,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "extremely",
+"ids": [
+6685
+],
+"n_tok": 1,
+"count": 15392,
+"synsets": 2,
+"pos": "r",
+"freq_bin": 4
+},
+{
+"word": "charged",
+"ids": [
+6636
+],
+"n_tok": 1,
+"count": 16198,
+"synsets": 29,
+"pos": "v",
+"freq_bin": 4
+},
+{
+"word": "implies",
+"ids": [
+8018
+],
+"n_tok": 1,
+"count": 16722,
+"synsets": 5,
+"pos": "v",
+"freq_bin": 4
+},
+{
+"word": "nice",
+"ids": [
+5322
+],
+"n_tok": 1,
+"count": 16805,
+"synsets": 6,
+"pos": "a",
+"freq_bin": 4
+},
+{
+"word": "approaches",
+"ids": [
+7274
+],
+"n_tok": 1,
+"count": 17233,
+"synsets": 14,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "employed",
+"ids": [
+7091
+],
+"n_tok": 1,
+"count": 17442,
+"synsets": 4,
+"pos": "v",
+"freq_bin": 4
+},
+{
+"word": "receiving",
+"ids": [
+6883
+],
+"n_tok": 1,
+"count": 17465,
+"synsets": 13,
+"pos": "v",
+"freq_bin": 4
+},
+{
+"word": "button",
+"ids": [
+6409
+],
+"n_tok": 1,
+"count": 17588,
+"synsets": 9,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "importance",
+"ids": [
+6349
+],
+"n_tok": 1,
+"count": 18356,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "meeting",
+"ids": [
+4804
+],
+"n_tok": 1,
+"count": 18681,
+"synsets": 19,
+"pos": "v",
+"freq_bin": 4
+},
+{
+"word": "sentence",
+"ids": [
+6197
+],
+"n_tok": 1,
+"count": 19849,
+"synsets": 4,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "spin",
+"ids": [
+5508
+],
+"n_tok": 1,
+"count": 20110,
+"synsets": 13,
+"pos": "v",
+"freq_bin": 4
+},
+{
+"word": "extent",
+"ids": [
+6070
+],
+"n_tok": 1,
+"count": 20866,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "remain",
+"ids": [
+3464
+],
+"n_tok": 1,
+"count": 20928,
+"synsets": 4,
+"pos": "v",
+"freq_bin": 4
+},
+{
+"word": "occurred",
+"ids": [
+5866
+],
+"n_tok": 1,
+"count": 21008,
+"synsets": 3,
+"pos": "v",
+"freq_bin": 4
+},
+{
+"word": "wall",
+"ids": [
+3402
+],
+"n_tok": 1,
+"count": 21041,
+"synsets": 9,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "char",
+"ids": [
+1018
+],
+"n_tok": 1,
+"count": 23477,
+"synsets": 5,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "solid",
+"ids": [
+4891
+],
+"n_tok": 1,
+"count": 23724,
+"synsets": 18,
+"pos": "a",
+"freq_bin": 4
+},
+{
+"word": "relation",
+"ids": [
+5886
+],
+"n_tok": 1,
+"count": 23848,
+"synsets": 6,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "std",
+"ids": [
+6268
+],
+"n_tok": 1,
+"count": 23911,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "attention",
+"ids": [
+4116
+],
+"n_tok": 1,
+"count": 26435,
+"synsets": 6,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "transfer",
+"ids": [
+3700
+],
+"n_tok": 1,
+"count": 27211,
+"synsets": 15,
+"pos": "v",
+"freq_bin": 4
+},
+{
+"word": "speed",
+"ids": [
+3885
+],
+"n_tok": 1,
+"count": 28505,
+"synsets": 10,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "default",
+"ids": [
+4284
+],
+"n_tok": 1,
+"count": 30150,
+"synsets": 5,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "filed",
+"ids": [
+4724
+],
+"n_tok": 1,
+"count": 30938,
+"synsets": 5,
+"pos": "v",
+"freq_bin": 4
+},
+{
+"word": "environment",
+"ids": [
+3126
+],
+"n_tok": 1,
+"count": 32489,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "formed",
+"ids": [
+4447
+],
+"n_tok": 1,
+"count": 32554,
+"synsets": 8,
+"pos": "v",
+"freq_bin": 4
+},
+{
+"word": "degree",
+"ids": [
+4248
+],
+"n_tok": 1,
+"count": 37188,
+"synsets": 7,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "relative",
+"ids": [
+4103
+],
+"n_tok": 1,
+"count": 38162,
+"synsets": 4,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "allow",
+"ids": [
+1581
+],
+"n_tok": 1,
+"count": 39785,
+"synsets": 10,
+"pos": "v",
+"freq_bin": 4
+},
+{
+"word": "address",
+"ids": [
+2953
+],
+"n_tok": 1,
+"count": 40862,
+"synsets": 18,
+"pos": "v",
+"freq_bin": 4
+},
+{
+"word": "recent",
+"ids": [
+3332
+],
+"n_tok": 1,
+"count": 41418,
+"synsets": 3,
+"pos": "a",
+"freq_bin": 4
+},
+{
+"word": "involved",
+"ids": [
+3206
+],
+"n_tok": 1,
+"count": 46616,
+"synsets": 12,
+"pos": "v",
+"freq_bin": 4
+},
+{
+"word": "short",
+"ids": [
+2159
+],
+"n_tok": 1,
+"count": 51441,
+"synsets": 23,
+"pos": "a",
+"freq_bin": 4
+},
+{
+"word": "base",
+"ids": [
+2613
+],
+"n_tok": 1,
+"count": 57136,
+"synsets": 30,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "run",
+"ids": [
+1408
+],
+"n_tok": 1,
+"count": 58871,
+"synsets": 57,
+"pos": "v",
+"freq_bin": 4
+},
+{
+"word": "service",
+"ids": [
+2579
+],
+"n_tok": 1,
+"count": 58938,
+"synsets": 18,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "content",
+"ids": [
+2600
+],
+"n_tok": 1,
+"count": 62528,
+"synsets": 10,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "range",
+"ids": [
+2491
+],
+"n_tok": 1,
+"count": 72115,
+"synsets": 17,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "own",
+"ids": [
+1211
+],
+"n_tok": 1,
+"count": 92159,
+"synsets": 2,
+"pos": "v",
+"freq_bin": 4
+},
+{
+"word": "small",
+"ids": [
+1355
+],
+"n_tok": 1,
+"count": 97979,
+"synsets": 13,
+"pos": "a",
+"freq_bin": 4
+},
+{
+"word": "control",
+"ids": [
+1453
+],
+"n_tok": 1,
+"count": 125229,
+"synsets": 19,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "cells",
+"ids": [
+1341
+],
+"n_tok": 1,
+"count": 193443,
+"synsets": 7,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "some",
+"ids": [
+690
+],
+"n_tok": 1,
+"count": 295442,
+"synsets": 5,
+"pos": "a",
+"freq_bin": 4
+},
+{
+"word": "prioritized",
+"ids": [
+23652,
+1025
+],
+"n_tok": 2,
+"count": 401,
+"synsets": 1,
+"pos": "v",
+"freq_bin": 0
+},
+{
+"word": "resonate",
+"ids": [
+8146,
+366
+],
+"n_tok": 2,
+"count": 401,
+"synsets": 2,
+"pos": "v",
+"freq_bin": 0
+},
+{
+"word": "interrogated",
+"ids": [
+16608,
+456
+],
+"n_tok": 2,
+"count": 402,
+"synsets": 2,
+"pos": "v",
+"freq_bin": 0
+},
+{
+"word": "scriptures",
+"ids": [
+6001,
+980
+],
+"n_tok": 2,
+"count": 402,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "hamper",
+"ids": [
+10546,
+468
+],
+"n_tok": 2,
+"count": 403,
+"synsets": 4,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "tightness",
+"ids": [
+6863,
+1255
+],
+"n_tok": 2,
+"count": 404,
+"synsets": 5,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "braided",
+"ids": [
+6513,
+1356
+],
+"n_tok": 2,
+"count": 405,
+"synsets": 4,
+"pos": "v",
+"freq_bin": 0
+},
+{
+"word": "aligns",
+"ids": [
+8495,
+84
+],
+"n_tok": 2,
+"count": 405,
+"synsets": 4,
+"pos": "v",
+"freq_bin": 0
+},
+{
+"word": "necessitating",
+"ids": [
+2436,
+27427
+],
+"n_tok": 2,
+"count": 406,
+"synsets": 2,
+"pos": "v",
+"freq_bin": 0
+},
+{
+"word": "mythical",
+"ids": [
+13296,
+474
+],
+"n_tok": 2,
+"count": 407,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 0
+},
+{
+"word": "midbrain",
+"ids": [
+4260,
+21590
+],
+"n_tok": 2,
+"count": 407,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "hubby",
+"ids": [
+14713,
+1615
+],
+"n_tok": 2,
+"count": 408,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "believable",
+"ids": [
+1802,
+17254
+],
+"n_tok": 2,
+"count": 409,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 0
+},
+{
+"word": "muted",
+"ids": [
+2873,
+264
+],
+"n_tok": 2,
+"count": 409,
+"synsets": 3,
+"pos": "a",
+"freq_bin": 0
+},
+{
+"word": "guaranty",
+"ids": [
+7264,
+90
+],
+"n_tok": 2,
+"count": 410,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "predisposing",
+"ids": [
+29498,
+28163
+],
+"n_tok": 2,
+"count": 411,
+"synsets": 1,
+"pos": "v",
+"freq_bin": 0
+},
+{
+"word": "dentate",
+"ids": [
+13822,
+366
+],
+"n_tok": 2,
+"count": 411,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 0
+},
+{
+"word": "thereunder",
+"ids": [
+627,
+4524
+],
+"n_tok": 2,
+"count": 412,
+"synsets": 1,
+"pos": "r",
+"freq_bin": 0
+},
+{
+"word": "bleach",
+"ids": [
+7387,
+607
+],
+"n_tok": 2,
+"count": 413,
+"synsets": 5,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "quadruple",
+"ids": [
+13284,
+13932
+],
+"n_tok": 2,
+"count": 414,
+"synsets": 5,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "cereals",
+"ids": [
+9731,
+932
+],
+"n_tok": 2,
+"count": 414,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "mutagenic",
+"ids": [
+35239,
+280
+],
+"n_tok": 2,
+"count": 414,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 0
+},
+{
+"word": "maximise",
+"ids": [
+11903,
+885
+],
+"n_tok": 2,
+"count": 414,
+"synsets": 2,
+"pos": "v",
+"freq_bin": 0
+},
+{
+"word": "pigmentation",
+"ids": [
+8393,
+16977
+],
+"n_tok": 2,
+"count": 415,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "showcases",
+"ids": [
+921,
+12866
+],
+"n_tok": 2,
+"count": 416,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "checker",
+"ids": [
+2451,
+254
+],
+"n_tok": 2,
+"count": 416,
+"synsets": 5,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "lotion",
+"ids": [
+2257,
+279
+],
+"n_tok": 2,
+"count": 416,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "kink",
+"ids": [
+465,
+750
+],
+"n_tok": 2,
+"count": 417,
+"synsets": 7,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "witches",
+"ids": [
+19311,
+2706
+],
+"n_tok": 2,
+"count": 417,
+"synsets": 5,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "workbook",
+"ids": [
+789,
+3305
+],
+"n_tok": 2,
+"count": 418,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "closeness",
+"ids": [
+2734,
+8098
+],
+"n_tok": 2,
+"count": 419,
+"synsets": 6,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "electrolytic",
+"ids": [
+22281,
+3028
+],
+"n_tok": 2,
+"count": 420,
+"synsets": 3,
+"pos": "a",
+"freq_bin": 0
+},
+{
+"word": "sheltered",
+"ids": [
+9200,
+3606
+],
+"n_tok": 2,
+"count": 420,
+"synsets": 3,
+"pos": "v",
+"freq_bin": 0
+},
+{
+"word": "carton",
+"ids": [
+7281,
+251
+],
+"n_tok": 2,
+"count": 420,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "descends",
+"ids": [
+1398,
+1727
+],
+"n_tok": 2,
+"count": 421,
+"synsets": 4,
+"pos": "v",
+"freq_bin": 0
+},
+{
+"word": "resetting",
+"ids": [
+14932,
+1076
+],
+"n_tok": 2,
+"count": 423,
+"synsets": 3,
+"pos": "v",
+"freq_bin": 0
+},
+{
+"word": "stumble",
+"ids": [
+331,
+19493
+],
+"n_tok": 2,
+"count": 424,
+"synsets": 6,
+"pos": "v",
+"freq_bin": 0
+},
+{
+"word": "gathers",
+"ids": [
+9580,
+84
+],
+"n_tok": 2,
+"count": 424,
+"synsets": 11,
+"pos": "v",
+"freq_bin": 0
+},
+{
+"word": "intermittently",
+"ids": [
+26509,
+1574
+],
+"n_tok": 2,
+"count": 426,
+"synsets": 1,
+"pos": "r",
+"freq_bin": 0
+},
+{
+"word": "trending",
+"ids": [
+9058,
+272
+],
+"n_tok": 2,
+"count": 426,
+"synsets": 1,
+"pos": "v",
+"freq_bin": 0
+},
+{
+"word": "confining",
+"ids": [
+1461,
+1699
+],
+"n_tok": 2,
+"count": 426,
+"synsets": 8,
+"pos": "v",
+"freq_bin": 0
+},
+{
+"word": "immortality",
+"ids": [
+4293,
+48317
+],
+"n_tok": 2,
+"count": 427,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "spermatogenesis",
+"ids": [
+31863,
+8258
+],
+"n_tok": 2,
+"count": 427,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "french",
+"ids": [
+269,
+4099
+],
+"n_tok": 2,
+"count": 428,
+"synsets": 5,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "tallest",
+"ids": [
+10086,
+383
+],
+"n_tok": 2,
+"count": 430,
+"synsets": 4,
+"pos": "a",
+"freq_bin": 0
+},
+{
+"word": "wager",
+"ids": [
+259,
+3800
+],
+"n_tok": 2,
+"count": 430,
+"synsets": 4,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "babe",
+"ids": [
+5366,
+70
+],
+"n_tok": 2,
+"count": 430,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "summarizing",
+"ids": [
+10405,
+3006
+],
+"n_tok": 2,
+"count": 430,
+"synsets": 2,
+"pos": "v",
+"freq_bin": 0
+},
+{
+"word": "wiser",
+"ids": [
+259,
+9141
+],
+"n_tok": 2,
+"count": 431,
+"synsets": 4,
+"pos": "a",
+"freq_bin": 0
+},
+{
+"word": "bibliography",
+"ids": [
+20314,
+20561
+],
+"n_tok": 2,
+"count": 432,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "tailoring",
+"ids": [
+8105,
+4263
+],
+"n_tok": 2,
+"count": 433,
+"synsets": 4,
+"pos": "v",
+"freq_bin": 0
+},
+{
+"word": "unplanned",
+"ids": [
+440,
+44752
+],
+"n_tok": 2,
+"count": 435,
+"synsets": 2,
+"pos": "a",
+"freq_bin": 0
+},
+{
+"word": "ceremonial",
+"ids": [
+12999,
+24755
+],
+"n_tok": 2,
+"count": 435,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "eddy",
+"ids": [
+1407,
+6421
+],
+"n_tok": 2,
+"count": 437,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "mediums",
+"ids": [
+4646,
+84
+],
+"n_tok": 2,
+"count": 438,
+"synsets": 11,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "cli",
+"ids": [
+502,
+74
+],
+"n_tok": 2,
+"count": 440,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "sketched",
+"ids": [
+30547,
+2147
+],
+"n_tok": 2,
+"count": 441,
+"synsets": 2,
+"pos": "v",
+"freq_bin": 0
+},
+{
+"word": "neutralize",
+"ids": [
+9238,
+907
+],
+"n_tok": 2,
+"count": 441,
+"synsets": 6,
+"pos": "v",
+"freq_bin": 0
+},
+{
+"word": "chores",
+"ids": [
+2093,
+373
+],
+"n_tok": 2,
+"count": 441,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "roommate",
+"ids": [
+2316,
+13884
+],
+"n_tok": 2,
+"count": 441,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "plenary",
+"ids": [
+499,
+35634
+],
+"n_tok": 2,
+"count": 442,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 0
+},
+{
+"word": "confiscated",
+"ids": [
+38509,
+456
+],
+"n_tok": 2,
+"count": 442,
+"synsets": 1,
+"pos": "v",
+"freq_bin": 0
+},
+{
+"word": "fluidity",
+"ids": [
+6514,
+414
+],
+"n_tok": 2,
+"count": 443,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "cruising",
+"ids": [
+5385,
+2182
+],
+"n_tok": 2,
+"count": 445,
+"synsets": 4,
+"pos": "v",
+"freq_bin": 0
+},
+{
+"word": "overdue",
+"ids": [
+689,
+21848
+],
+"n_tok": 2,
+"count": 446,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 0
+},
+{
+"word": "causally",
+"ids": [
+2334,
+595
+],
+"n_tok": 2,
+"count": 446,
+"synsets": 1,
+"pos": "r",
+"freq_bin": 0
+},
+{
+"word": "chimney",
+"ids": [
+19114,
+2191
+],
+"n_tok": 2,
+"count": 447,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "discarding",
+"ids": [
+1262,
+13218
+],
+"n_tok": 2,
+"count": 448,
+"synsets": 1,
+"pos": "v",
+"freq_bin": 0
+},
+{
+"word": "swaps",
+"ids": [
+1863,
+1825
+],
+"n_tok": 2,
+"count": 448,
+"synsets": 3,
+"pos": "v",
+"freq_bin": 0
+},
+{
+"word": "damper",
+"ids": [
+2687,
+468
+],
+"n_tok": 2,
+"count": 449,
+"synsets": 4,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "instantaneously",
+"ids": [
+8164,
+8272
+],
+"n_tok": 2,
+"count": 451,
+"synsets": 1,
+"pos": "r",
+"freq_bin": 1
+},
+{
+"word": "supervising",
+"ids": [
+35220,
+2182
+],
+"n_tok": 2,
+"count": 451,
+"synsets": 3,
+"pos": "v",
+"freq_bin": 1
+},
+{
+"word": "diocese",
+"ids": [
+1073,
+32143
+],
+"n_tok": 2,
+"count": 454,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "asteroids",
+"ids": [
+23317,
+9448
+],
+"n_tok": 2,
+"count": 454,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "approximates",
+"ids": [
+4020,
+684
+],
+"n_tok": 2,
+"count": 455,
+"synsets": 2,
+"pos": "v",
+"freq_bin": 1
+},
+{
+"word": "preparedness",
+"ids": [
+5480,
+1255
+],
+"n_tok": 2,
+"count": 455,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "illegitimate",
+"ids": [
+20739,
+42858
+],
+"n_tok": 2,
+"count": 457,
+"synsets": 3,
+"pos": "a",
+"freq_bin": 1
+},
+{
+"word": "integrative",
+"ids": [
+2899,
+800
+],
+"n_tok": 2,
+"count": 458,
+"synsets": 2,
+"pos": "a",
+"freq_bin": 1
+},
+{
+"word": "curricula",
+"ids": [
+22182,
+3627
+],
+"n_tok": 2,
+"count": 458,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "taped",
+"ids": [
+246,
+7760
+],
+"n_tok": 2,
+"count": 458,
+"synsets": 17,
+"pos": "v",
+"freq_bin": 1
+},
+{
+"word": "intimidating",
+"ids": [
+28427,
+839
+],
+"n_tok": 2,
+"count": 459,
+"synsets": 3,
+"pos": "v",
+"freq_bin": 1
+},
+{
+"word": "consequential",
+"ids": [
+4823,
+1624
+],
+"n_tok": 2,
+"count": 459,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 1
+},
+{
+"word": "gloomy",
+"ids": [
+43976,
+4182
+],
+"n_tok": 2,
+"count": 460,
+"synsets": 3,
+"pos": "a",
+"freq_bin": 1
+},
+{
+"word": "equate",
+"ids": [
+1298,
+366
+],
+"n_tok": 2,
+"count": 460,
+"synsets": 3,
+"pos": "v",
+"freq_bin": 1
+},
+{
+"word": "wholesome",
+"ids": [
+24897,
+485
+],
+"n_tok": 2,
+"count": 460,
+"synsets": 2,
+"pos": "a",
+"freq_bin": 1
+},
+{
+"word": "weld",
+"ids": [
+6210,
+69
+],
+"n_tok": 2,
+"count": 461,
+"synsets": 5,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "strives",
+"ids": [
+331,
+39477
+],
+"n_tok": 2,
+"count": 462,
+"synsets": 2,
+"pos": "v",
+"freq_bin": 1
+},
+{
+"word": "eosinophil",
+"ids": [
+26820,
+15019
+],
+"n_tok": 2,
+"count": 462,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "quirky",
+"ids": [
+43915,
+4742
+],
+"n_tok": 2,
+"count": 463,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 1
+},
+{
+"word": "airs",
+"ids": [
+2329,
+84
+],
+"n_tok": 2,
+"count": 463,
+"synsets": 16,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "dwellings",
+"ids": [
+23031,
+723
+],
+"n_tok": 2,
+"count": 463,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "breeder",
+"ids": [
+1517,
+16478
+],
+"n_tok": 2,
+"count": 463,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "denominations",
+"ids": [
+11558,
+569
+],
+"n_tok": 2,
+"count": 464,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "coloration",
+"ids": [
+3295,
+318
+],
+"n_tok": 2,
+"count": 464,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "metabolized",
+"ids": [
+7218,
+1025
+],
+"n_tok": 2,
+"count": 465,
+"synsets": 1,
+"pos": "v",
+"freq_bin": 1
+},
+{
+"word": "hexane",
+"ids": [
+15442,
+1351
+],
+"n_tok": 2,
+"count": 465,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "cradle",
+"ids": [
+40517,
+282
+],
+"n_tok": 2,
+"count": 465,
+"synsets": 10,
+"pos": "v",
+"freq_bin": 1
+},
+{
+"word": "crappy",
+"ids": [
+8034,
+19500
+],
+"n_tok": 2,
+"count": 468,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 1
+},
+{
+"word": "breakout",
+"ids": [
+2740,
+483
+],
+"n_tok": 2,
+"count": 469,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "proteinase",
+"ids": [
+2601,
+511
+],
+"n_tok": 2,
+"count": 471,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "demos",
+"ids": [
+1471,
+375
+],
+"n_tok": 2,
+"count": 472,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "egress",
+"ids": [
+299,
+3161
+],
+"n_tok": 2,
+"count": 472,
+"synsets": 4,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "furnishing",
+"ids": [
+9192,
+3647
+],
+"n_tok": 2,
+"count": 473,
+"synsets": 5,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "wrestler",
+"ids": [
+16972,
+2146
+],
+"n_tok": 2,
+"count": 473,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "utterances",
+"ids": [
+13894,
+1972
+],
+"n_tok": 2,
+"count": 473,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "nipple",
+"ids": [
+295,
+33687
+],
+"n_tok": 2,
+"count": 474,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "trespass",
+"ids": [
+40209,
+515
+],
+"n_tok": 2,
+"count": 474,
+"synsets": 7,
+"pos": "v",
+"freq_bin": 1
+},
+{
+"word": "crabs",
+"ids": [
+1531,
+5375
+],
+"n_tok": 2,
+"count": 475,
+"synsets": 12,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "callable",
+"ids": [
+1067,
+494
+],
+"n_tok": 2,
+"count": 476,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 1
+},
+{
+"word": "anticipating",
+"ids": [
+10437,
+839
+],
+"n_tok": 2,
+"count": 477,
+"synsets": 6,
+"pos": "v",
+"freq_bin": 1
+},
+{
+"word": "assuring",
+"ids": [
+718,
+981
+],
+"n_tok": 2,
+"count": 479,
+"synsets": 7,
+"pos": "v",
+"freq_bin": 1
+},
+{
+"word": "overwritten",
+"ids": [
+689,
+15720
+],
+"n_tok": 2,
+"count": 479,
+"synsets": 1,
+"pos": "v",
+"freq_bin": 1
+},
+{
+"word": "carbons",
+"ids": [
+12344,
+790
+],
+"n_tok": 2,
+"count": 479,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "allowances",
+"ids": [
+1581,
+1972
+],
+"n_tok": 2,
+"count": 480,
+"synsets": 7,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "transversely",
+"ids": [
+811,
+13110
+],
+"n_tok": 2,
+"count": 482,
+"synsets": 1,
+"pos": "r",
+"freq_bin": 1
+},
+{
+"word": "chloroplast",
+"ids": [
+10410,
+43040
+],
+"n_tok": 2,
+"count": 483,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "vapour",
+"ids": [
+37033,
+454
+],
+"n_tok": 2,
+"count": 483,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "swabs",
+"ids": [
+1863,
+5375
+],
+"n_tok": 2,
+"count": 484,
+"synsets": 4,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "lubrication",
+"ids": [
+27203,
+318
+],
+"n_tok": 2,
+"count": 484,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "ios",
+"ids": [
+891,
+375
+],
+"n_tok": 2,
+"count": 485,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "annexed",
+"ids": [
+29557,
+264
+],
+"n_tok": 2,
+"count": 486,
+"synsets": 2,
+"pos": "v",
+"freq_bin": 1
+},
+{
+"word": "antiquity",
+"ids": [
+1331,
+28780
+],
+"n_tok": 2,
+"count": 486,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "crowns",
+"ids": [
+6207,
+2224
+],
+"n_tok": 2,
+"count": 486,
+"synsets": 16,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "conforming",
+"ids": [
+10138,
+272
+],
+"n_tok": 2,
+"count": 487,
+"synsets": 3,
+"pos": "v",
+"freq_bin": 1
+},
+{
+"word": "panoramic",
+"ids": [
+43273,
+12614
+],
+"n_tok": 2,
+"count": 488,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 1
+},
+{
+"word": "satire",
+"ids": [
+2206,
+603
+],
+"n_tok": 2,
+"count": 489,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "mediocre",
+"ids": [
+12069,
+49636
+],
+"n_tok": 2,
+"count": 489,
+"synsets": 3,
+"pos": "a",
+"freq_bin": 1
+},
+{
+"word": "eradicate",
+"ids": [
+31559,
+9038
+],
+"n_tok": 2,
+"count": 489,
+"synsets": 2,
+"pos": "v",
+"freq_bin": 1
+},
+{
+"word": "legitimately",
+"ids": [
+10972,
+7325
+],
+"n_tok": 2,
+"count": 490,
+"synsets": 2,
+"pos": "r",
+"freq_bin": 1
+},
+{
+"word": "expulsion",
+"ids": [
+866,
+15305
+],
+"n_tok": 2,
+"count": 490,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "obligatory",
+"ids": [
+7206,
+2473
+],
+"n_tok": 2,
+"count": 491,
+"synsets": 2,
+"pos": "a",
+"freq_bin": 1
+},
+{
+"word": "atheists",
+"ids": [
+15389,
+1346
+],
+"n_tok": 2,
+"count": 492,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "compositional",
+"ids": [
+5889,
+267
+],
+"n_tok": 2,
+"count": 493,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 1
+},
+{
+"word": "theoretic",
+"ids": [
+253,
+30325
+],
+"n_tok": 2,
+"count": 494,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 1
+},
+{
+"word": "attains",
+"ids": [
+863,
+1550
+],
+"n_tok": 2,
+"count": 497,
+"synsets": 4,
+"pos": "v",
+"freq_bin": 1
+},
+{
+"word": "setback",
+"ids": [
+873,
+2135
+],
+"n_tok": 2,
+"count": 500,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "tenancy",
+"ids": [
+3578,
+4306
+],
+"n_tok": 2,
+"count": 500,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "strengthens",
+"ids": [
+4056,
+49966
+],
+"n_tok": 2,
+"count": 500,
+"synsets": 3,
+"pos": "v",
+"freq_bin": 1
+},
+{
+"word": "navigator",
+"ids": [
+6563,
+22853
+],
+"n_tok": 2,
+"count": 501,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "competencies",
+"ids": [
+3947,
+4601
+],
+"n_tok": 2,
+"count": 502,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "ventilated",
+"ids": [
+5698,
+31718
+],
+"n_tok": 2,
+"count": 504,
+"synsets": 6,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "substring",
+"ids": [
+749,
+2703
+],
+"n_tok": 2,
+"count": 505,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "recesses",
+"ids": [
+24096,
+265
+],
+"n_tok": 2,
+"count": 505,
+"synsets": 8,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "casein",
+"ids": [
+1083,
+249
+],
+"n_tok": 2,
+"count": 506,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "abolish",
+"ids": [
+17654,
+763
+],
+"n_tok": 2,
+"count": 507,
+"synsets": 1,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "accrue",
+"ids": [
+756,
+32340
+],
+"n_tok": 2,
+"count": 508,
+"synsets": 2,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "antecedent",
+"ids": [
+22943,
+27053
+],
+"n_tok": 2,
+"count": 513,
+"synsets": 5,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "needless",
+"ids": [
+878,
+1417
+],
+"n_tok": 2,
+"count": 514,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 2
+},
+{
+"word": "dues",
+"ids": [
+277,
+955
+],
+"n_tok": 2,
+"count": 515,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "fisheries",
+"ids": [
+14654,
+38486
+],
+"n_tok": 2,
+"count": 515,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "haemoglobin",
+"ids": [
+23754,
+20491
+],
+"n_tok": 2,
+"count": 516,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "purposely",
+"ids": [
+46060,
+600
+],
+"n_tok": 2,
+"count": 516,
+"synsets": 1,
+"pos": "r",
+"freq_bin": 2
+},
+{
+"word": "rake",
+"ids": [
+1218,
+413
+],
+"n_tok": 2,
+"count": 517,
+"synsets": 9,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "heroine",
+"ids": [
+8080,
+460
+],
+"n_tok": 2,
+"count": 517,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "propeller",
+"ids": [
+4198,
+7707
+],
+"n_tok": 2,
+"count": 518,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "disruptions",
+"ids": [
+13201,
+621
+],
+"n_tok": 2,
+"count": 519,
+"synsets": 4,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "chitin",
+"ids": [
+448,
+27609
+],
+"n_tok": 2,
+"count": 520,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "divalent",
+"ids": [
+2017,
+31153
+],
+"n_tok": 2,
+"count": 521,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 2
+},
+{
+"word": "articulation",
+"ids": [
+18575,
+1427
+],
+"n_tok": 2,
+"count": 521,
+"synsets": 5,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "aldosterone",
+"ids": [
+50171,
+20535
+],
+"n_tok": 2,
+"count": 522,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "pathologist",
+"ids": [
+1854,
+10364
+],
+"n_tok": 2,
+"count": 524,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "recycle",
+"ids": [
+761,
+21724
+],
+"n_tok": 2,
+"count": 526,
+"synsets": 2,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "lofty",
+"ids": [
+298,
+47218
+],
+"n_tok": 2,
+"count": 526,
+"synsets": 3,
+"pos": "a",
+"freq_bin": 2
+},
+{
+"word": "headings",
+"ids": [
+1481,
+723
+],
+"n_tok": 2,
+"count": 527,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "flattening",
+"ids": [
+30627,
+2980
+],
+"n_tok": 2,
+"count": 528,
+"synsets": 3,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "teamwork",
+"ids": [
+2285,
+1601
+],
+"n_tok": 2,
+"count": 529,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "alluded",
+"ids": [
+512,
+21015
+],
+"n_tok": 2,
+"count": 530,
+"synsets": 1,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "constriction",
+"ids": [
+1030,
+14365
+],
+"n_tok": 2,
+"count": 532,
+"synsets": 4,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "bestowed",
+"ids": [
+1682,
+12997
+],
+"n_tok": 2,
+"count": 533,
+"synsets": 3,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "decorate",
+"ids": [
+11482,
+366
+],
+"n_tok": 2,
+"count": 534,
+"synsets": 4,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "incidences",
+"ids": [
+1485,
+39725
+],
+"n_tok": 2,
+"count": 534,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "badges",
+"ids": [
+3076,
+2510
+],
+"n_tok": 2,
+"count": 534,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "screenplay",
+"ids": [
+3601,
+1993
+],
+"n_tok": 2,
+"count": 535,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "adjacency",
+"ids": [
+3067,
+43850
+],
+"n_tok": 2,
+"count": 535,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "integrations",
+"ids": [
+2899,
+569
+],
+"n_tok": 2,
+"count": 537,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "scramble",
+"ids": [
+660,
+45110
+],
+"n_tok": 2,
+"count": 537,
+"synsets": 7,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "inducted",
+"ids": [
+21782,
+264
+],
+"n_tok": 2,
+"count": 538,
+"synsets": 5,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "paperback",
+"ids": [
+2929,
+2135
+],
+"n_tok": 2,
+"count": 540,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "ophthalmic",
+"ids": [
+39109,
+6185
+],
+"n_tok": 2,
+"count": 540,
+"synsets": 2,
+"pos": "a",
+"freq_bin": 2
+},
+{
+"word": "adsorbent",
+"ids": [
+16738,
+43409
+],
+"n_tok": 2,
+"count": 541,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "folly",
+"ids": [
+6305,
+314
+],
+"n_tok": 2,
+"count": 543,
+"synsets": 4,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "alas",
+"ids": [
+355,
+284
+],
+"n_tok": 2,
+"count": 543,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "renting",
+"ids": [
+3816,
+1076
+],
+"n_tok": 2,
+"count": 543,
+"synsets": 5,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "deletes",
+"ids": [
+8812,
+265
+],
+"n_tok": 2,
+"count": 543,
+"synsets": 3,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "eosinophilic",
+"ids": [
+26820,
+28992
+],
+"n_tok": 2,
+"count": 544,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 2
+},
+{
+"word": "tiling",
+"ids": [
+246,
+4837
+],
+"n_tok": 2,
+"count": 548,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "yea",
+"ids": [
+9094,
+66
+],
+"n_tok": 2,
+"count": 549,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "revolutions",
+"ids": [
+3585,
+17009
+],
+"n_tok": 2,
+"count": 550,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "immunogenicity",
+"ids": [
+2984,
+39873
+],
+"n_tok": 2,
+"count": 558,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "injurious",
+"ids": [
+2450,
+21310
+],
+"n_tok": 2,
+"count": 560,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 2
+},
+{
+"word": "sociology",
+"ids": [
+10621,
+1497
+],
+"n_tok": 2,
+"count": 562,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "congestive",
+"ids": [
+25801,
+422
+],
+"n_tok": 2,
+"count": 562,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 2
+},
+{
+"word": "subjecting",
+"ids": [
+2256,
+272
+],
+"n_tok": 2,
+"count": 563,
+"synsets": 4,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "prostheses",
+"ids": [
+17248,
+31006
+],
+"n_tok": 2,
+"count": 566,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "unfit",
+"ids": [
+5369,
+262
+],
+"n_tok": 2,
+"count": 567,
+"synsets": 4,
+"pos": "a",
+"freq_bin": 2
+},
+{
+"word": "approximating",
+"ids": [
+4020,
+839
+],
+"n_tok": 2,
+"count": 569,
+"synsets": 2,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "thematic",
+"ids": [
+731,
+1420
+],
+"n_tok": 2,
+"count": 569,
+"synsets": 2,
+"pos": "a",
+"freq_bin": 2
+},
+{
+"word": "summarised",
+"ids": [
+10405,
+1701
+],
+"n_tok": 2,
+"count": 570,
+"synsets": 2,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "donating",
+"ids": [
+1053,
+839
+],
+"n_tok": 2,
+"count": 571,
+"synsets": 1,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "subscribed",
+"ids": [
+20404,
+264
+],
+"n_tok": 2,
+"count": 571,
+"synsets": 6,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "preempted",
+"ids": [
+36588,
+264
+],
+"n_tok": 2,
+"count": 571,
+"synsets": 4,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "passively",
+"ids": [
+1509,
+1242
+],
+"n_tok": 2,
+"count": 572,
+"synsets": 1,
+"pos": "r",
+"freq_bin": 2
+},
+{
+"word": "interchangeable",
+"ids": [
+28961,
+494
+],
+"n_tok": 2,
+"count": 572,
+"synsets": 2,
+"pos": "a",
+"freq_bin": 2
+},
+{
+"word": "orthodontic",
+"ids": [
+9373,
+49154
+],
+"n_tok": 2,
+"count": 572,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 2
+},
+{
+"word": "lighted",
+"ids": [
+1708,
+264
+],
+"n_tok": 2,
+"count": 573,
+"synsets": 8,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "sulphate",
+"ids": [
+33214,
+366
+],
+"n_tok": 2,
+"count": 574,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "brittle",
+"ids": [
+1308,
+1522
+],
+"n_tok": 2,
+"count": 575,
+"synsets": 4,
+"pos": "a",
+"freq_bin": 2
+},
+{
+"word": "patronage",
+"ids": [
+24081,
+486
+],
+"n_tok": 2,
+"count": 576,
+"synsets": 7,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "countenance",
+"ids": [
+1385,
+7697
+],
+"n_tok": 2,
+"count": 577,
+"synsets": 4,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "principals",
+"ids": [
+6980,
+932
+],
+"n_tok": 2,
+"count": 578,
+"synsets": 6,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "fillers",
+"ids": [
+7522,
+398
+],
+"n_tok": 2,
+"count": 580,
+"synsets": 5,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "endeavors",
+"ids": [
+33372,
+641
+],
+"n_tok": 2,
+"count": 581,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "simplistic",
+"ids": [
+8077,
+2531
+],
+"n_tok": 2,
+"count": 584,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 3
+},
+{
+"word": "abusing",
+"ids": [
+490,
+5302
+],
+"n_tok": 2,
+"count": 585,
+"synsets": 4,
+"pos": "v",
+"freq_bin": 3
+},
+{
+"word": "commencing",
+"ids": [
+764,
+5537
+],
+"n_tok": 2,
+"count": 586,
+"synsets": 3,
+"pos": "v",
+"freq_bin": 3
+},
+{
+"word": "sulfuric",
+"ids": [
+25524,
+280
+],
+"n_tok": 2,
+"count": 590,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 3
+},
+{
+"word": "litigant",
+"ids": [
+42024,
+386
+],
+"n_tok": 2,
+"count": 591,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "algorithmic",
+"ids": [
+5933,
+280
+],
+"n_tok": 2,
+"count": 592,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 3
+},
+{
+"word": "sentinel",
+"ids": [
+2197,
+29943
+],
+"n_tok": 2,
+"count": 592,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "suing",
+"ids": [
+402,
+272
+],
+"n_tok": 2,
+"count": 593,
+"synsets": 1,
+"pos": "v",
+"freq_bin": 3
+},
+{
+"word": "topologically",
+"ids": [
+1755,
+11220
+],
+"n_tok": 2,
+"count": 593,
+"synsets": 1,
+"pos": "r",
+"freq_bin": 3
+},
+{
+"word": "sequelae",
+"ids": [
+24590,
+3348
+],
+"n_tok": 2,
+"count": 598,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "azure",
+"ids": [
+11775,
+459
+],
+"n_tok": 2,
+"count": 598,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "cladding",
+"ids": [
+502,
+8052
+],
+"n_tok": 2,
+"count": 600,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "literals",
+"ids": [
+4133,
+932
+],
+"n_tok": 2,
+"count": 602,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "maven",
+"ids": [
+278,
+7603
+],
+"n_tok": 2,
+"count": 603,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "obscene",
+"ids": [
+14551,
+1751
+],
+"n_tok": 2,
+"count": 605,
+"synsets": 3,
+"pos": "a",
+"freq_bin": 3
+},
+{
+"word": "comprehensively",
+"ids": [
+9483,
+1242
+],
+"n_tok": 2,
+"count": 606,
+"synsets": 1,
+"pos": "r",
+"freq_bin": 3
+},
+{
+"word": "constituencies",
+"ids": [
+13085,
+4601
+],
+"n_tok": 2,
+"count": 607,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "tilting",
+"ids": [
+10751,
+1076
+],
+"n_tok": 2,
+"count": 610,
+"synsets": 4,
+"pos": "v",
+"freq_bin": 3
+},
+{
+"word": "trimming",
+"ids": [
+13970,
+3987
+],
+"n_tok": 2,
+"count": 612,
+"synsets": 12,
+"pos": "v",
+"freq_bin": 3
+},
+{
+"word": "reared",
+"ids": [
+294,
+1096
+],
+"n_tok": 2,
+"count": 614,
+"synsets": 5,
+"pos": "v",
+"freq_bin": 3
+},
+{
+"word": "palpable",
+"ids": [
+36385,
+494
+],
+"n_tok": 2,
+"count": 614,
+"synsets": 2,
+"pos": "a",
+"freq_bin": 3
+},
+{
+"word": "diverges",
+"ids": [
+11711,
+2510
+],
+"n_tok": 2,
+"count": 614,
+"synsets": 4,
+"pos": "v",
+"freq_bin": 3
+},
+{
+"word": "diapers",
+"ids": [
+1073,
+6143
+],
+"n_tok": 2,
+"count": 618,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "ceramics",
+"ids": [
+15733,
+47775
+],
+"n_tok": 2,
+"count": 618,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "sands",
+"ids": [
+256,
+2287
+],
+"n_tok": 2,
+"count": 621,
+"synsets": 5,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "swimmer",
+"ids": [
+10831,
+961
+],
+"n_tok": 2,
+"count": 621,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "mammal",
+"ids": [
+11783,
+267
+],
+"n_tok": 2,
+"count": 623,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "temporally",
+"ids": [
+5897,
+595
+],
+"n_tok": 2,
+"count": 624,
+"synsets": 1,
+"pos": "r",
+"freq_bin": 3
+},
+{
+"word": "factually",
+"ids": [
+958,
+1230
+],
+"n_tok": 2,
+"count": 624,
+"synsets": 1,
+"pos": "r",
+"freq_bin": 3
+},
+{
+"word": "immunoassay",
+"ids": [
+37013,
+33263
+],
+"n_tok": 2,
+"count": 626,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "subsections",
+"ids": [
+749,
+21454
+],
+"n_tok": 2,
+"count": 631,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "centrality",
+"ids": [
+26297,
+1319
+],
+"n_tok": 2,
+"count": 631,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "unprotected",
+"ids": [
+440,
+18641
+],
+"n_tok": 2,
+"count": 632,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 3
+},
+{
+"word": "communion",
+"ids": [
+1681,
+279
+],
+"n_tok": 2,
+"count": 633,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "tolling",
+"ids": [
+17935,
+272
+],
+"n_tok": 2,
+"count": 634,
+"synsets": 2,
+"pos": "v",
+"freq_bin": 3
+},
+{
+"word": "humorous",
+"ids": [
+1547,
+11303
+],
+"n_tok": 2,
+"count": 634,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 3
+},
+{
+"word": "defamation",
+"ids": [
+809,
+20717
+],
+"n_tok": 2,
+"count": 640,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "seminars",
+"ids": [
+36395,
+1032
+],
+"n_tok": 2,
+"count": 641,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "reminders",
+"ids": [
+9287,
+398
+],
+"n_tok": 2,
+"count": 641,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "embraces",
+"ids": [
+11949,
+1951
+],
+"n_tok": 2,
+"count": 641,
+"synsets": 6,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "generically",
+"ids": [
+1006,
+1037
+],
+"n_tok": 2,
+"count": 643,
+"synsets": 2,
+"pos": "r",
+"freq_bin": 3
+},
+{
+"word": "authorship",
+"ids": [
+4477,
+1456
+],
+"n_tok": 2,
+"count": 646,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "categorization",
+"ids": [
+13213,
+1320
+],
+"n_tok": 2,
+"count": 646,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "dictionaries",
+"ids": [
+277,
+49580
+],
+"n_tok": 2,
+"count": 650,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "extrapolated",
+"ids": [
+26480,
+35631
+],
+"n_tok": 2,
+"count": 650,
+"synsets": 3,
+"pos": "v",
+"freq_bin": 3
+},
+{
+"word": "dentin",
+"ids": [
+13822,
+249
+],
+"n_tok": 2,
+"count": 650,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "polygons",
+"ids": [
+35182,
+790
+],
+"n_tok": 2,
+"count": 656,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "lactose",
+"ids": [
+16184,
+583
+],
+"n_tok": 2,
+"count": 658,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "ciliary",
+"ids": [
+260,
+15434
+],
+"n_tok": 2,
+"count": 659,
+"synsets": 3,
+"pos": "a",
+"freq_bin": 3
+},
+{
+"word": "reachable",
+"ids": [
+3986,
+494
+],
+"n_tok": 2,
+"count": 661,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 3
+},
+{
+"word": "adaptor",
+"ids": [
+5223,
+263
+],
+"n_tok": 2,
+"count": 663,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "ketamine",
+"ids": [
+23792,
+6771
+],
+"n_tok": 2,
+"count": 664,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "solitons",
+"ids": [
+1220,
+50247
+],
+"n_tok": 2,
+"count": 664,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "acutely",
+"ids": [
+913,
+7348
+],
+"n_tok": 2,
+"count": 665,
+"synsets": 4,
+"pos": "r",
+"freq_bin": 3
+},
+{
+"word": "transducers",
+"ids": [
+811,
+41590
+],
+"n_tok": 2,
+"count": 665,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "interrogatories",
+"ids": [
+16608,
+15829
+],
+"n_tok": 2,
+"count": 666,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "bottleneck",
+"ids": [
+3673,
+44856
+],
+"n_tok": 2,
+"count": 671,
+"synsets": 4,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "fauna",
+"ids": [
+4195,
+9821
+],
+"n_tok": 2,
+"count": 672,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "outgrowth",
+"ids": [
+562,
+25869
+],
+"n_tok": 2,
+"count": 675,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "priors",
+"ids": [
+2235,
+641
+],
+"n_tok": 2,
+"count": 679,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "supervisory",
+"ids": [
+2221,
+24236
+],
+"n_tok": 2,
+"count": 682,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 3
+},
+{
+"word": "shorthand",
+"ids": [
+46719,
+395
+],
+"n_tok": 2,
+"count": 682,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "breaker",
+"ids": [
+2740,
+254
+],
+"n_tok": 2,
+"count": 683,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "propulsion",
+"ids": [
+4198,
+15305
+],
+"n_tok": 2,
+"count": 685,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "quartile",
+"ids": [
+17033,
+587
+],
+"n_tok": 2,
+"count": 687,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "whey",
+"ids": [
+488,
+90
+],
+"n_tok": 2,
+"count": 692,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "antidepressant",
+"ids": [
+33950,
+386
+],
+"n_tok": 2,
+"count": 693,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "quiver",
+"ids": [
+572,
+2373
+],
+"n_tok": 2,
+"count": 696,
+"synsets": 7,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "unreasonably",
+"ids": [
+440,
+38398
+],
+"n_tok": 2,
+"count": 699,
+"synsets": 2,
+"pos": "r",
+"freq_bin": 4
+},
+{
+"word": "housekeeping",
+"ids": [
+2419,
+23492
+],
+"n_tok": 2,
+"count": 701,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "leptons",
+"ids": [
+24214,
+790
+],
+"n_tok": 2,
+"count": 705,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "misrepresentations",
+"ids": [
+25355,
+569
+],
+"n_tok": 2,
+"count": 711,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "orthopedic",
+"ids": [
+9373,
+45647
+],
+"n_tok": 2,
+"count": 714,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 4
+},
+{
+"word": "glycolysis",
+"ids": [
+22471,
+1493
+],
+"n_tok": 2,
+"count": 720,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "attenuate",
+"ids": [
+24733,
+6340
+],
+"n_tok": 2,
+"count": 721,
+"synsets": 3,
+"pos": "v",
+"freq_bin": 4
+},
+{
+"word": "immaterial",
+"ids": [
+4293,
+1585
+],
+"n_tok": 2,
+"count": 728,
+"synsets": 5,
+"pos": "a",
+"freq_bin": 4
+},
+{
+"word": "interfered",
+"ids": [
+734,
+3850
+],
+"n_tok": 2,
+"count": 730,
+"synsets": 2,
+"pos": "v",
+"freq_bin": 4
+},
+{
+"word": "neoplasm",
+"ids": [
+425,
+11690
+],
+"n_tok": 2,
+"count": 730,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "cryptographic",
+"ids": [
+10105,
+5576
+],
+"n_tok": 2,
+"count": 730,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 4
+},
+{
+"word": "executor",
+"ids": [
+3244,
+6854
+],
+"n_tok": 2,
+"count": 730,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "dissatisfaction",
+"ids": [
+5408,
+38120
+],
+"n_tok": 2,
+"count": 732,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "dolphins",
+"ids": [
+277,
+35706
+],
+"n_tok": 2,
+"count": 735,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "allelic",
+"ids": [
+7374,
+663
+],
+"n_tok": 2,
+"count": 739,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 4
+},
+{
+"word": "acknowledgement",
+"ids": [
+9555,
+20800
+],
+"n_tok": 2,
+"count": 740,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "yrs",
+"ids": [
+340,
+2967
+],
+"n_tok": 2,
+"count": 741,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "lexical",
+"ids": [
+26752,
+474
+],
+"n_tok": 2,
+"count": 742,
+"synsets": 2,
+"pos": "a",
+"freq_bin": 4
+},
+{
+"word": "pea",
+"ids": [
+759,
+66
+],
+"n_tok": 2,
+"count": 747,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "contraband",
+"ids": [
+2916,
+47157
+],
+"n_tok": 2,
+"count": 751,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "glucocorticoid",
+"ids": [
+44154,
+1238
+],
+"n_tok": 2,
+"count": 753,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "clutter",
+"ids": [
+502,
+12216
+],
+"n_tok": 2,
+"count": 756,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "overrule",
+"ids": [
+689,
+15093
+],
+"n_tok": 2,
+"count": 760,
+"synsets": 1,
+"pos": "v",
+"freq_bin": 4
+},
+{
+"word": "corona",
+"ids": [
+944,
+8440
+],
+"n_tok": 2,
+"count": 762,
+"synsets": 6,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "mailbox",
+"ids": [
+8888,
+3364
+],
+"n_tok": 2,
+"count": 766,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "polypeptides",
+"ids": [
+27743,
+28735
+],
+"n_tok": 2,
+"count": 771,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "ovaries",
+"ids": [
+16119,
+447
+],
+"n_tok": 2,
+"count": 774,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "sulfide",
+"ids": [
+10997,
+504
+],
+"n_tok": 2,
+"count": 779,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "picker",
+"ids": [
+2619,
+254
+],
+"n_tok": 2,
+"count": 780,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "interlocutory",
+"ids": [
+45460,
+9911
+],
+"n_tok": 2,
+"count": 781,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 4
+},
+{
+"word": "functionalities",
+"ids": [
+5164,
+1005
+],
+"n_tok": 2,
+"count": 783,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "emulator",
+"ids": [
+802,
+11699
+],
+"n_tok": 2,
+"count": 786,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "coexistence",
+"ids": [
+820,
+29419
+],
+"n_tok": 2,
+"count": 788,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "vacancies",
+"ids": [
+5809,
+14013
+],
+"n_tok": 2,
+"count": 794,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "biologic",
+"ids": [
+1794,
+9522
+],
+"n_tok": 2,
+"count": 796,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 4
+},
+{
+"word": "proline",
+"ids": [
+354,
+1282
+],
+"n_tok": 2,
+"count": 800,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "subdivided",
+"ids": [
+18375,
+1356
+],
+"n_tok": 2,
+"count": 803,
+"synsets": 2,
+"pos": "v",
+"freq_bin": 4
+},
+{
+"word": "contraceptive",
+"ids": [
+28397,
+20834
+],
+"n_tok": 2,
+"count": 811,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "impairs",
+"ids": [
+1607,
+3514
+],
+"n_tok": 2,
+"count": 818,
+"synsets": 2,
+"pos": "v",
+"freq_bin": 4
+},
+{
+"word": "pyramidal",
+"ids": [
+25874,
+11421
+],
+"n_tok": 2,
+"count": 820,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 4
+},
+{
+"word": "concentric",
+"ids": [
+2786,
+695
+],
+"n_tok": 2,
+"count": 827,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 4
+},
+{
+"word": "terminates",
+"ids": [
+1307,
+8475
+],
+"n_tok": 2,
+"count": 828,
+"synsets": 4,
+"pos": "v",
+"freq_bin": 4
+},
+{
+"word": "quantifying",
+"ids": [
+2677,
+5411
+],
+"n_tok": 2,
+"count": 838,
+"synsets": 2,
+"pos": "v",
+"freq_bin": 4
+},
+{
+"word": "rhos",
+"ids": [
+13882,
+375
+],
+"n_tok": 2,
+"count": 845,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "hypoglycemia",
+"ids": [
+40284,
+27942
+],
+"n_tok": 2,
+"count": 853,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "inverter",
+"ids": [
+275,
+20043
+],
+"n_tok": 2,
+"count": 856,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "confers",
+"ids": [
+1461,
+398
+],
+"n_tok": 2,
+"count": 858,
+"synsets": 2,
+"pos": "v",
+"freq_bin": 4
+},
+{
+"word": "stents",
+"ids": [
+331,
+592
+],
+"n_tok": 2,
+"count": 859,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "hydrochloride",
+"ids": [
+41300,
+504
+],
+"n_tok": 2,
+"count": 868,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "retroactive",
+"ids": [
+13767,
+4507
+],
+"n_tok": 2,
+"count": 885,
+"synsets": 2,
+"pos": "a",
+"freq_bin": 4
+},
+{
+"word": "cohesion",
+"ids": [
+28901,
+279
+],
+"n_tok": 2,
+"count": 891,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "bilirubin",
+"ids": [
+10370,
+42833
+],
+"n_tok": 2,
+"count": 903,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "aminotransferase",
+"ids": [
+32609,
+47640
+],
+"n_tok": 2,
+"count": 914,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "allowable",
+"ids": [
+1581,
+494
+],
+"n_tok": 2,
+"count": 923,
+"synsets": 3,
+"pos": "a",
+"freq_bin": 4
+},
+{
+"word": "incubator",
+"ids": [
+7189,
+1080
+],
+"n_tok": 2,
+"count": 923,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "certify",
+"ids": [
+5306,
+1419
+],
+"n_tok": 2,
+"count": 930,
+"synsets": 5,
+"pos": "v",
+"freq_bin": 4
+},
+{
+"word": "linearized",
+"ids": [
+4872,
+1025
+],
+"n_tok": 2,
+"count": 930,
+"synsets": 1,
+"pos": "v",
+"freq_bin": 4
+},
+{
+"word": "anastomosis",
+"ids": [
+39475,
+2433
+],
+"n_tok": 2,
+"count": 930,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "fastening",
+"ids": [
+3809,
+2980
+],
+"n_tok": 2,
+"count": 933,
+"synsets": 6,
+"pos": "v",
+"freq_bin": 4
+},
+{
+"word": "corrective",
+"ids": [
+3451,
+422
+],
+"n_tok": 2,
+"count": 944,
+"synsets": 3,
+"pos": "a",
+"freq_bin": 4
+},
+{
+"word": "conjugates",
+"ids": [
+12993,
+684
+],
+"n_tok": 2,
+"count": 952,
+"synsets": 4,
+"pos": "v",
+"freq_bin": 4
+},
+{
+"word": "perforation",
+"ids": [
+27024,
+318
+],
+"n_tok": 2,
+"count": 977,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "volumetric",
+"ids": [
+1936,
+45558
+],
+"n_tok": 2,
+"count": 981,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 4
+},
+{
+"word": "universality",
+"ids": [
+6978,
+1319
+],
+"n_tok": 2,
+"count": 1007,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "absorbent",
+"ids": [
+15816,
+290
+],
+"n_tok": 2,
+"count": 1026,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "intersects",
+"ids": [
+23965,
+84
+],
+"n_tok": 2,
+"count": 1032,
+"synsets": 1,
+"pos": "v",
+"freq_bin": 4
+},
+{
+"word": "lamina",
+"ids": [
+16519,
+1758
+],
+"n_tok": 2,
+"count": 1041,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "covalent",
+"ids": [
+9383,
+31153
+],
+"n_tok": 2,
+"count": 1102,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 4
+},
+{
+"word": "inexact",
+"ids": [
+29257,
+514
+],
+"n_tok": 2,
+"count": 1141,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 4
+},
+{
+"word": "duodenal",
+"ids": [
+3443,
+50054
+],
+"n_tok": 2,
+"count": 1295,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 4
+},
+{
+"word": "inappropriately",
+"ids": [
+275,
+13759,
+1523
+],
+"n_tok": 3,
+"count": 400,
+"synsets": 1,
+"pos": "r",
+"freq_bin": 0
+},
+{
+"word": "hobbies",
+"ids": [
+288,
+19074,
+447
+],
+"n_tok": 3,
+"count": 400,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "aetiology",
+"ids": [
+247,
+292,
+10537
+],
+"n_tok": 3,
+"count": 402,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "parotid",
+"ids": [
+1061,
+302,
+301
+],
+"n_tok": 3,
+"count": 402,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 0
+},
+{
+"word": "unidirectional",
+"ids": [
+440,
+301,
+30869
+],
+"n_tok": 3,
+"count": 402,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 0
+},
+{
+"word": "sensorimotor",
+"ids": [
+8468,
+303,
+17894
+],
+"n_tok": 3,
+"count": 402,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 0
+},
+{
+"word": "unconstitutionally",
+"ids": [
+10915,
+5379,
+595
+],
+"n_tok": 3,
+"count": 404,
+"synsets": 1,
+"pos": "r",
+"freq_bin": 0
+},
+{
+"word": "anecdotal",
+"ids": [
+34009,
+5256,
+267
+],
+"n_tok": 3,
+"count": 405,
+"synsets": 2,
+"pos": "a",
+"freq_bin": 0
+},
+{
+"word": "troubleshooting",
+"ids": [
+19408,
+73,
+22933
+],
+"n_tok": 3,
+"count": 405,
+"synsets": 1,
+"pos": "v",
+"freq_bin": 0
+},
+{
+"word": "rudimentary",
+"ids": [
+30514,
+2092,
+552
+],
+"n_tok": 3,
+"count": 405,
+"synsets": 3,
+"pos": "a",
+"freq_bin": 0
+},
+{
+"word": "irresistible",
+"ids": [
+23501,
+382,
+917
+],
+"n_tok": 3,
+"count": 405,
+"synsets": 2,
+"pos": "a",
+"freq_bin": 0
+},
+{
+"word": "scoliosis",
+"ids": [
+660,
+10424,
+2433
+],
+"n_tok": 3,
+"count": 408,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "imbalances",
+"ids": [
+516,
+7187,
+1972
+],
+"n_tok": 3,
+"count": 408,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "polyunsaturated",
+"ids": [
+3488,
+4539,
+24668
+],
+"n_tok": 3,
+"count": 409,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 0
+},
+{
+"word": "convincingly",
+"ids": [
+2410,
+1763,
+5356
+],
+"n_tok": 3,
+"count": 410,
+"synsets": 1,
+"pos": "r",
+"freq_bin": 0
+},
+{
+"word": "magistrates",
+"ids": [
+4231,
+382,
+27619
+],
+"n_tok": 3,
+"count": 410,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "acetaminophen",
+"ids": [
+10465,
+4988,
+34731
+],
+"n_tok": 3,
+"count": 411,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "unremarkable",
+"ids": [
+440,
+39808,
+494
+],
+"n_tok": 3,
+"count": 411,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 0
+},
+{
+"word": "endocarditis",
+"ids": [
+990,
+10676,
+5895
+],
+"n_tok": 3,
+"count": 411,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "oxytocin",
+"ids": [
+3475,
+1767,
+37091
+],
+"n_tok": 3,
+"count": 412,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "incompatibility",
+"ids": [
+15321,
+255,
+2322
+],
+"n_tok": 3,
+"count": 413,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "portfolios",
+"ids": [
+2245,
+10631,
+3783
+],
+"n_tok": 3,
+"count": 413,
+"synsets": 4,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "macaques",
+"ids": [
+5315,
+66,
+10999
+],
+"n_tok": 3,
+"count": 413,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "mastectomy",
+"ids": [
+278,
+4740,
+20755
+],
+"n_tok": 3,
+"count": 413,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "peculiarly",
+"ids": [
+18183,
+74,
+1285
+],
+"n_tok": 3,
+"count": 414,
+"synsets": 3,
+"pos": "r",
+"freq_bin": 0
+},
+{
+"word": "microsomes",
+"ids": [
+2494,
+84,
+6819
+],
+"n_tok": 3,
+"count": 414,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "afterglow",
+"ids": [
+846,
+72,
+676
+],
+"n_tok": 3,
+"count": 415,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "eclectic",
+"ids": [
+10038,
+732,
+280
+],
+"n_tok": 3,
+"count": 416,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "espresso",
+"ids": [
+1578,
+7100,
+80
+],
+"n_tok": 3,
+"count": 416,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "threonine",
+"ids": [
+289,
+31997,
+460
+],
+"n_tok": 3,
+"count": 417,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "ribavirin",
+"ids": [
+9412,
+29365,
+249
+],
+"n_tok": 3,
+"count": 417,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "intestines",
+"ids": [
+540,
+383,
+1100
+],
+"n_tok": 3,
+"count": 418,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "nasopharyngeal",
+"ids": [
+13332,
+2689,
+28643
+],
+"n_tok": 3,
+"count": 418,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 0
+},
+{
+"word": "vasodilation",
+"ids": [
+16016,
+351,
+10108
+],
+"n_tok": 3,
+"count": 418,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "sincerity",
+"ids": [
+6868,
+1209,
+414
+],
+"n_tok": 3,
+"count": 418,
+"synsets": 4,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "inaugurated",
+"ids": [
+23942,
+321,
+456
+],
+"n_tok": 3,
+"count": 419,
+"synsets": 3,
+"pos": "v",
+"freq_bin": 0
+},
+{
+"word": "bystander",
+"ids": [
+407,
+1676,
+254
+],
+"n_tok": 3,
+"count": 420,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "hydrophobicity",
+"ids": [
+17957,
+706,
+5755
+],
+"n_tok": 3,
+"count": 420,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "transferrin",
+"ids": [
+811,
+27480,
+249
+],
+"n_tok": 3,
+"count": 420,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "timeliness",
+"ids": [
+4522,
+293,
+1632
+],
+"n_tok": 3,
+"count": 422,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "sarcomas",
+"ids": [
+34886,
+681,
+284
+],
+"n_tok": 3,
+"count": 422,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "dichotomous",
+"ids": [
+19821,
+35756,
+528
+],
+"n_tok": 3,
+"count": 422,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 0
+},
+{
+"word": "calendars",
+"ids": [
+1724,
+423,
+1032
+],
+"n_tok": 3,
+"count": 423,
+"synsets": 4,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "shampoo",
+"ids": [
+439,
+1301,
+3288
+],
+"n_tok": 3,
+"count": 423,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "uveitis",
+"ids": [
+1484,
+306,
+5895
+],
+"n_tok": 3,
+"count": 424,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "slaughtered",
+"ids": [
+1499,
+4551,
+2122
+],
+"n_tok": 3,
+"count": 424,
+"synsets": 2,
+"pos": "v",
+"freq_bin": 0
+},
+{
+"word": "ellipses",
+"ids": [
+11591,
+2824,
+265
+],
+"n_tok": 3,
+"count": 424,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "oligodendrocytes",
+"ids": [
+13081,
+45813,
+20158
+],
+"n_tok": 3,
+"count": 424,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "porcelain",
+"ids": [
+4474,
+6226,
+404
+],
+"n_tok": 3,
+"count": 425,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "filenames",
+"ids": [
+1193,
+257,
+1443
+],
+"n_tok": 3,
+"count": 426,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "unintentionally",
+"ids": [
+25962,
+1075,
+595
+],
+"n_tok": 3,
+"count": 426,
+"synsets": 1,
+"pos": "r",
+"freq_bin": 1
+},
+{
+"word": "electrocardiogram",
+"ids": [
+4640,
+41229,
+12935
+],
+"n_tok": 3,
+"count": 429,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "unquestionably",
+"ids": [
+440,
+19751,
+1598
+],
+"n_tok": 3,
+"count": 429,
+"synsets": 2,
+"pos": "r",
+"freq_bin": 1
+},
+{
+"word": "skewness",
+"ids": [
+8413,
+939,
+405
+],
+"n_tok": 3,
+"count": 430,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "gonadotropin",
+"ids": [
+50138,
+41916,
+249
+],
+"n_tok": 3,
+"count": 431,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "pericardial",
+"ids": [
+35675,
+472,
+451
+],
+"n_tok": 3,
+"count": 432,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 1
+},
+{
+"word": "uninterrupted",
+"ids": [
+440,
+30933,
+264
+],
+"n_tok": 3,
+"count": 433,
+"synsets": 2,
+"pos": "a",
+"freq_bin": 1
+},
+{
+"word": "hemostasis",
+"ids": [
+344,
+2252,
+4914
+],
+"n_tok": 3,
+"count": 433,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "plentiful",
+"ids": [
+499,
+290,
+4552
+],
+"n_tok": 3,
+"count": 433,
+"synsets": 3,
+"pos": "a",
+"freq_bin": 1
+},
+{
+"word": "sphincter",
+"ids": [
+33125,
+4291,
+254
+],
+"n_tok": 3,
+"count": 433,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "subrogation",
+"ids": [
+749,
+6375,
+318
+],
+"n_tok": 3,
+"count": 434,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "brachial",
+"ids": [
+1308,
+607,
+451
+],
+"n_tok": 3,
+"count": 435,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 1
+},
+{
+"word": "hyphae",
+"ids": [
+1465,
+1494,
+70
+],
+"n_tok": 3,
+"count": 436,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "intervertebral",
+"ids": [
+734,
+31861,
+11887
+],
+"n_tok": 3,
+"count": 436,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 1
+},
+{
+"word": "infertile",
+"ids": [
+2192,
+797,
+587
+],
+"n_tok": 3,
+"count": 437,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 1
+},
+{
+"word": "lidocaine",
+"ids": [
+16486,
+406,
+6529
+],
+"n_tok": 3,
+"count": 437,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "condominium",
+"ids": [
+345,
+33285,
+1514
+],
+"n_tok": 3,
+"count": 437,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "stoichiometric",
+"ids": [
+4806,
+22208,
+7480
+],
+"n_tok": 3,
+"count": 438,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 1
+},
+{
+"word": "convoluted",
+"ids": [
+2410,
+311,
+4525
+],
+"n_tok": 3,
+"count": 439,
+"synsets": 4,
+"pos": "v",
+"freq_bin": 1
+},
+{
+"word": "epinephrine",
+"ids": [
+2563,
+460,
+35594
+],
+"n_tok": 3,
+"count": 439,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "scavenger",
+"ids": [
+660,
+7603,
+1063
+],
+"n_tok": 3,
+"count": 439,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "nanoseconds",
+"ids": [
+6399,
+41157,
+84
+],
+"n_tok": 3,
+"count": 440,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "undisturbed",
+"ids": [
+3807,
+382,
+16193
+],
+"n_tok": 3,
+"count": 440,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 1
+},
+{
+"word": "billiard",
+"ids": [
+270,
+3370,
+472
+],
+"n_tok": 3,
+"count": 441,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 1
+},
+{
+"word": "untenable",
+"ids": [
+440,
+1866,
+494
+],
+"n_tok": 3,
+"count": 442,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 1
+},
+{
+"word": "lysozyme",
+"ids": [
+12865,
+601,
+23682
+],
+"n_tok": 3,
+"count": 442,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "hematocrit",
+"ids": [
+15920,
+406,
+902
+],
+"n_tok": 3,
+"count": 443,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "coerced",
+"ids": [
+820,
+254,
+758
+],
+"n_tok": 3,
+"count": 444,
+"synsets": 1,
+"pos": "v",
+"freq_bin": 1
+},
+{
+"word": "meritorious",
+"ids": [
+4285,
+2081,
+784
+],
+"n_tok": 3,
+"count": 447,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 1
+},
+{
+"word": "metaphase",
+"ids": [
+1313,
+9761,
+511
+],
+"n_tok": 3,
+"count": 448,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "sintering",
+"ids": [
+256,
+2388,
+272
+],
+"n_tok": 3,
+"count": 449,
+"synsets": 1,
+"pos": "v",
+"freq_bin": 1
+},
+{
+"word": "noxious",
+"ids": [
+642,
+89,
+784
+],
+"n_tok": 3,
+"count": 450,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 1
+},
+{
+"word": "symmetrically",
+"ids": [
+6248,
+11656,
+1037
+],
+"n_tok": 3,
+"count": 452,
+"synsets": 1,
+"pos": "r",
+"freq_bin": 1
+},
+{
+"word": "fentanyl",
+"ids": [
+269,
+290,
+38593
+],
+"n_tok": 3,
+"count": 452,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "incriminating",
+"ids": [
+1485,
+3428,
+8779
+],
+"n_tok": 3,
+"count": 452,
+"synsets": 3,
+"pos": "v",
+"freq_bin": 1
+},
+{
+"word": "aldehydes",
+"ids": [
+355,
+16752,
+3229
+],
+"n_tok": 3,
+"count": 454,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "larceny",
+"ids": [
+1236,
+33967,
+90
+],
+"n_tok": 3,
+"count": 454,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "enthalpy",
+"ids": [
+994,
+5590,
+4789
+],
+"n_tok": 3,
+"count": 456,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "consensual",
+"ids": [
+772,
+561,
+780
+],
+"n_tok": 3,
+"count": 458,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 1
+},
+{
+"word": "reaffirmed",
+"ids": [
+294,
+2843,
+4504
+],
+"n_tok": 3,
+"count": 460,
+"synsets": 1,
+"pos": "v",
+"freq_bin": 1
+},
+{
+"word": "ecclesiastical",
+"ids": [
+10038,
+49431,
+474
+],
+"n_tok": 3,
+"count": 460,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 1
+},
+{
+"word": "celiac",
+"ids": [
+260,
+7876,
+317
+],
+"n_tok": 3,
+"count": 462,
+"synsets": 2,
+"pos": "a",
+"freq_bin": 1
+},
+{
+"word": "unforgettable",
+"ids": [
+42439,
+788,
+2420
+],
+"n_tok": 3,
+"count": 463,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 1
+},
+{
+"word": "statutorily",
+"ids": [
+1098,
+6854,
+1031
+],
+"n_tok": 3,
+"count": 465,
+"synsets": 1,
+"pos": "r",
+"freq_bin": 1
+},
+{
+"word": "sapphire",
+"ids": [
+618,
+377,
+11094
+],
+"n_tok": 3,
+"count": 465,
+"synsets": 4,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "inbreeding",
+"ids": [
+275,
+3381,
+7022
+],
+"n_tok": 3,
+"count": 466,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "nutritious",
+"ids": [
+5825,
+902,
+784
+],
+"n_tok": 3,
+"count": 467,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 1
+},
+{
+"word": "antiserum",
+"ids": [
+1331,
+9141,
+360
+],
+"n_tok": 3,
+"count": 468,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "deionized",
+"ids": [
+372,
+279,
+1025
+],
+"n_tok": 3,
+"count": 472,
+"synsets": 1,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "tethered",
+"ids": [
+246,
+10666,
+433
+],
+"n_tok": 3,
+"count": 472,
+"synsets": 2,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "confirmatory",
+"ids": [
+1461,
+38613,
+590
+],
+"n_tok": 3,
+"count": 472,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 2
+},
+{
+"word": "confluent",
+"ids": [
+345,
+8501,
+290
+],
+"n_tok": 3,
+"count": 474,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "epithelia",
+"ids": [
+8198,
+2955,
+571
+],
+"n_tok": 3,
+"count": 474,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "intrauterine",
+"ids": [
+8376,
+18696,
+460
+],
+"n_tok": 3,
+"count": 474,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 2
+},
+{
+"word": "peritonitis",
+"ids": [
+591,
+24786,
+5895
+],
+"n_tok": 3,
+"count": 474,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "unilaterally",
+"ids": [
+440,
+300,
+37313
+],
+"n_tok": 3,
+"count": 475,
+"synsets": 1,
+"pos": "r",
+"freq_bin": 2
+},
+{
+"word": "centrifuge",
+"ids": [
+1399,
+8619,
+4079
+],
+"n_tok": 3,
+"count": 476,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "inguinal",
+"ids": [
+209,
+5191,
+989
+],
+"n_tok": 3,
+"count": 477,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 2
+},
+{
+"word": "subcortical",
+"ids": [
+749,
+68,
+35149
+],
+"n_tok": 3,
+"count": 477,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 2
+},
+{
+"word": "acronym",
+"ids": [
+913,
+1406,
+1105
+],
+"n_tok": 3,
+"count": 478,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "nitrocellulose",
+"ids": [
+33415,
+3992,
+20693
+],
+"n_tok": 3,
+"count": 481,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "therapeutically",
+"ids": [
+253,
+7439,
+1037
+],
+"n_tok": 3,
+"count": 482,
+"synsets": 1,
+"pos": "r",
+"freq_bin": 2
+},
+{
+"word": "palomino",
+"ids": [
+5796,
+297,
+2610
+],
+"n_tok": 3,
+"count": 482,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "defamatory",
+"ids": [
+809,
+312,
+2473
+],
+"n_tok": 3,
+"count": 483,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 2
+},
+{
+"word": "orthogonality",
+"ids": [
+9373,
+38931,
+1319
+],
+"n_tok": 3,
+"count": 484,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "equilibrated",
+"ids": [
+1298,
+300,
+50250
+],
+"n_tok": 3,
+"count": 484,
+"synsets": 2,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "microorganism",
+"ids": [
+2494,
+7397,
+1204
+],
+"n_tok": 3,
+"count": 484,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "sigmoid",
+"ids": [
+9788,
+78,
+1238
+],
+"n_tok": 3,
+"count": 486,
+"synsets": 2,
+"pos": "a",
+"freq_bin": 2
+},
+{
+"word": "demurrer",
+"ids": [
+1471,
+321,
+6554
+],
+"n_tok": 3,
+"count": 488,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "facsimile",
+"ids": [
+2344,
+3549,
+587
+],
+"n_tok": 3,
+"count": 492,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "neutropenia",
+"ids": [
+5205,
+1658,
+23364
+],
+"n_tok": 3,
+"count": 493,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "disbanded",
+"ids": [
+557,
+4152,
+264
+],
+"n_tok": 3,
+"count": 494,
+"synsets": 2,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "egregious",
+"ids": [
+299,
+6130,
+784
+],
+"n_tok": 3,
+"count": 496,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 2
+},
+{
+"word": "trigeminal",
+"ids": [
+5951,
+358,
+989
+],
+"n_tok": 3,
+"count": 496,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "improbable",
+"ids": [
+1965,
+67,
+494
+],
+"n_tok": 3,
+"count": 497,
+"synsets": 3,
+"pos": "a",
+"freq_bin": 2
+},
+{
+"word": "leukaemia",
+"ids": [
+12711,
+66,
+9512
+],
+"n_tok": 3,
+"count": 497,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "autoimmunity",
+"ids": [
+6753,
+13111,
+414
+],
+"n_tok": 3,
+"count": 499,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "somatosensory",
+"ids": [
+1260,
+29392,
+41593
+],
+"n_tok": 3,
+"count": 501,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 2
+},
+{
+"word": "uncomplicated",
+"ids": [
+440,
+681,
+37787
+],
+"n_tok": 3,
+"count": 502,
+"synsets": 2,
+"pos": "a",
+"freq_bin": 2
+},
+{
+"word": "quasiparticle",
+"ids": [
+21582,
+532,
+14600
+],
+"n_tok": 3,
+"count": 503,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "idempotent",
+"ids": [
+2654,
+358,
+35741
+],
+"n_tok": 3,
+"count": 504,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 2
+},
+{
+"word": "neurotransmitters",
+"ids": [
+34254,
+2225,
+1336
+],
+"n_tok": 3,
+"count": 507,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "invertebrates",
+"ids": [
+275,
+31861,
+36613
+],
+"n_tok": 3,
+"count": 510,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "excreted",
+"ids": [
+385,
+2414,
+264
+],
+"n_tok": 3,
+"count": 511,
+"synsets": 1,
+"pos": "v",
+"freq_bin": 2
+},
+{
+"word": "fraudulently",
+"ids": [
+9116,
+335,
+1574
+],
+"n_tok": 3,
+"count": 512,
+"synsets": 1,
+"pos": "r",
+"freq_bin": 2
+},
+{
+"word": "botulinum",
+"ids": [
+17994,
+6236,
+360
+],
+"n_tok": 3,
+"count": 512,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "supernovae",
+"ids": [
+13708,
+729,
+3348
+],
+"n_tok": 3,
+"count": 514,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "anorexia",
+"ids": [
+271,
+410,
+36592
+],
+"n_tok": 3,
+"count": 515,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "incompressible",
+"ids": [
+15321,
+560,
+917
+],
+"n_tok": 3,
+"count": 516,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 2
+},
+{
+"word": "frictional",
+"ids": [
+269,
+1467,
+1593
+],
+"n_tok": 3,
+"count": 518,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 2
+},
+{
+"word": "caustic",
+"ids": [
+7318,
+461,
+280
+],
+"n_tok": 3,
+"count": 519,
+"synsets": 3,
+"pos": "a",
+"freq_bin": 2
+},
+{
+"word": "multifactorial",
+"ids": [
+25274,
+5906,
+451
+],
+"n_tok": 3,
+"count": 519,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 2
+},
+{
+"word": "methadone",
+"ids": [
+10258,
+324,
+531
+],
+"n_tok": 3,
+"count": 525,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "ampicillin",
+"ids": [
+717,
+14985,
+18013
+],
+"n_tok": 3,
+"count": 527,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "amniotic",
+"ids": [
+717,
+8311,
+3875
+],
+"n_tok": 3,
+"count": 527,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 2
+},
+{
+"word": "retaliatory",
+"ids": [
+851,
+8952,
+2473
+],
+"n_tok": 3,
+"count": 529,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 3
+},
+{
+"word": "chemiluminescence",
+"ids": [
+3554,
+300,
+36416
+],
+"n_tok": 3,
+"count": 532,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "paucity",
+"ids": [
+1349,
+1028,
+414
+],
+"n_tok": 3,
+"count": 532,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "regurgitation",
+"ids": [
+810,
+3922,
+3535
+],
+"n_tok": 3,
+"count": 533,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "gentamicin",
+"ids": [
+8030,
+12614,
+249
+],
+"n_tok": 3,
+"count": 535,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "chloroquine",
+"ids": [
+10410,
+18101,
+460
+],
+"n_tok": 3,
+"count": 535,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "engagements",
+"ids": [
+2209,
+356,
+3658
+],
+"n_tok": 3,
+"count": 540,
+"synsets": 7,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "unperturbed",
+"ids": [
+440,
+8292,
+16193
+],
+"n_tok": 3,
+"count": 542,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 3
+},
+{
+"word": "asthmatic",
+"ids": [
+7846,
+11774,
+1420
+],
+"n_tok": 3,
+"count": 550,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "tortfeasor",
+"ids": [
+9810,
+36764,
+263
+],
+"n_tok": 3,
+"count": 550,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "parenteral",
+"ids": [
+1349,
+445,
+45473
+],
+"n_tok": 3,
+"count": 551,
+"synsets": 2,
+"pos": "a",
+"freq_bin": 3
+},
+{
+"word": "mnemonic",
+"ids": [
+278,
+25476,
+5120
+],
+"n_tok": 3,
+"count": 551,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "admixture",
+"ids": [
+519,
+7373,
+6638
+],
+"n_tok": 3,
+"count": 553,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "rhesus",
+"ids": [
+391,
+1041,
+316
+],
+"n_tok": 3,
+"count": 554,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "voicemail",
+"ids": [
+3273,
+280,
+12812
+],
+"n_tok": 3,
+"count": 558,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "hypothermia",
+"ids": [
+3500,
+977,
+15604
+],
+"n_tok": 3,
+"count": 560,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "preeclampsia",
+"ids": [
+638,
+44008,
+49709
+],
+"n_tok": 3,
+"count": 561,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "exculpatory",
+"ids": [
+385,
+49262,
+2473
+],
+"n_tok": 3,
+"count": 562,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 3
+},
+{
+"word": "waveguides",
+"ids": [
+5149,
+4297,
+1487
+],
+"n_tok": 3,
+"count": 563,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "syphilis",
+"ids": [
+726,
+545,
+27154
+],
+"n_tok": 3,
+"count": 563,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "spheroid",
+"ids": [
+653,
+248,
+2631
+],
+"n_tok": 3,
+"count": 566,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "lifestyles",
+"ids": [
+5243,
+383,
+9250
+],
+"n_tok": 3,
+"count": 567,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "inositol",
+"ids": [
+275,
+375,
+16180
+],
+"n_tok": 3,
+"count": 570,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "ataxia",
+"ids": [
+387,
+991,
+571
+],
+"n_tok": 3,
+"count": 573,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "racketeering",
+"ids": [
+45548,
+70,
+2158
+],
+"n_tok": 3,
+"count": 575,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "obeys",
+"ids": [
+691,
+70,
+656
+],
+"n_tok": 3,
+"count": 576,
+"synsets": 1,
+"pos": "v",
+"freq_bin": 3
+},
+{
+"word": "unaltered",
+"ids": [
+440,
+267,
+3606
+],
+"n_tok": 3,
+"count": 578,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 3
+},
+{
+"word": "deliberation",
+"ids": [
+1448,
+487,
+3328
+],
+"n_tok": 3,
+"count": 578,
+"synsets": 5,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "buccal",
+"ids": [
+1081,
+550,
+267
+],
+"n_tok": 3,
+"count": 582,
+"synsets": 3,
+"pos": "a",
+"freq_bin": 3
+},
+{
+"word": "monochromatic",
+"ids": [
+1114,
+28759,
+1420
+],
+"n_tok": 3,
+"count": 586,
+"synsets": 3,
+"pos": "a",
+"freq_bin": 3
+},
+{
+"word": "parathyroid",
+"ids": [
+1061,
+7822,
+2631
+],
+"n_tok": 3,
+"count": 588,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "hyperthermia",
+"ids": [
+4373,
+508,
+15604
+],
+"n_tok": 3,
+"count": 589,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "headquartered",
+"ids": [
+1481,
+25315,
+2122
+],
+"n_tok": 3,
+"count": 589,
+"synsets": 1,
+"pos": "v",
+"freq_bin": 3
+},
+{
+"word": "warfarin",
+"ids": [
+2137,
+14103,
+249
+],
+"n_tok": 3,
+"count": 593,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "superfluous",
+"ids": [
+2221,
+1258,
+3472
+],
+"n_tok": 3,
+"count": 595,
+"synsets": 2,
+"pos": "a",
+"freq_bin": 3
+},
+{
+"word": "ghrelin",
+"ids": [
+32798,
+1661,
+249
+],
+"n_tok": 3,
+"count": 595,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "unwarranted",
+"ids": [
+10357,
+3298,
+9581
+],
+"n_tok": 3,
+"count": 596,
+"synsets": 3,
+"pos": "a",
+"freq_bin": 3
+},
+{
+"word": "locomotives",
+"ids": [
+23904,
+302,
+1644
+],
+"n_tok": 3,
+"count": 596,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "vitreous",
+"ids": [
+9084,
+250,
+528
+],
+"n_tok": 3,
+"count": 596,
+"synsets": 3,
+"pos": "a",
+"freq_bin": 3
+},
+{
+"word": "ischaemic",
+"ids": [
+310,
+13420,
+11060
+],
+"n_tok": 3,
+"count": 597,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 3
+},
+{
+"word": "trabecular",
+"ids": [
+19146,
+886,
+792
+],
+"n_tok": 3,
+"count": 598,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 3
+},
+{
+"word": "pertussis",
+"ids": [
+6925,
+1316,
+261
+],
+"n_tok": 3,
+"count": 600,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "adjectives",
+"ids": [
+519,
+720,
+1644
+],
+"n_tok": 3,
+"count": 602,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "horseradish",
+"ids": [
+43347,
+45158,
+763
+],
+"n_tok": 3,
+"count": 604,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "febrile",
+"ids": [
+704,
+67,
+25007
+],
+"n_tok": 3,
+"count": 604,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 3
+},
+{
+"word": "pencils",
+"ids": [
+268,
+2083,
+3683
+],
+"n_tok": 3,
+"count": 608,
+"synsets": 5,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "debilitating",
+"ids": [
+4274,
+6133,
+839
+],
+"n_tok": 3,
+"count": 609,
+"synsets": 2,
+"pos": "v",
+"freq_bin": 3
+},
+{
+"word": "plasminogen",
+"ids": [
+26507,
+1222,
+2646
+],
+"n_tok": 3,
+"count": 613,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "ferritin",
+"ids": [
+8388,
+902,
+249
+],
+"n_tok": 3,
+"count": 617,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "unequivocally",
+"ids": [
+40101,
+406,
+595
+],
+"n_tok": 3,
+"count": 619,
+"synsets": 1,
+"pos": "r",
+"freq_bin": 4
+},
+{
+"word": "pheromone",
+"ids": [
+39720,
+409,
+531
+],
+"n_tok": 3,
+"count": 619,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "isoflurane",
+"ids": [
+310,
+41365,
+49219
+],
+"n_tok": 3,
+"count": 621,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "subsidiaries",
+"ids": [
+8790,
+13535,
+3927
+],
+"n_tok": 3,
+"count": 625,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "covenants",
+"ids": [
+9383,
+257,
+1103
+],
+"n_tok": 3,
+"count": 629,
+"synsets": 4,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "occipital",
+"ids": [
+1609,
+532,
+1562
+],
+"n_tok": 3,
+"count": 633,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 4
+},
+{
+"word": "acyclic",
+"ids": [
+913,
+9920,
+280
+],
+"n_tok": 3,
+"count": 636,
+"synsets": 2,
+"pos": "a",
+"freq_bin": 4
+},
+{
+"word": "abrasion",
+"ids": [
+490,
+83,
+4930
+],
+"n_tok": 3,
+"count": 637,
+"synsets": 3,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "transmittance",
+"ids": [
+811,
+16855,
+593
+],
+"n_tok": 3,
+"count": 648,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "cantilever",
+"ids": [
+16216,
+587,
+332
+],
+"n_tok": 3,
+"count": 662,
+"synsets": 3,
+"pos": "v",
+"freq_bin": 4
+},
+{
+"word": "tinnitus",
+"ids": [
+246,
+2966,
+13865
+],
+"n_tok": 3,
+"count": 664,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "polyurethane",
+"ids": [
+3488,
+42240,
+1351
+],
+"n_tok": 3,
+"count": 664,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "divergences",
+"ids": [
+11711,
+1541,
+707
+],
+"n_tok": 3,
+"count": 664,
+"synsets": 4,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "antenatal",
+"ids": [
+1331,
+257,
+3165
+],
+"n_tok": 3,
+"count": 667,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 4
+},
+{
+"word": "duodenum",
+"ids": [
+3443,
+351,
+14379
+],
+"n_tok": 3,
+"count": 670,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "spherically",
+"ids": [
+653,
+379,
+1037
+],
+"n_tok": 3,
+"count": 672,
+"synsets": 1,
+"pos": "r",
+"freq_bin": 4
+},
+{
+"word": "mesenteric",
+"ids": [
+6191,
+290,
+6555
+],
+"n_tok": 3,
+"count": 676,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 4
+},
+{
+"word": "disobedience",
+"ids": [
+40556,
+264,
+1482
+],
+"n_tok": 3,
+"count": 677,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "juveniles",
+"ids": [
+7166,
+1261,
+3205
+],
+"n_tok": 3,
+"count": 680,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "polystyrene",
+"ids": [
+3488,
+25871,
+9457
+],
+"n_tok": 3,
+"count": 680,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "antihypertensive",
+"ids": [
+3270,
+41537,
+3134
+],
+"n_tok": 3,
+"count": 684,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "dyspnea",
+"ids": [
+7915,
+81,
+21254
+],
+"n_tok": 3,
+"count": 687,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "hypothyroidism",
+"ids": [
+3500,
+16715,
+37739
+],
+"n_tok": 3,
+"count": 693,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "allogeneic",
+"ids": [
+512,
+6679,
+280
+],
+"n_tok": 3,
+"count": 697,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 4
+},
+{
+"word": "affirmatively",
+"ids": [
+2438,
+38613,
+1242
+],
+"n_tok": 3,
+"count": 706,
+"synsets": 1,
+"pos": "r",
+"freq_bin": 4
+},
+{
+"word": "undifferentiated",
+"ids": [
+3807,
+7413,
+4215
+],
+"n_tok": 3,
+"count": 711,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 4
+},
+{
+"word": "capillaries",
+"ids": [
+1729,
+408,
+3927
+],
+"n_tok": 3,
+"count": 727,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "cardiopulmonary",
+"ids": [
+5900,
+412,
+35534
+],
+"n_tok": 3,
+"count": 729,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 4
+},
+{
+"word": "neuroblastoma",
+"ids": [
+6551,
+31421,
+3691
+],
+"n_tok": 3,
+"count": 731,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "satisfactorily",
+"ids": [
+3449,
+5906,
+1031
+],
+"n_tok": 3,
+"count": 741,
+"synsets": 1,
+"pos": "r",
+"freq_bin": 4
+},
+{
+"word": "thrombocytopenia",
+"ids": [
+18364,
+5221,
+32889
+],
+"n_tok": 3,
+"count": 744,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "toluene",
+"ids": [
+281,
+7675,
+1751
+],
+"n_tok": 3,
+"count": 748,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "subcutaneously",
+"ids": [
+749,
+7317,
+8272
+],
+"n_tok": 3,
+"count": 749,
+"synsets": 1,
+"pos": "r",
+"freq_bin": 4
+},
+{
+"word": "neuroendocrine",
+"ids": [
+6551,
+423,
+21959
+],
+"n_tok": 3,
+"count": 751,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 4
+},
+{
+"word": "bicarbonate",
+"ids": [
+270,
+49899,
+366
+],
+"n_tok": 3,
+"count": 775,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "entrapment",
+"ids": [
+994,
+1761,
+420
+],
+"n_tok": 3,
+"count": 782,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "longitudinally",
+"ids": [
+1048,
+7128,
+3341
+],
+"n_tok": 3,
+"count": 790,
+"synsets": 3,
+"pos": "r",
+"freq_bin": 4
+},
+{
+"word": "paradigms",
+"ids": [
+11951,
+304,
+983
+],
+"n_tok": 3,
+"count": 793,
+"synsets": 4,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "interferes",
+"ids": [
+734,
+453,
+373
+],
+"n_tok": 3,
+"count": 793,
+"synsets": 2,
+"pos": "v",
+"freq_bin": 4
+},
+{
+"word": "gallbladder",
+"ids": [
+9391,
+1559,
+14630
+],
+"n_tok": 3,
+"count": 799,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "spheroids",
+"ids": [
+653,
+19255,
+2352
+],
+"n_tok": 3,
+"count": 810,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "promissory",
+"ids": [
+1964,
+739,
+590
+],
+"n_tok": 3,
+"count": 822,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 4
+},
+{
+"word": "foretells",
+"ids": [
+2273,
+85,
+7042
+],
+"n_tok": 3,
+"count": 837,
+"synsets": 3,
+"pos": "v",
+"freq_bin": 4
+},
+{
+"word": "aforesaid",
+"ids": [
+6706,
+2324,
+13774
+],
+"n_tok": 3,
+"count": 869,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 4
+},
+{
+"word": "vancomycin",
+"ids": [
+3889,
+681,
+43806
+],
+"n_tok": 3,
+"count": 876,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "parallax",
+"ids": [
+1061,
+455,
+991
+],
+"n_tok": 3,
+"count": 891,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "spermatozoa",
+"ids": [
+31863,
+6002,
+12354
+],
+"n_tok": 3,
+"count": 925,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "periodontitis",
+"ids": [
+2180,
+834,
+5895
+],
+"n_tok": 3,
+"count": 977,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "chloramphenicol",
+"ids": [
+10410,
+1301,
+864,
+20917
+],
+"n_tok": 4,
+"count": 410,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "paraphernalia",
+"ids": [
+38594,
+379,
+2110,
+571
+],
+"n_tok": 4,
+"count": 418,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "immunocompromised",
+"ids": [
+2984,
+14881,
+13382,
+1701
+],
+"n_tok": 4,
+"count": 424,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 0
+},
+{
+"word": "cholecystectomy",
+"ids": [
+448,
+1306,
+49663,
+28857
+],
+"n_tok": 4,
+"count": 428,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 0
+},
+{
+"word": "spatiotemporal",
+"ids": [
+7046,
+7173,
+358,
+23702
+],
+"n_tok": 4,
+"count": 429,
+"synsets": 2,
+"pos": "a",
+"freq_bin": 0
+},
+{
+"word": "interspersed",
+"ids": [
+734,
+1033,
+398,
+264
+],
+"n_tok": 4,
+"count": 434,
+"synsets": 2,
+"pos": "v",
+"freq_bin": 0
+},
+{
+"word": "vasopressin",
+"ids": [
+16016,
+412,
+560,
+249
+],
+"n_tok": 4,
+"count": 436,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "counterexample",
+"ids": [
+2258,
+442,
+18398,
+4636
+],
+"n_tok": 4,
+"count": 438,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "dysphagia",
+"ids": [
+7915,
+545,
+356,
+571
+],
+"n_tok": 4,
+"count": 438,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "cytomegalovirus",
+"ids": [
+4554,
+485,
+9896,
+22264
+],
+"n_tok": 4,
+"count": 449,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "prednisolone",
+"ids": [
+2063,
+79,
+18762,
+531
+],
+"n_tok": 4,
+"count": 449,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 1
+},
+{
+"word": "unparalleled",
+"ids": [
+440,
+1148,
+4781,
+1070
+],
+"n_tok": 4,
+"count": 461,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 2
+},
+{
+"word": "bacteremia",
+"ids": [
+270,
+514,
+70,
+46739
+],
+"n_tok": 4,
+"count": 476,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 2
+},
+{
+"word": "prokaryotic",
+"ids": [
+354,
+76,
+552,
+3875
+],
+"n_tok": 4,
+"count": 497,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 2
+},
+{
+"word": "subterranean",
+"ids": [
+749,
+350,
+83,
+18313
+],
+"n_tok": 4,
+"count": 521,
+"synsets": 2,
+"pos": "a",
+"freq_bin": 2
+},
+{
+"word": "natriuretic",
+"ids": [
+2889,
+363,
+459,
+3028
+],
+"n_tok": 4,
+"count": 529,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 2
+},
+{
+"word": "emphysema",
+"ids": [
+7013,
+90,
+339,
+785
+],
+"n_tok": 4,
+"count": 531,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "unenforceable",
+"ids": [
+440,
+257,
+4774,
+494
+],
+"n_tok": 4,
+"count": 537,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 3
+},
+{
+"word": "photovoltaic",
+"ids": [
+2359,
+729,
+41385,
+280
+],
+"n_tok": 4,
+"count": 542,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 3
+},
+{
+"word": "methotrexate",
+"ids": [
+10258,
+302,
+18398,
+366
+],
+"n_tok": 4,
+"count": 550,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "diarrhoea",
+"ids": [
+1073,
+274,
+2859,
+14576
+],
+"n_tok": 4,
+"count": 593,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 3
+},
+{
+"word": "peremptory",
+"ids": [
+759,
+2013,
+431,
+590
+],
+"n_tok": 4,
+"count": 612,
+"synsets": 3,
+"pos": "a",
+"freq_bin": 4
+},
+{
+"word": "ciprofloxacin",
+"ids": [
+260,
+39552,
+1258,
+38060
+],
+"n_tok": 4,
+"count": 647,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "norepinephrine",
+"ids": [
+295,
+410,
+23344,
+35594
+],
+"n_tok": 4,
+"count": 660,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "jurisprudence",
+"ids": [
+5099,
+261,
+39630,
+566
+],
+"n_tok": 4,
+"count": 697,
+"synsets": 2,
+"pos": "n",
+"freq_bin": 4
+},
+{
+"word": "postprandial",
+"ids": [
+1501,
+1087,
+395,
+451
+],
+"n_tok": 4,
+"count": 719,
+"synsets": 1,
+"pos": "a",
+"freq_bin": 4
+},
+{
+"word": "doxycycline",
+"ids": [
+513,
+5246,
+12642,
+460
+],
+"n_tok": 4,
+"count": 826,
+"synsets": 1,
+"pos": "n",
+"freq_bin": 4
+}
+]
+}

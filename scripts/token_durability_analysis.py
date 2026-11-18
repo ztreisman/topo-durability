@@ -97,19 +97,27 @@ def main() -> int:
     ap.add_argument("--unit", default="1.4b_s0_step143000")
     ap.add_argument("--senses", default="eq224", help="token_senses.py output tag")
     ap.add_argument("--w-strict", type=float, default=0.7)
+    ap.add_argument("--fp-dir", default="footprint", help="footprint (token panel) or cfoot (concept panel)")
     ap.add_argument("--limit", action="store_true")
     a = ap.parse_args()
+    a.sfx = "" if a.fp_dir == "footprint" else f"_{a.fp_dir}"
     tag = "neurons_dryrun" if a.limit else "neurons"
     root = runs.DATA_DIR / tag / a.unit
     rep = runs.REPO_ROOT / "reports" / tag / a.unit
-    runs.setup_logging(root / "durab_analysis.log")
+    runs.setup_logging(root / f"durab_analysis{a.sfx}.log")
     S = pd.read_parquet(root / f"senses_{a.senses}.parquet")
     LB = np.load(root / f"senses_{a.senses}_labels.npz")
     layers = LB["layers"].tolist()
     mid = [l for l in layers if len(layers) // 3 <= layers.index(l) < 2 * len(layers) // 3]
-    tc = np.load(root / "tokcounts.npz")
-    cnt = dict(zip(tc["ids"].tolist(), tc["cnt"].tolist()))
-    vdirs = sorted(p for p in (root / "durab").iterdir() if runs.is_done(p / "logp.npz") and not p.name.endswith("_dry"))
+    fpdir = root / a.fp_dir
+    fmeta = json.loads((fpdir / "footprint.json").read_text())
+    if a.fp_dir == "footprint":                       # single tokens: occurrences in the neuron_stats stream
+        tc = np.load(root / "tokcounts.npz")
+        cnt = dict(zip(tc["ids"].tolist(), tc["cnt"].tolist()))
+    else:                                             # concepts: counts from the panel builder
+        cnt = {int(t): v["count"] for t, v in fmeta["tokens"].items()}
+    ddir = root / ("durab" if a.fp_dir == "footprint" else f"durab_{a.fp_dir}")
+    vdirs = sorted(p for p in ddir.iterdir() if runs.is_done(p / "logp.npz") and not p.name.endswith("_dry"))
     lp = {p.name: np.load(p / "logp.npz") for p in vdirs}
     if "base" not in lp:
         log.error("no base durability pass")
@@ -117,8 +125,7 @@ def main() -> int:
     variants = [v for v in lp if v != "base"]
     primary = [v for v in variants if v in PRIMARY] or variants
     log.info("variants %s; primary = mean of %s", variants, primary)
-    fpdir = root / "footprint"
-    lay_index = json.loads((fpdir / "footprint.json").read_text())["layers"]
+    lay_index = fmeta["layers"]
     rows = []
     for r in S.itertuples():
         key = f"T{r.token_id}"
@@ -129,13 +136,17 @@ def main() -> int:
         base = lp["base"][key][:n]
         row = {"class": r._1, "token": r.token, "token_id": r.token_id, "log_freq": np.log1p(cnt.get(r.token_id, 0)),
                "base_logp": float(base.mean()), **topology(lab, layers, mid, a.w_strict)}
+        tm = fmeta["tokens"].get(str(r.token_id), {})
+        if "synsets" in tm:
+            row["log_synsets"] = float(np.log(tm["synsets"]))
+            row["n_tok"] = tm["n_tok"]
         for v in variants:
             row[f"d_{v}"] = float((lp[v][key][:n] - base).mean())
         row["durability"] = float(np.mean([row[f"d_{v}"] for v in primary]))
         # representational retention, where the variant's activations were saved
         F = None
         for v in variants:
-            af = root / "durab" / v / f"A_{key}.npy"
+            af = ddir / v / f"A_{key}.npy"
             if not af.exists():
                 continue
             if F is None:
@@ -156,7 +167,7 @@ def main() -> int:
     D = np.column_stack([(df["class"] == c).astype(float) for c in classes[1:]] + [df.log_freq])
     for t in TOPO:
         df[f"x_{t}"] = residual(df[t].to_numpy(float), D)
-    df.drop(columns="bar_lengths").to_parquet(root / "durab_tokens.parquet", index=False)
+    df.drop(columns="bar_lengths").to_parquet(root / f"durab_tokens{a.sfx}.parquet", index=False)
     report(df, variants, primary, classes, rep, a)
     return 0
 
@@ -167,7 +178,9 @@ def report(df, variants, primary, classes, rep, a):
     import matplotlib.pyplot as plt
     from scipy.stats import spearmanr
 
-    cov = np.column_stack([df.log_freq, df.base_logp] + [(df["class"] == c).astype(float) for c in classes[1:]])
+    cnames = ["log_freq", "base_logp"] + (["log_synsets"] if "log_synsets" in df else []) + [f"class {c}" for c in classes[1:]]
+    cov = np.column_stack([df.log_freq, df.base_logp] + ([df.log_synsets] if "log_synsets" in df else [])
+                          + [(df["class"] == c).astype(float) for c in classes[1:]])
     lines = [f"# Sense topology vs durability: {a.unit} (senses {a.senses})", "",
              f"{len(df)} tokens. Durability = mean change in log p of the token in its own contexts, variant minus base "
              f"(primary: mean of {', '.join(primary)}). Excess topology = residual after log frequency + class.", "",
@@ -194,10 +207,18 @@ def report(df, variants, primary, classes, rep, a):
             lines.append(f"| {t} | {tg} | {r.statistic:+.3f} | {r.pvalue:.3g} | {ob.beta:+.3f} [{ob.lo:+.3f}, {ob.hi:+.3f}] |")
     joint = ["senses", "total_pers", "b1"]
     ob = ols_boot(df.durability.to_numpy(float), np.column_stack([df[f"x_{t}"] for t in joint] + [cov]),
-                  [f"excess {t}" for t in joint] + ["log_freq", "base_logp"] + [f"class {c}" for c in classes[1:]])
+                  [f"excess {t}" for t in joint] + cnames)
     lines += ["", "## Joint model: durability ~ excess senses + excess persistence + excess b1 + covariates", "",
               "| term | beta | 95% CI | p (bootstrap) |", "|---|---|---|---|"]
     lines += [f"| {r.term} | {r.beta:+.3f} | [{r.lo:+.3f}, {r.hi:+.3f}] | {r.p_boot:.3g} |" for r in ob.itertuples()]
+    if a.fp_dir != "footprint":
+        b = ob[ob.term == "excess b1"].iloc[0]
+        ok = b.lo > 0
+        lines[2:2] = ["## Confirmatory test (specified 2026-11-17, before these data; exploratory panel: beta +0.19 [0.06, 0.33])", "",
+                      "Primary: standardised coefficient of excess b1 (strict links 0.7) in the joint model; durability = "
+                      "mean d log p over the two 20M LoRA fine-tunes. Confirmed if the 95% bootstrap CI lies above 0.", "",
+                      f"**Result: beta = {b.beta:+.3f} [{b.lo:+.3f}, {b.hi:+.3f}], p = {b.p_boot:.3g}: "
+                      f"{'CONFIRMED' if ok else 'NOT confirmed'}**", ""]
     sv = [v for v in variants if f"sep_{v}" in df]
     if sv:
         lines += ["", "## Representational retention (middle layers; mean over tokens)", "",
@@ -222,9 +243,9 @@ def report(df, variants, primary, classes, rep, a):
     ax[0].legend(frameon=False, fontsize=7)
     fig.suptitle("sense topology vs durability (each point a token; covariates removed)", fontsize=10)
     fig.tight_layout()
-    fig.savefig(rep / "durab_topology.png", dpi=130)
-    lines += ["", "![scatter](durab_topology.png)", ""]
-    runs.atomic_write_text(rep / "durab_topology.md", "\n".join(lines))
+    fig.savefig(rep / f"durab_topology{a.sfx}.png", dpi=130)
+    lines += ["", f"![scatter](durab_topology{a.sfx}.png)", ""]
+    runs.atomic_write_text(rep / f"durab_topology{a.sfx}.md", "\n".join(lines))
     print("\n".join(lines))
 
 

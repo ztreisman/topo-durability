@@ -2,6 +2,27 @@
 
 Dated entries, newest first.
 
+## 2026-11-17: sense topology vs durability (exploratory) and the confirmatory test, specified before its data
+
+- Hypothesis (Zack, 2026-11-17): splitting into several context clusters is normal (a concept anchored in
+  many contexts). A concept whose clusters are more numerous, persist longer across layers, or fork and
+  rejoin more (rank of H1) than comparable concepts is more durable. Long-term goal: the same test for persona
+  vectors and other model-level traits.
+- Exploratory, 229 single-token panel words (1.4B, 224 contexts each; `reports/neurons/1.4b_s0_step143000/
+  durab_topology.md`). Durability = change in log p of the token in its own contexts after the 20M-token LoRA
+  fine-tunes (code, German Wikipedia). Excess = residual after log frequency + class.
+  - Excess b1 (strict fork-then-rejoin loops, containment >= 0.7): beta +0.19 [0.06, 0.33], p 0.003 in the
+    joint model; same sign for each fine-tune and for 25% pruning.
+  - Excess number of senses and excess persistence: no effect (longest bar slightly negative, p 0.047).
+  - Durability is a weak per-token trait (code vs German fine-tune losses correlate 0.21).
+- Confirmatory test, fixed now, before the data: 969 new concepts (`configs/concept_panel.json`; WordNet words
+  of 1-4 tokens, frequency-stratified, disjoint from the exploratory panel), 224 contexts each from
+  pile_mine. Same instrument (gap-statistic senses, 3 reference restarts, strict links 0.7). Excess =
+  residual after log frequency + number of tokens. Primary: standardised coefficient of excess b1 in
+  durability ~ excess senses + excess total persistence + excess b1 + log frequency + base log p
+  + log WordNet synsets + number-of-tokens class; durability = mean of the two 20M LoRA fine-tunes.
+  Confirmed if the 95% bootstrap CI is above 0. Secondary: 25% and 50% pruning, each measure alone.
+
 ## 2026-11-10 (later): decisions, offline mirror, closure ratio
 
 - Decided with Zack: order_score is the primary topology measure for families of 30 items or fewer

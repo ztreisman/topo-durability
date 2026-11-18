@@ -44,12 +44,14 @@ def main() -> int:
     ap.add_argument("--save-acts", action="store_true")
     ap.add_argument("--limit", type=float, default=None, help="footprint dry-run data")
     ap.add_argument("--max-tokens-panel", type=int, default=None, help="only the first N panel tokens (dry run)")
+    ap.add_argument("--fp-dir", default="footprint", help="footprint (token panel) or cfoot (concept panel)")
+    ap.add_argument("--check-n", type=int, default=20, help="base: compare activations with the footprint for the first N")
     a = ap.parse_args()
     unit = f"{a.size}_s0_step{a.step}"
     root = runs.DATA_DIR / ("neurons_dryrun" if a.limit else "neurons") / unit
-    fp = root / "footprint"
+    fp = root / a.fp_dir
     tag = variant_tag(a.variant) or "base"
-    out = root / "durab" / (tag + ("_dry" if a.max_tokens_panel else ""))      # a partial pass never counts as done
+    out = root / ("durab" if a.fp_dir == "footprint" else f"durab_{a.fp_dir}") / (tag + ("_dry" if a.max_tokens_panel else ""))      # a partial pass never counts as done
     out.mkdir(parents=True, exist_ok=True)
     runs.setup_logging(out / "durab.log")
     if runs.is_done(out / "logp.npz"):
@@ -69,22 +71,28 @@ def main() -> int:
     try:
         for k, t in enumerate(toks):
             S, P = C[f"T{t}"][:a.n_ctx], C[f"P{t}"][:a.n_ctx].astype(np.int64)
+            n_tok = int(meta["tokens"][str(t)].get("n_tok", 1))      # concept = tokens P-n_tok+1 .. P
+            want_acts = a.save_acts or (tag == "base" and k < a.check_n)
             lp, acts = [], []
             for s in range(0, len(S), a.batch):
                 x = torch.from_numpy(S[s:s + a.batch].astype(np.int64)).to(lm.device)
                 p = torch.from_numpy(P[s:s + a.batch]).to(lm.device)
                 r = torch.arange(len(x), device=lm.device)
-                h = net(input_ids=x, use_cache=False).last_hidden_state[r, p - 1]       # predicts position p
-                lz = torch.log_softmax(lm.model.get_output_embeddings()(h).float(), -1)
-                lp.append(lz[r, x[r, p]].cpu().numpy())
-                if a.save_acts or tag == "base":
+                hs = net(input_ids=x, use_cache=False).last_hidden_state
+                tot = torch.zeros(len(x), device=lm.device)
+                for j in range(n_tok):                       # log p of the whole concept, teacher-forced
+                    q = p - n_tok + j                         # hidden state at q predicts the token at q + 1
+                    lz = torch.log_softmax(lm.model.get_output_embeddings()(hs[r, q]).float(), -1)
+                    tot += lz[r, x[r, q + 1]]
+                lp.append(tot.cpu().numpy())
+                if want_acts:
                     acts.append(torch.stack([caps[l][r, p] for l in range(L)], 1).half().cpu().numpy())
             logp[f"T{t}"] = np.concatenate(lp)
             if acts:
                 A = np.concatenate(acts)
                 if a.save_acts:
                     np.save(out / f"A_T{t}.npy", A)
-                if tag == "base":                                                    # replay + numerics check
+                if tag == "base" and k < a.check_n:                                  # replay + numerics check
                     F = np.load(fp / f"T{t}.npy", mmap_mode="r")[:len(A)].astype(np.float32)
                     A32 = A.astype(np.float32)
                     for l in range(1, L):
