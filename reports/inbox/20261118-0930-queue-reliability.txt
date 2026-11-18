@@ -1,0 +1,9 @@
+inbox item: 20261118-0930-queue-reliability
+commit: 5b8e4d8 Wed Nov 18 09:33:10 2026 -0700
+ran: Wed Nov 18 09:33:14 AM MST 2026  finished: Wed Nov 18 09:33:14 AM MST 2026
+exit: 0
+
+--- last 60 lines of output
+16 jobs queued
+FAILED                           xsummary100  (attempts 1)
+summary: {'done': 273, 'FAILED': 1, 'pending': 16}
