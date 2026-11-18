@@ -2,6 +2,19 @@
 
 Dated entries, newest first.
 
+## 2026-11-18 (later): codimension study (`reports/neurons/1.4b_s0_step143000/codim.md`)
+
+- Test 1 (first-order, MLP-output update only, direct path): predicted vs measured damage across concepts
+  +0.22 (code), +0.37 (German), +0.24 (prune 25%), -0.11 (prune 50%, too large for first order). Within a
+  concept, across contexts: ~0.06. Predicted damages do NOT reproduce the measured ~0.2 agreement between
+  perturbations (code/German predicted +0.05 vs measured +0.16). More overlap with the update goes with
+  slightly LESS damage (sign opposite to expectation; possibly a norm/frequency confound).
+- Test 2: high effective dimension (low codimension) concepts have more uniform overlap across updates
+  (-0.14, as predicted) but damage is not more consistent: agreement between perturbations falls with
+  dimension (high minus low tercile -0.09 [-0.17, -0.03]), opposite to the prediction. They are slightly
+  less damaged on average (excess effective dimension vs mean damage +0.12), which may also shrink the
+  spread that the agreement correlations need.
+
 ## 2026-11-18: confirmatory test NOT confirmed; next: measurement reliability
 
 - 969-concept panel (968 with 224 contexts; `reports/neurons/1.4b_s0_step143000/durab_topology_cfoot.md`).
