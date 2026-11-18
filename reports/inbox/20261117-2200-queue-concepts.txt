@@ -1,0 +1,12 @@
+inbox item: 20261117-2200-queue-concepts
+commit: ddff480 Tue Nov 17 21:56:26 2026 -0700
+ran: Tue Nov 17 10:00:02 PM MST 2026  finished: Tue Nov 17 10:00:02 PM MST 2026
+exit: 0
+
+--- last 60 lines of output
+-rw-r--r-- 1 fac_treisman domain users 5827366186 Nov 11 13:36 /home/fac_treisman/hf_mirror/pile/pile_mine_1000000.jsonl
+-rw-r--r-- 1 fac_treisman domain users        110 Nov 11 13:36 /home/fac_treisman/hf_mirror/pile/pile_mine_1000000.jsonl.complete
+/dev/sdb1       3.5T  1.5T  1.9T  45% /home
+10 jobs queued
+FAILED                           xsummary100  (attempts 1)
+summary: {'done': 263, 'FAILED': 1, 'pending': 10}
