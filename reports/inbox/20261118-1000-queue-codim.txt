@@ -1,0 +1,17 @@
+inbox item: 20261118-1000-queue-codim
+commit: b3151fe Wed Nov 18 10:05:17 2026 -0700
+ran: Wed Nov 18 10:05:31 AM MST 2026  finished: Wed Nov 18 10:05:31 AM MST 2026
+exit: 0
+
+--- last 60 lines of output
+3 jobs queued
+FAILED                           xsummary100  (attempts 1)
+running gpus=[] 0.5h             rel-topo  (attempts 1)
+running gpus=[0] 0.5h            ft-code-s1  (attempts 1)
+running gpus=[2] 0.5h            ft-wiki_de-s1  (attempts 1)
+running gpus=[3] 0.5h            cdur-lora-code-1M  (attempts 1)
+running gpus=[4] 0.5h            cdur-lora-code-5M  (attempts 1)
+running gpus=[5] 0.5h            cdur-lora-code-10M  (attempts 1)
+running gpus=[6] 0.5h            cdur-lora-wiki_de-1M  (attempts 1)
+running gpus=[7] 0.5h            cdur-lora-wiki_de-5M  (attempts 1)
+summary: {'done': 274, 'FAILED': 1, 'running': 8, 'pending': 10}
