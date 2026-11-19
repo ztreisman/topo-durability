@@ -33,4 +33,28 @@ Correlation of variant 1 on half A with variant 2 on half B (and the swap, avera
 | all LoRA milestones | 2 | +0.827 | +0.905 |
 | all variants | 4 | +0.895 | +0.944 |
 
+## Topology: context-sampling reliability (split-half; base model)
+
+gap = clusters as in token_senses.py (gap statistic); stable = only splits that reappear across the quarters of a half (prediction strength >= 0.8).
+
+| measure | gap: mean (A) | gap: reliability | stable: mean (A) | stable: reliability |
+|---|---|---|---|---|
+| senses | 2.68 | +0.826 | 1.49 | +0.782 |
+| bars | 16.34 | +0.740 | 9.97 | +0.644 |
+| mean_len | 4.94 | +0.575 | 2.23 | +0.746 |
+| total_pers | 56.96 | +0.870 | 21.41 | +0.859 |
+| b1 | 5.90 | +0.620 | 5.11 | +0.666 |
+| stable k (middle layers) | | | 1.49 | +0.782 |
+## Ceiling: largest observable topology-durability correlation = sqrt(rel_topology x rel_durability)
+
+Durability: all variants (reliability +0.944).
+
+| measure | gap | stable |
+|---|---|---|
+| senses | 0.883 | 0.859 |
+| bars | 0.836 | 0.780 |
+| mean_len | 0.737 | 0.839 |
+| total_pers | 0.907 | 0.901 |
+| b1 | 0.765 | 0.793 |
+
 ![reliability](reliability_cfoot.png)
