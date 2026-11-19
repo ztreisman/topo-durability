@@ -2,6 +2,19 @@
 
 Dated entries, newest first.
 
+## 2026-11-18 (evening): reliability study (`reports/neurons/1.4b_s0_step143000/reliability_cfoot.md`)
+
+- Durability is reliable within a perturbation (split-half 0.88-0.99) and reproducible across fine-tune
+  seeds (true correlation, seed 0 vs seed 1 at 20M: code 0.82, German 0.89). Across milestones it drifts
+  (1M vs 20M: code 0.45, German 0.70).
+- Across perturbations the true correlation is small: code vs German ~0.18, LoRA vs pruning ~0.2,
+  German vs 50% pruning negative (-0.07 to -0.18). Gaussian noise (sd 0.1): three seeds agree only ~0.07,
+  so damage from a random direction is specific to that direction. Durability is a property of
+  concept x perturbation direction, with a small shared component.
+- Topology is reliable too (split-half 0.58-0.87; total persistence 0.87, senses 0.83, b1 0.62 gap /
+  0.67 stable). Ceiling for an observable topology-durability correlation: 0.73-0.89. The null confirmatory
+  result is therefore not measurement noise: both sides are measurable, the link is small (~0.04).
+
 ## 2026-11-18 (later): codimension study (`reports/neurons/1.4b_s0_step143000/codim.md`)
 
 - Test 1 (first-order, MLP-output update only, direct path): predicted vs measured damage across concepts
