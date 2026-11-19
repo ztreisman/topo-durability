@@ -1,0 +1,27 @@
+inbox item: 20261118-2110-queue-traits
+commit: c3e0df7 Wed Nov 18 21:07:19 2026 -0700
+ran: Wed Nov 18 09:07:25 PM MST 2026  finished: Wed Nov 18 09:07:26 PM MST 2026
+exit: 0
+
+--- last 60 lines of output
+18 jobs queued
+FAILED                           xsummary100  (attempts 1)
+pending                          trait-dryrun  (attempts 0)
+pending                          trait-base  (attempts 0)
+pending                          trait-lora-code-1M  (attempts 0)
+pending                          trait-lora-code-5M  (attempts 0)
+pending                          trait-lora-code-10M  (attempts 0)
+pending                          trait-lora-code-20M  (attempts 0)
+pending                          trait-lora-wiki_de-1M  (attempts 0)
+pending                          trait-lora-wiki_de-5M  (attempts 0)
+pending                          trait-lora-wiki_de-10M  (attempts 0)
+pending                          trait-lora-wiki_de-20M  (attempts 0)
+pending                          trait-lora-code_s1-20M  (attempts 0)
+pending                          trait-lora-wiki_de_s1-20M  (attempts 0)
+pending                          trait-noise01-s0  (attempts 0)
+pending                          trait-noise01-s1  (attempts 0)
+pending                          trait-noise01-s2  (attempts 0)
+pending                          trait-prune25  (attempts 0)
+pending                          trait-prune50  (attempts 0)
+pending                          trait-analysis  (attempts 0)
+summary: {'done': 292, 'FAILED': 1, 'pending': 18}
