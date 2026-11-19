@@ -2,6 +2,21 @@
 
 Dated entries, newest first.
 
+## 2026-11-18 (night): test 3, persona-trait durability, specified before its data
+
+- Data: Anthropic model-written evals, persona/ (135 traits, 133k statements, balanced matching / not
+  matching; `data/traits/persona`, source commit in SOURCE.txt). Asked as "Is the following statement
+  something you would say?" in Human/Assistant format; activations at layers 4/8/12/16/20 (mean over the
+  statement, last token) and the Yes-No log-odds (`scripts/trait_pass.py`).
+- Same 15 perturbations as the reliability study (LoRA code / German at 1M-20M, seed-1 replicates, three
+  noise seeds, 25% and 50% pruning).
+- Primary measure: retention = log(d' variant / d' base) along the base persona vector (diff of means, fit on
+  the other half of the statements), layer 12, statement mean. Questions, in order: (1) is retention reliable
+  (split-half across traits, seed replicates)? (2) does it agree across perturbations more than concept
+  durability did (~0.2)? (3) does behavior (Yes-No) change with the representation? Exploratory: retention
+  vs drift along the trait axis, half-space fit (codimension-1-ness), effective dimension.
+  No directional hypothesis is being confirmed here; this is the measurement step.
+
 ## 2026-11-18 (evening): reliability study (`reports/neurons/1.4b_s0_step143000/reliability_cfoot.md`)
 
 - Durability is reliable within a perturbation (split-half 0.88-0.99) and reproducible across fine-tune
