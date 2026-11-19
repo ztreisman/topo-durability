@@ -2,6 +2,25 @@
 
 Dated entries, newest first.
 
+## 2026-11-19: test 3 results (`reports/neurons/1.4b_s0_step143000/traits.md`)
+
+- Base: persona vectors are clean half-spaces (statement mean, layer 12: AUC 0.973 vs shrinkage LDA 0.996).
+  Base behavior (Yes-No) barely follows the persona (median separation 0.14 log-odds; 4% of traits > 0.5).
+- Damage is tiny: median retention -0.3% to -1% of d' for every LoRA, noise and 25% pruning; 50% pruning
+  -10% at layer 12, -17% at layer 20.
+- (1) Retention is reliable across traits (split-half 0.69-0.85). Within a corpus it is reproducible
+  (milestones and seed replicates 0.5-0.83 disattenuated).
+- (2) Across corpora agreement is higher than for concepts: code vs German 0.28-0.49 (concepts ~0.18).
+  LoRA vs pruning 0-0.29, noise seeds ~0 (-0.08 to 0.20): same structure as concepts, larger shared part
+  between the two fine-tunes.
+- (3) Behavior does not follow representation (retention vs dbeh -0.10 to +0.14). dbeh is very reliable
+  (0.96-0.99) but agrees +-0.5-0.9 across unrelated perturbations with variant-specific signs (noise s1 and
+  50% pruning opposite to the rest): looks like one trait-level factor times a global Yes/No shift, not
+  durability. Unchecked.
+- Exploratory: traits with higher effective dimension have more consistent retention across perturbations
+  (dispersion vs eff. dim -0.44); cleaner half-spaces less consistent (+0.27). For concepts the sign was the
+  opposite (consistency fell with dimension). Drift along the trait axis does not predict damage.
+
 ## 2026-11-18 (night): test 3, persona-trait durability, specified before its data
 
 - Data: Anthropic model-written evals, persona/ (135 traits, 133k statements, balanced matching / not
